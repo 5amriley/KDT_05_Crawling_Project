@@ -1,0 +1,616 @@
+jindo.Component=jindo.$Class({_htEventHandler:null,_htOption:null,$init:function(){var aInstance=this.constructor.getInstance();
+aInstance.push(this);
+this._htEventHandler={};
+this._htOption={};
+this._htOption._htSetter={}
+},option:function(sName,vValue){switch(typeof sName){case"undefined":return this._htOption;
+case"string":if(typeof vValue!="undefined"){if(sName=="htCustomEventHandler"){if(typeof this._htOption[sName]=="undefined"){this.attach(vValue)
+}else{return this
+}}this._htOption[sName]=vValue;
+if(typeof this._htOption._htSetter[sName]=="function"){this._htOption._htSetter[sName](vValue)
+}}else{return this._htOption[sName]
+}break;
+case"object":for(var sKey in sName){if(sKey=="htCustomEventHandler"){if(typeof this._htOption[sKey]=="undefined"){this.attach(sName[sKey])
+}else{continue
+}}this._htOption[sKey]=sName[sKey];
+if(typeof this._htOption._htSetter[sKey]=="function"){this._htOption._htSetter[sKey](sName[sKey])
+}}break
+}return this
+},optionSetter:function(sName,fSetter){switch(typeof sName){case"undefined":return this._htOption._htSetter;
+case"string":if(typeof fSetter!="undefined"){this._htOption._htSetter[sName]=jindo.$Fn(fSetter,this).bind()
+}else{return this._htOption._htSetter[sName]
+}break;
+case"object":for(var sKey in sName){this._htOption._htSetter[sKey]=jindo.$Fn(sName[sKey],this).bind()
+}break
+}return this
+},fireEvent:function(sEvent,oEvent){oEvent=oEvent||{};
+var fInlineHandler=this["on"+sEvent],aHandlerList=this._htEventHandler[sEvent]||[],bHasInlineHandler=typeof fInlineHandler=="function",bHasHandlerList=aHandlerList.length>0;
+if(!bHasInlineHandler&&!bHasHandlerList){return true
+}aHandlerList=aHandlerList.concat();
+oEvent.sType=sEvent;
+if(typeof oEvent._aExtend=="undefined"){oEvent._aExtend=[];
+oEvent.stop=function(){if(oEvent._aExtend.length>0){oEvent._aExtend[oEvent._aExtend.length-1].bCanceled=true
+}}
+}oEvent._aExtend.push({sType:sEvent,bCanceled:false});
+var aArg=[oEvent],i,nLen;
+for(i=2,nLen=arguments.length;
+i<nLen;
+i++){aArg.push(arguments[i])
+}if(bHasInlineHandler){fInlineHandler.apply(this,aArg)
+}if(bHasHandlerList){var fHandler;
+for(i=0,fHandler;
+(fHandler=aHandlerList[i]);
+i++){fHandler.apply(this,aArg)
+}}return !oEvent._aExtend.pop().bCanceled
+},attach:function(sEvent,fHandlerToAttach){if(arguments.length==1){jindo.$H(arguments[0]).forEach(jindo.$Fn(function(fHandler,sEvent){this.attach(sEvent,fHandler)
+},this).bind());
+return this
+}var aHandler=this._htEventHandler[sEvent];
+if(typeof aHandler=="undefined"){aHandler=this._htEventHandler[sEvent]=[]
+}aHandler.push(fHandlerToAttach);
+return this
+},detach:function(sEvent,fHandlerToDetach){if(arguments.length==1){jindo.$H(arguments[0]).forEach(jindo.$Fn(function(fHandler,sEvent){this.detach(sEvent,fHandler)
+},this).bind());
+return this
+}var aHandler=this._htEventHandler[sEvent];
+if(aHandler){for(var i=0,fHandler;
+(fHandler=aHandler[i]);
+i++){if(fHandler===fHandlerToDetach){aHandler=aHandler.splice(i,1);
+break
+}}}return this
+},detachAll:function(sEvent){var aHandler=this._htEventHandler;
+if(arguments.length){if(typeof aHandler[sEvent]=="undefined"){return this
+}delete aHandler[sEvent];
+return this
+}for(var o in aHandler){delete aHandler[o]
+}return this
+}});
+jindo.Component.factory=function(aObject,htOption){var aReturn=[],oInstance;
+if(typeof htOption=="undefined"){htOption={}
+}for(var i=0,el;
+(el=aObject[i]);
+i++){oInstance=new this(el,htOption);
+aReturn[aReturn.length]=oInstance
+}return aReturn
+};
+jindo.Component.getInstance=function(){if(typeof this._aInstance=="undefined"){this._aInstance=[]
+}return this._aInstance
+};
+jindo.UIComponent=jindo.$Class({$init:function(){this._bIsActivating=false
+},isActivating:function(){return this._bIsActivating
+},activate:function(){if(this.isActivating()){return this
+}this._bIsActivating=true;
+if(arguments.length>0){this._onActivate.apply(this,arguments)
+}else{this._onActivate()
+}return this
+},deactivate:function(){if(!this.isActivating()){return this
+}this._bIsActivating=false;
+if(arguments.length>0){this._onDeactivate.apply(this,arguments)
+}else{this._onDeactivate()
+}return this
+}}).extend(jindo.Component);
+jindo.Timer=jindo.$Class({$init:function(){this._nTimer=null;
+this._nLatest=null;
+this._nRemained=0;
+this._nDelay=null;
+this._fRun=null;
+this._bIsRunning=false
+},start:function(fRun,nDelay){this.abort();
+this._nRemained=0;
+this._nDelay=nDelay;
+this._fRun=fRun;
+this._bIsRunning=true;
+this._nLatest=this._getTime();
+this.fireEvent("wait");
+this._excute(this._nDelay,false);
+return true
+},isRunning:function(){return this._bIsRunning
+},_getTime:function(){return new Date().getTime()
+},_clearTimer:function(){var bFlag=false;
+if(this._nTimer){clearInterval(this._nTimer);
+this._bIsRunning=false;
+bFlag=true
+}this._nTimer=null;
+return bFlag
+},abort:function(){var bReturn=this._clearTimer();
+if(bReturn){this.fireEvent("abort");
+this._fRun=null
+}return bReturn
+},pause:function(){var nPassed=this._getTime()-this._nLatest;
+this._nRemained=Math.max(this._nDelay-nPassed,0);
+return this._clearTimer()
+},_excute:function(nDelay,bResetDelay){var self=this;
+this._clearTimer();
+this._bIsRunning=true;
+this._nTimer=setInterval(function(){if(self._nTimer){self.fireEvent("run");
+var r=self._fRun();
+self._nLatest=self._getTime();
+if(!r){clearInterval(self._nTimer);
+self._nTimer=null;
+self._bIsRunning=false;
+self.fireEvent("end");
+return
+}self.fireEvent("wait");
+if(bResetDelay){self._excute(self._nDelay,false)
+}}},nDelay)
+},resume:function(){if(!this._fRun||this.isRunning()){return false
+}this._bIsRunning=true;
+this.fireEvent("wait");
+this._excute(this._nRemained,true);
+this._nRemained=0;
+return true
+}}).extend(jindo.Component);
+jindo.LayerManager=jindo.$Class({_bIsActivating:false,_bIsHiding:false,_bIsShowing:false,_aLink:null,$init:function(el,htOption){this.option({sCheckEvent:"click",nCheckDelay:100,nShowDelay:0,nHideDelay:100});
+this.option(htOption||{});
+this.setLayer(el);
+this._aLink=[];
+this._oShowTimer=new jindo.Timer();
+this._oHideTimer=new jindo.Timer();
+this._oEventTimer=new jindo.Timer();
+this._wfOnEvent=jindo.$Fn(this._onEvent,this);
+this.getVisible();
+this.activate()
+},_onActivate:function(){this._wfOnEvent.attach(document,this.option("sCheckEvent"))
+},_onDeactivate:function(){this._wfOnEvent.detach(document,this.option("sCheckEvent"))
+},getVisible:function(){return this._wel.visible()
+},_check:function(el){var wel=jindo.$Element(el);
+for(var i=0,elLink,welLink;
+(elLink=this._aLink[i]);
+i++){welLink=jindo.$Element(elLink);
+if(welLink){elLink=welLink.$value();
+if(elLink&&(el==elLink||wel.isChildOf(elLink))){return true
+}}}return false
+},_find:function(el){for(var i=0,elLink;
+(elLink=this._aLink[i]);
+i++){if(elLink==el){return i
+}}return -1
+},getLayer:function(){return this._el
+},setLayer:function(el){this._el=jindo.$(el);
+this._wel=jindo.$Element(el);
+return this
+},getLinks:function(){return this._aLink
+},setLinks:function(a){this._aLink=jindo.$A(a).unique().$value();
+return this
+},link:function(vElement){if(arguments.length>1){for(var i=0,len=arguments.length;
+i<len;
+i++){this.link(arguments[i])
+}return this
+}if(this._find(vElement)!=-1){return this
+}this._aLink.push(vElement);
+return this
+},unlink:function(vElement){if(arguments.length>1){for(var i=0,len=arguments.length;
+i<len;
+i++){this.unlink(arguments[i])
+}return this
+}var nIndex=this._find(vElement);
+if(nIndex>-1){this._aLink.splice(nIndex,1)
+}return this
+},_fireEventBeforeShow:function(){return this.fireEvent("beforeShow",{elLayer:this.getLayer(),aLinkedElement:this.getLinks()})
+},_fireEventShow:function(){this._bIsShowing=false;
+this.fireEvent("show",{elLayer:this.getLayer(),aLinkedElement:this.getLinks()})
+},_fireEventBeforeHide:function(){return this.fireEvent("beforeHide",{elLayer:this.getLayer(),aLinkedElement:this.getLinks()})
+},_fireEventHide:function(){this._bIsHiding=false;
+this.fireEvent("hide",{elLayer:this.getLayer(),aLinkedElement:this.getLinks()})
+},_show:function(fShow,nDelay){this._oEventTimer.abort();
+this._bIsShowing=true;
+this._bIsHiding=false;
+if(nDelay>0){this._oShowTimer.start(fShow,nDelay)
+}else{this._oHideTimer.abort();
+fShow()
+}},_hide:function(fHide,nDelay){this._bIsShowing=false;
+this._bIsHiding=true;
+if(nDelay>0){this._oHideTimer.start(fHide,nDelay)
+}else{this._oShowTimer.abort();
+fHide()
+}},show:function(nDelay){if(typeof nDelay=="undefined"){nDelay=this.option("nShowDelay")
+}var self=this;
+this._show(function(){if(!self.getVisible()){if(self._fireEventBeforeShow()){self._wel.show();
+self._fireEventShow()
+}}},nDelay);
+return this
+},hide:function(nDelay){if(typeof nDelay=="undefined"){nDelay=this.option("nHideDelay")
+}var self=this;
+this._hide(function(){if(self.getVisible()){if(self._fireEventBeforeHide()){self._wel.hide();
+self._fireEventHide()
+}}},nDelay);
+return this
+},toggle:function(nDelay){if(!this.getVisible()||this._bIsHiding){this.show(nDelay||this.option("nShowDelay"))
+}else{this.hide(nDelay||this.option("nHideDelay"))
+}return this
+},_onEvent:function(we){var el=we.element,self=this;
+this._oEventTimer.start(function(){if(!self._bIsHiding&&self.getVisible()){if(self._check(el)){if(!self._bIsShowing){self.fireEvent("ignore",{sCheckEvent:self.option("sCheckEvent")});
+self._oHideTimer.abort();
+self._bIsHiding=false
+}}else{if(typeof el.tagName!="undefined"){self.hide()
+}}}},this.option("nCheckDelay"))
+}}).extend(jindo.UIComponent);
+jindo.LayerPosition=jindo.$Class({$init:function(el,elLayer,htOption){this.option({sPosition:"outside-bottom",sAlign:"left",sValign:"",nTop:0,nLeft:0,bAuto:false});
+this.option(htOption||{});
+this.setElement(el);
+if(elLayer){this.setLayer(elLayer)
+}if(el&&elLayer){this.setPosition()
+}this._wfSetPosition=jindo.$Fn(function(){var el=this._elLayer;
+if(el&&this._welLayer.visible()){if(this.fireEvent("beforeAdjust",{elLayer:el,htCurrentPosition:this.getCurrentPosition(),htAdjustedPosition:this._adjustPosition(this.getCurrentPosition())})){this.setPosition();
+this.fireEvent("adjust",{elLayer:el,htCurrentPosition:this.getCurrentPosition()})
+}}},this);
+if(this.option("bAuto")){this._wfSetPosition.attach(window,"scroll").attach(window,"resize")
+}},getElement:function(){return this._el
+},setElement:function(el){this._el=jindo.$(el);
+this._wel=jindo.$Element(el);
+return this
+},getLayer:function(){return this._elLayer
+},setLayer:function(elLayer){this._elLayer=jindo.$(elLayer);
+this._welLayer=jindo.$Element(elLayer);
+if(this._elLayer.parentNode!=document.body){document.body.appendChild(this._elLayer)
+}return this
+},_isPosition:function(htOption,sWord){if(htOption.sPosition.indexOf(sWord)>-1){return true
+}return false
+},_setLeftRight:function(htOption,htPosition){var el=this.getElement(),elLayer=this.getLayer(),nWidth=el.offsetWidth,nLayerWidth=elLayer.offsetWidth;
+if(el==document.body){nWidth=jindo.$Document().clientSize().width
+}var bLeft=this._isPosition(htOption,"left"),bRight=this._isPosition(htOption,"right"),bInside=this._isPosition(htOption,"inside");
+if(bLeft){if(bInside){htPosition.nLeft+=htOption.nLeft
+}else{htPosition.nLeft-=nLayerWidth;
+htPosition.nLeft-=htOption.nLeft
+}}else{if(bRight){htPosition.nLeft+=nWidth;
+if(bInside){htPosition.nLeft-=nLayerWidth;
+htPosition.nLeft-=htOption.nLeft
+}else{htPosition.nLeft+=htOption.nLeft
+}}else{if(htOption.sAlign=="left"){htPosition.nLeft+=htOption.nLeft
+}if(htOption.sAlign=="center"){htPosition.nLeft+=(nWidth-nLayerWidth)/2
+}if(htOption.sAlign=="right"){htPosition.nLeft+=nWidth-nLayerWidth;
+htPosition.nLeft-=htOption.nLeft
+}}}return htPosition
+},_setVerticalAlign:function(htOption,htPosition){var el=this.getElement(),elLayer=this.getLayer(),nHeight=el.offsetHeight,nLayerHeight=elLayer.offsetHeight;
+if(el==document.body){nHeight=jindo.$Document().clientSize().height
+}switch(htOption.sValign){case"top":htPosition.nTop+=htOption.nTop;
+break;
+case"middle":htPosition.nTop+=(nHeight-nLayerHeight)/2;
+break;
+case"bottom":htPosition.nTop+=nHeight-nLayerHeight-htOption.nTop;
+break
+}return htPosition
+},_adjustScrollPosition:function(htPosition){if(this.getElement()==document.body){var htScrollPosition=jindo.$Document().scrollPosition();
+htPosition.nTop+=htScrollPosition.top;
+htPosition.nLeft+=htScrollPosition.left
+}return htPosition
+},getPosition:function(htOption){if(typeof htOption!="object"){htOption=this.option()
+}if(typeof htOption.nTop=="undefined"){htOption.nTop=0
+}if(typeof htOption.nLeft=="undefined"){htOption.nLeft=0
+}var sArea,bCenter=this._isPosition(htOption,"center"),bInside=this._isPosition(htOption,"inside"),bTop=this._isPosition(htOption,"top"),bBottom=this._isPosition(htOption,"bottom"),bLeft=this._isPosition(htOption,"left"),bRight=this._isPosition(htOption,"right");
+if(bLeft){sArea="left"
+}if(bRight){sArea="right"
+}if(bTop){sArea="top"
+}if(bBottom){sArea="bottom"
+}if(bCenter){sArea="center"
+}var el=this.getElement(),wel=jindo.$Element(el),elLayer=this.getLayer(),welLayer=jindo.$Element(elLayer),htElementPosition=wel.offset(),nWidth=el.offsetWidth,nHeight=el.offsetHeight,oClientSize,nLayerWidth=elLayer.offsetWidth,nLayerHeight=elLayer.offsetHeight,htPosition={nTop:htElementPosition.top,nLeft:htElementPosition.left};
+if(el==document.body){oClientSize=jindo.$Document().clientSize();
+nWidth=oClientSize.width;
+nHeight=oClientSize.height
+}nLayerWidth+=parseInt(welLayer.css("marginLeft"),10)+parseInt(welLayer.css("marginRight"),10)||0;
+nLayerHeight+=parseInt(welLayer.css("marginTop"),10)+parseInt(welLayer.css("marginBottom"),10)||0;
+switch(sArea){case"center":htPosition.nTop+=(nHeight-nLayerHeight)/2;
+htPosition.nTop+=htOption.nTop;
+htPosition.nLeft+=(nWidth-nLayerWidth)/2;
+htPosition.nLeft+=htOption.nLeft;
+break;
+case"top":if(bInside){htPosition.nTop+=htOption.nTop
+}else{htPosition.nTop-=htOption.nTop+nLayerHeight
+}htPosition=this._setLeftRight(htOption,htPosition);
+break;
+case"bottom":htPosition.nTop+=nHeight;
+if(bInside){htPosition.nTop-=htOption.nTop+nLayerHeight
+}else{htPosition.nTop+=htOption.nTop
+}htPosition=this._setLeftRight(htOption,htPosition);
+break;
+case"left":if(bInside){htPosition.nLeft+=htOption.nLeft
+}else{htPosition.nLeft-=htOption.nLeft+nLayerWidth
+}htPosition=this._setVerticalAlign(htOption,htPosition);
+break;
+case"right":htPosition.nLeft+=nWidth;
+if(bInside){htPosition.nLeft-=htOption.nLeft+nLayerWidth
+}else{htPosition.nLeft+=htOption.nLeft
+}htPosition=this._setVerticalAlign(htOption,htPosition);
+break
+}htPosition=this._adjustScrollPosition(htPosition);
+return htPosition
+},setPosition:function(htPosition){var welLayer=jindo.$Element(this.getLayer()),bVisible=welLayer.visible();
+if(!bVisible){welLayer.show()
+}welLayer.css("left","-9999px").css("top","0px");
+if(typeof htPosition=="undefined"){htPosition=this.getPosition()
+}if(this.option("bAuto")){htPosition=this._adjustPosition(htPosition)
+}welLayer.css("left",htPosition.nLeft+"px").css("top",htPosition.nTop+"px");
+if(!bVisible){welLayer.hide()
+}return this
+},getCurrentPosition:function(){var welLayer=jindo.$Element(this.getLayer());
+return{nTop:parseInt(welLayer.css("top"),10),nLeft:parseInt(welLayer.css("left"),10)}
+},_isFullyVisible:function(htPosition){var elLayer=this.getLayer(),welLayer=jindo.$Element(elLayer),oScrollPosition=jindo.$Document().scrollPosition(),nScrollTop=oScrollPosition.top,nScrollLeft=oScrollPosition.left,oClientSize=jindo.$Document().clientSize(),nLayerWidth=elLayer.offsetWidth+(parseInt(welLayer.css("marginLeft"),10)+parseInt(welLayer.css("marginRight"),10)||0),nLayerHeight=elLayer.offsetHeight+(parseInt(welLayer.css("marginTop"),10)+parseInt(welLayer.css("marginBottom"),10)||0);
+if(htPosition.nLeft>=0&&htPosition.nTop>=0&&oClientSize.width>=htPosition.nLeft-nScrollLeft+nLayerWidth&&oClientSize.height>=htPosition.nTop-nScrollTop+nLayerHeight){return true
+}return false
+},_mirrorHorizontal:function(htOption){if(htOption.sAlign=="center"||htOption.sPosition=="inside-center"){return htOption
+}var htConvertedOption={};
+for(var i in htOption){htConvertedOption[i]=htOption[i]
+}if(this._isPosition(htConvertedOption,"right")){htConvertedOption.sPosition=htConvertedOption.sPosition.replace(/right/,"left")
+}else{if(this._isPosition(htConvertedOption,"left")){htConvertedOption.sPosition=htConvertedOption.sPosition.replace(/left/,"right")
+}else{if(htConvertedOption.sAlign=="right"){htConvertedOption.sAlign="left"
+}else{if(htConvertedOption.sAlign=="left"){htConvertedOption.sAlign="right"
+}}}}return htConvertedOption
+},_mirrorVertical:function(htOption){if(htOption.sValign=="middle"||htOption.sPosition=="inside-center"){return htOption
+}var htConvertedOption={};
+for(var i in htOption){htConvertedOption[i]=htOption[i]
+}if(this._isPosition(htConvertedOption,"top")){htConvertedOption.sPosition=htConvertedOption.sPosition.replace(/top/,"bottom")
+}else{if(this._isPosition(htConvertedOption,"bottom")){htConvertedOption.sPosition=htConvertedOption.sPosition.replace(/bottom/,"top")
+}else{if(htConvertedOption.sValign=="top"){htConvertedOption.sValign="bottom"
+}else{if(htConvertedOption.sValign=="bottom"){htConvertedOption.sValign="top"
+}}}}return htConvertedOption
+},_adjustPosition:function(htPosition){var htOption=this.option(),aCandidatePosition=[];
+aCandidatePosition.push(htPosition);
+aCandidatePosition.push(this.getPosition(this._mirrorHorizontal(htOption)));
+aCandidatePosition.push(this.getPosition(this._mirrorVertical(htOption)));
+aCandidatePosition.push(this.getPosition(this._mirrorVertical(this._mirrorHorizontal(htOption))));
+for(var i=0,htCandidatePosition;
+(htCandidatePosition=aCandidatePosition[i]);
+i++){if(this._isFullyVisible(htCandidatePosition)){htPosition=htCandidatePosition;
+break
+}}return htPosition
+}}).extend(jindo.Component);
+if(typeof window!="undefined"){window.MyFinance={};
+window.MyFinance.Util={};
+window.MyFinance.Component={};
+window.MyFinance.MyStock={};
+window.MyFinance.MyFund={}
+}else{MyFinance={};
+MyFinance.Util={};
+MyFinance.Component={};
+MyFinance.MyStock={};
+MyFinance.MyFund={}
+}MyFinance.Util.SortableArray=jindo.$Class({_array:null,sortColumn:null,sortType:null,defaultColumnName:null,$init:function(array,defaultColumnName){this._array=[];
+for(var i=0;
+i<array.length;
+i++){this._array[this._array.length]=array[i]
+}this.defaultColumnName=defaultColumnName
+},reset:function(){var _this=this;
+this.sortColumn="";
+this.sortType="";
+this._array.sort(function(l,r){var left=eval("l."+_this.defaultColumnName);
+var right=eval("r."+_this.defaultColumnName);
+return left-right
+})
+},sort:function(sortColumn){if(this.sortColumn==sortColumn){if(this.sortType=="desc"){this.sortType="asc"
+}else{this.sortType="desc"
+}}else{this.sortType="asc"
+}this.sortColumn=sortColumn;
+if(this.sortType=="desc"){this._array.sort(function(l,r){var left=eval("l."+sortColumn);
+var right=eval("r."+sortColumn);
+if(isNaN(left)||isNaN(right)){if(left>right){return -1
+}else{return 1
+}}return left-right
+})
+}else{this._array.sort(function(l,r){var left=eval("l."+sortColumn);
+var right=eval("r."+sortColumn);
+if(isNaN(left)||isNaN(right)){if(left>right){return 1
+}else{return -1
+}}return right-left
+})
+}},$value:function(){return this._array
+}});
+MyFinance.Util.Ajax=jindo.$Class({ajax:null,$init:function(apiUrl){var _this=this;
+this.ajax=new jindo.$Ajax(apiUrl,{type:"xhr",method:"post",onload:function(response){var res=response.json();
+if(res.resultCode=="success"){_this.onSuccess(res.result)
+}else{if(res.resultCode=="error"){_this.onFailure(res.result)
+}else{_this.onError()
+}}},timeout:3,ontimeout:_this.onError,async:true})
+},request:function(param){this.ajax.request(param)
+},onSuccess:function(result){},onFailure:function(result){alert(MyFinance.Util.unescapeMessage(result.errorMessage))
+},onError:function(){alert("서버에서 응답이 없습니다.\n\n잠시 후 다시 시도해주세요.")
+}});
+MyFinance.Util.printAmount=function(n,digit,isAttachSign){var result=n;
+if(typeof(result)=="number"){result=MyFinance.Util.toFixed(result,digit);
+if(isAttachSign){result=MyFinance.Util.attachSign(result)
+}result=changeNumberFormat(result)
+}return result
+};
+MyFinance.Util.printAmountRoundTenBillion=function(n,digit,isAttachSign,surfix){var TEN_BILLION=10000000000;
+var HUNDRED_MILLION=100000000;
+var result=n;
+if(typeof(result)=="number"){if(Math.abs(result)>=TEN_BILLION){result/=HUNDRED_MILLION
+}else{surfix=""
+}result=MyFinance.Util.toFixed(result,digit);
+if(isAttachSign){result=MyFinance.Util.attachSign(result)
+}result=changeNumberFormat(result);
+result+=surfix
+}return result
+};
+MyFinance.Util.attachSign=function(n){return(n>0?"+"+n:""+n)
+};
+MyFinance.Util.toFixed=function(n,digit){var result="0.00";
+if(digit<0){digit=2
+}if(typeof(n)=="number"){result=n.toFixed(digit)
+}return result
+};
+MyFinance.Util.unescapeMessage=function(str){if(str!=null){str=str.replace(/\\r/g,"\r");
+str=str.replace(/\\n/g,"\n")
+}return str
+};
+MyFinance.Util._holiday={"2000":{"1":{"1":true},"3":{"1":true},"5":{"5":true,"11":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"2":{"5":true,"6":true},"9":{"11":true,"12":true,"13":true}},"2001":{"1":{"1":true,"24":true,"25":true},"3":{"1":true},"5":{"5":true,"1":true},"6":{"6":true},"8":{"15":true},"10":{"3":true,"1":true,"2":true},"12":{"25":true},"9":{"30":true}},"2002":{"1":{"1":true},"3":{"1":true},"5":{"5":true,"19":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"2":{"11":true,"12":true,"13":true},"9":{"20":true,"21":true,"22":true}},"2003":{"1":{"1":true},"3":{"1":true},"5":{"5":true,"8":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"2":{"1":true,"2":true},"9":{"10":true,"11":true,"12":true}},"2004":{"1":{"1":true,"21":true,"22":true,"23":true},"3":{"1":true},"5":{"5":true,"26":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"9":{"27":true,"28":true,"29":true}},"2005":{"1":{"1":true},"3":{"1":true},"5":{"5":true,"15":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"2":{"8":true,"9":true,"10":true},"9":{"17":true,"18":true,"19":true}},"2006":{"1":{"1":true,"29":true,"30":true},"3":{"1":true},"5":{"5":true},"6":{"6":true},"8":{"15":true},"10":{"3":true,"5":true,"6":true,"7":true},"12":{"25":true}},"2007":{"1":{"1":true},"3":{"1":true},"5":{"5":true,"24":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"2":{"17":true,"18":true,"19":true},"9":{"24":true,"25":true,"26":true}},"2008":{"1":{"1":true},"3":{"1":true},"5":{"5":true,"12":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"2":{"6":true,"7":true,"8":true},"9":{"13":true,"14":true,"15":true}},"2009":{"1":{"1":true,"25":true,"26":true,"27":true},"3":{"1":true},"5":{"5":true,"2":true},"6":{"6":true},"8":{"15":true},"10":{"3":true,"2":true,"4":true},"12":{"25":true}},"2010":{"1":{"1":true},"3":{"1":true},"5":{"5":true,"21":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"2":{"13":true,"14":true,"15":true},"9":{"21":true,"22":true,"23":true}},"2011":{"1":{"1":true},"3":{"1":true},"5":{"5":true,"10":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"2":{"2":true,"3":true,"4":true},"9":{"11":true,"12":true,"13":true}},"2012":{"1":{"1":true,"23":true,"24":true},"3":{"1":true},"5":{"5":true,"28":true},"6":{"6":true},"8":{"15":true},"10":{"3":true,"1":true},"12":{"25":true},"9":{"29":true,"30":true}},"2013":{"1":{"1":true},"3":{"1":true},"5":{"5":true,"17":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"2":{"10":true,"11":true},"9":{"18":true,"19":true,"20":true}},"2014":{"1":{"1":true,"30":true,"31":true},"3":{"1":true},"5":{"5":true,"6":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"2":{"1":true},"9":{"7":true,"8":true,"9":true}},"2015":{"1":{"1":true},"3":{"1":true},"5":{"5":true,"25":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"2":{"18":true,"19":true,"20":true},"9":{"26":true,"27":true,"28":true}},"2016":{"1":{"1":true},"3":{"1":true},"5":{"5":true,"14":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"2":{"8":true,"9":true},"9":{"14":true,"15":true,"16":true}},"2017":{"1":{"1":true,"27":true,"28":true,"29":true},"3":{"1":true},"5":{"5":true,"3":true},"6":{"6":true},"8":{"15":true},"10":{"3":true,"4":true,"5":true},"12":{"25":true}},"2018":{"1":{"1":true},"3":{"1":true},"5":{"5":true,"22":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"2":{"15":true,"16":true,"17":true},"9":{"23":true,"24":true,"25":true}},"2019":{"1":{"1":true},"3":{"1":true},"5":{"5":true,"12":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"2":{"4":true,"5":true,"6":true},"9":{"12":true,"13":true,"14":true}},"2020":{"1":{"1":true,"24":true,"25":true,"26":true},"3":{"1":true},"5":{"5":true},"6":{"6":true},"8":{"15":true},"10":{"3":true,"1":true,"2":true},"12":{"25":true},"4":{"30":true},"9":{"30":true}},"2021":{"1":{"1":true},"3":{"1":true},"5":{"5":true,"19":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"2":{"11":true,"12":true,"13":true},"9":{"20":true,"21":true,"22":true}},"2022":{"1":{"1":true},"3":{"1":true},"5":{"5":true,"8":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"2":{"1":true,"2":true},"9":{"9":true,"10":true,"11":true}},"2023":{"1":{"1":true,"21":true,"22":true,"23":true},"3":{"1":true},"5":{"5":true,"27":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"9":{"28":true,"29":true,"30":true}},"2024":{"1":{"1":true},"3":{"1":true},"5":{"5":true,"15":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"2":{"9":true,"10":true,"11":true},"9":{"16":true,"17":true,"18":true}},"2025":{"1":{"1":true,"29":true,"30":true},"3":{"1":true},"5":{"5":true},"6":{"6":true},"8":{"15":true},"10":{"3":true,"5":true,"6":true,"7":true},"12":{"25":true}},"2026":{"1":{"1":true},"3":{"1":true},"5":{"5":true,"24":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"2":{"17":true,"18":true},"9":{"24":true,"25":true,"26":true}},"2027":{"1":{"1":true},"3":{"1":true},"5":{"5":true,"13":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"2":{"6":true,"7":true,"8":true},"9":{"14":true,"15":true,"16":true}},"2028":{"1":{"1":true,"26":true,"27":true,"28":true},"3":{"1":true},"5":{"5":true,"2":true},"6":{"6":true},"8":{"15":true},"10":{"3":true,"2":true,"4":true},"12":{"25":true}},"2029":{"1":{"1":true},"3":{"1":true},"5":{"5":true,"20":true},"6":{"6":true},"8":{"15":true},"10":{"3":true},"12":{"25":true},"2":{"13":true,"14":true},"9":{"21":true,"22":true,"23":true}}};
+MyFinance.Util.isHoliday=function(year,month,date){var oHoliday=MyFinance.Util._holiday;
+return(oHoliday[year]&&oHoliday[year][parseInt(month*1)]&&oHoliday[year][parseInt(month*1)][date])
+};
+MyFinance.Util.parseDate=function(str){if(/^\d{4}(\/)\d{1,2}\1\d{1,2}$/.test(str)==false){return"매매일을 YYYY/MM/DD 형식으로 입력해주세요.";
+return null
+}var token=str.split("/");
+var year=parseInt(token[0],10);
+var month=parseInt(token[1],10);
+var date=parseInt(token[2],10);
+var MAX_DATE=31;
+var oDate=new jindo.$Date();
+oDate.year(year);
+oDate.month(month-1);
+if(month==2){MAX_DATE=28;
+if(oDate.isLeapYear()){MAX_DATE=29
+}}if((year<1900||year>2100)||(month<0||month>12)||(date<0||date>MAX_DATE)){return"날짜 범위를 벗어났습니다."
+}oDate.date(date);
+if(oDate.day()==0||oDate.day()==6||MyFinance.Util.isHoliday(oDate.year(),oDate.month()+1,oDate.date())){return"거래일을 정확히 입력해주세요. 주말 및 공휴일은 입력되지 않습니다."
+}return oDate
+};
+MyFinance.Util.createLayerManager=function(el){var layerManager=new jindo.LayerManager(el,{sCheckEvent:"click",nShowDelay:0,nHideDelay:0});
+layerManager._wel.hide=function(){layerManager._wel.addClass("blind")
+};
+layerManager._wel.show=function(){layerManager._wel.removeClass("blind")
+};
+layerManager.getVisible=jindo.$Fn(function(){return !jindo.$Element(el).hasClass("blind")
+},this).bind();
+return layerManager
+};
+MyFinance.MyStock.ItemAddLayer=jindo.$Class({$init:function(el,htOption){this._el=jindo.$(el);
+this._wel=jindo.$Element(this._el);
+this.option({LayerPosition:{sPosition:"outside-bottom",sAlign:"left",nTop:4,nLeft:-2}});
+this.option(htOption||{});
+this._assignHTMLElements();
+this._initLayerManager();
+this._bAddState=false;
+this._fGroupClicked=jindo.$Fn(this._onGroupClicked,this).bind();
+this._fGroupMouseOver=jindo.$Fn(this._onGroupMouseOver,this).bind();
+this._fGroupMouseOut=jindo.$Fn(this._onGroupMouseOut,this).bind();
+this._fGroupAddClicked=jindo.$Fn(this._onGroupAddClicked,this).bind();
+this._fGroupAddOkClicked=jindo.$Fn(this._onGroupAddOkClicked,this).bind();
+this._fGroupAddCancelClicked=jindo.$Fn(this._onGroupAddCancelClicked,this).bind();
+this._fCloseClicked=jindo.$Fn(this._onCloseClicked,this).bind();
+this._fFinishClicked=jindo.$Fn(this._onFinishClicked,this).bind();
+this._fSubmitClicked=jindo.$Fn(this._onSubmitClicked,this).bind();
+this.activate()
+},_onActivate:function(){this._wel.delegate("click",".item",this._fGroupClicked);
+this._wel.delegate("mouseover",".item",this._fGroupMouseOver);
+this._wel.delegate("mouseout",".item",this._fGroupMouseOut);
+this._wel.delegate("click",".btn_groupadd2",this._fGroupAddClicked);
+this._wel.delegate("click","._btn_add_ok",this._fGroupAddOkClicked);
+this._wel.delegate("click","._btn_add_cancel",this._fGroupAddCancelClicked);
+this._wel.delegate("click","._btn_cancel",this._fCloseClicked);
+this._wel.delegate("click","._btn_finish",this._fFinishClicked);
+this._wel.delegate("click","._btn_ok",this._fSubmitClicked)
+},_onDeactivate:function(){this._wel.undelegate("click",".item",this._fGroupClicked);
+this._wel.undelegate("mouseover",".item",this._fGroupMouseOver);
+this._wel.undelegate("mouseout",".item",this._fGroupMouseOut);
+this._wel.undelegate("click",".btn_groupadd2",this._fGroupAddClicked);
+this._wel.undelegate("click","._btn_add_ok",this._fGroupAddOkClicked);
+this._wel.undelegate("click","._btn_add_cancel",this._fGroupAddCancelClicked);
+this._wel.undelegate("click","._btn_cancel",this._fCloseClicked);
+this._wel.undelegate("click","._btn_finish",this._fFinishClicked);
+this._wel.undelegate("click","._btn_ok",this._fSubmitClicked)
+},_onGroupClicked:function(e){e.stopDefault();
+if(this._isAddState()){return
+}jindo.$A(this._wel.queryAll(".item")).forEach(function(v,i,a){if(e.element==v){jindo.$Element(jindo.$$.getSingle("INPUT[type=checkbox]",e.element)).attr("checked","checked");
+e.element.className="item ovr chk"
+}else{jindo.$Element(jindo.$$.getSingle("INPUT[type=checkbox]",v)).attr("checked","");
+v.className="item"
+}})
+},_onGroupMouseOver:function(e){jindo.$Element(e.element).addClass("ovr")
+},_onGroupMouseOut:function(e){jindo.$Element(e.element).removeClass("ovr")
+},_onGroupAddClicked:function(e){e.stopDefault();
+if(!this._isAddState()){this._bAddState=true;
+var welLiAddNewGroup=jindo.$Element(jindo.$$.getSingle(".add",this._el));
+if(welLiAddNewGroup){welLiAddNewGroup.leave()
+}this._addNewGroupForm();
+this._elLyGroupList.scrollTop=this._elLyGroupList.scrollHeight
+}},_onGroupAddOkClicked:function(e){e.stopDefault();
+var oAjax=new MyFinance.Util.Ajax("/mystock/api/addGroup.naver");
+oAjax.onSuccess=jindo.$Fn(function(result){this._bAddState=false;
+this._groups[this._groups.length]=result;
+this._addGroup(result.groupId,result.groupName);
+jindo.$Element(jindo.$$.getSingle(".add",this._el)).hide()
+},this).bind();
+oAjax.request({groupName:encodeURIComponent(jindo.$$.getSingle("INPUT[type=text]",this._el).value)})
+},_onGroupAddCancelClicked:function(e){e.stopDefault();
+this._bAddState=false;
+jindo.$Element(jindo.$$.getSingle(".add",this._el)).hide()
+},_onCloseClicked:function(e){e.stopDefault();
+this._layerManager.hide()
+},_onFinishClicked:function(e){e.stopDefault();
+document.location.reload()
+},_onSubmitClicked:function(e){e.stopDefault();
+var el=jindo.$$.getSingle("INPUT[type=checkbox][checked]",this._el);
+if(!el){alert("그룹을 선택해주세요.")
+}else{this._submit(el.value)
+}},_assignHTMLElements:function(){this._elLyGroup=jindo.$$.getSingle("._ly_group",this._el);
+this._elLyGroupList=jindo.$$.getSingle("._ly_group_list",this._el);
+this._elGroupList=jindo.$$.getSingle("UL",this._el);
+this._elLyGroupBlank=jindo.$$.getSingle("._ly_group_blank",this._el);
+this._elLyMessage=jindo.$$.getSingle("._ly_message",this._el)
+},_initLayerManager:function(){this._layerManager=MyFinance.Util.createLayerManager(this._el);
+this._layerManager.attach({beforeHide:jindo.$Fn(function(e){if(this._isAddState()){e.stop()
+}},this).bind()});
+this._layerManager.link(this._el)
+},_drawGroupList:function(groups){jindo.$Element(this._elGroupList).empty();
+if(groups.length>0){jindo.$A(groups).forEach(function(v,i,a){this._addGroup(v.groupId,v.groupName,i)
+},this)
+}else{jindo.$Element(this._elLyGroupList).hide();
+jindo.$Element(this._elLyGroupBlank).show()
+}},_addGroup:function(groupId,groupName,nIdx){var sTpl=['<li class="item">','<label for="_gid_'+groupId+'"><span>'+groupName+"</span></label>","<span></span>",'<input type="checkbox" id="_gid_'+groupId+'" class="input_chk NPI=a:select,r:'+(nIdx+1)+'" name="groupIds" value="'+groupId+'">',"</li>"].join(" ");
+jindo.$Element(this._elGroupList).append(sTpl)
+},_addNewGroupForm:function(){var number=0;
+jindo.$A(this._groups).forEach(function(v,i,a){var regx=RegExp("관심종목 (\\s?\\d+)");
+var aMatch=regx.exec(v.groupName);
+if(aMatch){number=Math.max(number,aMatch[1])
+}});
+var sTpl=['<li class="add">','<input type="text" class="input_txt" value="관심종목 '+(number+1)+'">','<a href="#" class="_btn_add_ok">확인</a>','<span class="bar"></span>','<a href="#" class="_btn_add_cancel">취소</a>',"</li>"].join(" ");
+var welLyContentsList=jindo.$Element(this._elLyGroupList);
+if(welLyContentsList.visible()==false){jindo.$Element(this._elLyGroupBlank).hide();
+welLyContentsList.show()
+}this._bAddState=true;
+var welList=jindo.$Element(this._elGroupList);
+welList.append(sTpl);
+welList.query("INPUT[type=text]").select()
+},_isAddState:function(){if(this._bAddState){var okay=confirm("추가된 그룹이 편집중입니다. 저장하시겠습니까?");
+if(okay){jindo.$Element(jindo.$$.getSingle("._btn_add_ok",this._el)).fireEvent("click")
+}else{jindo.$$.getSingle(".add INPUT",this._el).select();
+return true
+}}return false
+},_requestOpen:function(){var oAjax=new MyFinance.Util.Ajax("/mystock/api/getGroupList.naver");
+oAjax.onSuccess=jindo.$Fn(function(result){this._bAddState=false;
+this._groups=result;
+this._hideMessage();
+this._drawGroupList(this._groups);
+this._layerManager.show()
+},this).bind();
+oAjax.onFailure=function(result){if(result.errorCode=="authenticationFail"){window.open("https://nid.naver.com/nidlogin.login?svctype=64&url="+encodeURIComponent(location.protocol+"//"+location.host+"/item/refreshAfterPopupLogin.naver"),"login_popup","width=400,height=270,resizable=no");
+return
+}};
+oAjax.request()
+},_showMessage:function(html){jindo.$Element(this._elLyGroup).hide();
+var welLyMessage=jindo.$Element(this._elLyMessage);
+welLyMessage.html(html);
+welLyMessage.show()
+},_hideMessage:function(){jindo.$Element(this._elLyMessage).hide();
+jindo.$Element(this._elLyGroup).show()
+},_submit:function(groupId){var itemcodes=this.option("itemcodes");
+if(itemcodes){var oAjax=new MyFinance.Util.Ajax("/mystock/api/addItems.naver");
+oAjax.onSuccess=jindo.$Fn(function(result){var sTpl="";
+if(result.resultType=="ALL"){sTpl=['<p class="txt_inner type2">',"선택한 종목을<br><strong>"+result.targetGroup.groupName+"</strong> 그룹에<br>추가하였습니다.<br>",'<a href="/mystock/itemList.naver?groupId='+result.targetGroup.groupId+'" class="btn_spr btn_gomystock"><span class="blind">MY STCOK 확인</span></a>','<button type="button" class="btn_spr btn_clse2 _btn_cancel"><span class="blind">닫기</span></button>',"</p>"].join(" ")
+}else{if(result.resultType=="PART"){var duplicatedItemnames="";
+var duplicatedItemnameArr=new Array();
+jindo.$A(result.duplicatedItems).slice(0,3).forEach(function(v,i,a){duplicatedItemnameArr[duplicatedItemnameArr.length]=v.itemname
+});
+duplicatedItemnames=duplicatedItemnameArr.join(", ");
+if(result.duplicatedItems.length>3){duplicatedItemnames+=".."
+}sTpl=['<p class="txt_inner type4">',"총 "+result.duplicatedItems.length+"개 종목이<br> <strong>"+result.targetGroup.groupName+"</strong> 그룹에<br>이미 등록되어 이동되지 않습니다.<br>",'<span class="pdt ptcor">'+duplicatedItemnames+"</span>",'<button type="button" class="btn_spr btn_clse2 _btn_cancel"><span class="blind">닫기</span></button>',"</p>"].join(" ")
+}}this._showMessage(sTpl)
+},this).bind();
+oAjax.onFailure=jindo.$Fn(function(result){var sTpl="";
+if(result.errorCode=="DuplicateItemExistException"){sTpl=['<p class="txt_inner type3">',"선택한 종목은<br><strong>"+result.errorData.targetGroup.groupName+"</strong> 그룹에<br>이미 등록되어 있습니다.<br>",'<button type="button" class="btn_spr btn_clse2 _btn_cancel">','<span class="blind">닫기</span></button>',"</p>"].join(" ");
+this._showMessage(sTpl)
+}else{if(result.errorCode=="GroupTotalItemCountExceedException"){var errorData=result.errorData;
+if(errorData.targetGroupTotalItemCount>=errorData.maxGroupItemCount){sTpl=['<p class="txt_inner type6">',"선택한 그룹은<br>100개 종목이 등록되어<br>더 이상 종목을 추가할 수 없습니다.<br>",'<button type="button" class="btn_spr btn_clse2 _btn_cancel"><span class="blind">닫기</span></button>',"</p>"].join(" ")
+}else{sTpl=['<p class="txt_inner type6">',"선택한 그룹은<br>"+errorData.targetGroupTotalItemCount+"개 종목이 등록되어<br>","<strong>"+(errorData.maxGroupItemCount-errorData.targetGroupTotalItemCount)+"개 종목까지</strong> 등록 가능합니다.<br>",'<button type="button" class="btn_spr btn_clse2 _btn_cancel"><span class="blind">닫기</span></button>',"</p>"].join(" ")
+}this._showMessage(sTpl)
+}else{alert(MyFinance.Util.unescapeMessage(result.errorMessage))
+}}},this).bind();
+oAjax.request({groupId:groupId,itemcodes:itemcodes})
+}},open:function(itemcodes,button){this._layerManager.unlink(button);
+this._layerManager.link(button);
+if(this._layerManager.getVisible()){this.option("itemcodes",null);
+this._layerManager.hide()
+}else{this.option("itemcodes",itemcodes);
+this._elLyGroupList.scrollTop=0;
+var layerPosition=new jindo.LayerPosition(button,this._el,this.option("LayerPosition"));
+layerPosition.setPosition();
+this._requestOpen()
+}}}).extend(jindo.UIComponent);

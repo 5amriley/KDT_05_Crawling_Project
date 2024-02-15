@@ -1,0 +1,39 @@
+@charset "UTF-8";
+/* NHN Web Standardization Team (http://html.nhndesign.com/)
+author:Lee Ju Young 070523,KJM 071017,KJM 080306 */
+#naver{position:relative;width:960px;margin:0 auto;overflow:hidden;text-align:left}
+#skip,.skip{clear:both;width:0;height:0;font:0/0 dotum;overflow:hidden}
+#middle{float:left;width:960px}
+#leftcnt{float:left;width:712px}
+#rightcnt{float:right;width:240px}
+#newarea{float:left;width:960px;background:url(https://ssl.pstatic.net/imgstock/images5/bg_content_left.gif) repeat-y left top}
+#leftmenu{float:left;width:135px;background:none}
+#leftmenu h3{margin-bottom:1px}
+#leftmenu_sub{width:131px;margin-bottom:48px}
+#leftmenu_sub dl.sub1{padding:5px 0 6px 0;background:#fff}
+#leftmenu_sub dl.sub1 dt{display:block;padding:10px 0 7px 10px}
+#leftmenu_sub dl.sub1 dt img{vertical-align:top}
+#leftmenu_sub dl.sub1 dd{clear:both;height:14px;_height:22px;padding:2px 0 6px 9px;color:#333333}
+#leftmenu_sub dl.sub1 dd a{color:#333333}
+#leftmenu_sub dl.sub1 .choice{color:#124694;font-weight:bold;letter-spacing:-1px;text-decoration:underline}
+/* 연말정산 특집 메뉴 */
+.special_tax{width:125px;_width:127x;margin:-42px 0 22px 1px;padding:0 0 8px 0;border:1px solid #c9c9c9;background-color:#fff;background:url(https://ssl.pstatic.net/imgstock/images5/bg_special_tax.gif) left bottom no-repeat}
+.special_tax h4{margin:0;padding:0}
+.special_tax h4 img{vertical-align:top}
+#contentarea{float:right;width:810px;padding-bottom:60px;text-align:left}
+#contentarea_left{float:left;width:595px}
+#contentarea_right{float:right;width:200px}
+#main_area{width:960px;margin:6px 0 0 0;padding:0}
+#main_content{clear:both;width:960px;overflow:hidden;background:url(https://ssl.pstatic.net/imgstock/images5/bg_home_cont.gif) repeat-y right top}
+#main_center_area{float:left;width:712px}
+#main_center{float:left;width:712px;margin-top:10px}
+#main_center_l{float:left;width:396px;margin-right:18px}
+#main_center_r{float:left;width:293px}
+#main_right{float:left;width:240px;margin:0 0 54px 8px}
+.bnd_wid{width:805px !important}
+/* 종목토론실 미리보기 popup */
+#stock_pop{text-align:left;background:url(https://ssl.pstatic.net/imgstock/images5/bg_pop_title.gif) repeat-x}
+#stock_pop h1.stock_pop_tlt{height:35px;padding:12px 0 0 29px;color:#ffffff;font-size:13px;font-family:gulim;background:url(https://ssl.pstatic.net/imgstock/images5/arrow_05.gif) no-repeat 20px 14px}
+#stock_pop .stock_pop_btn{_width:100%;margin:20px 0 15px 0;padding:0 25px}
+#stock_pop .stock_pop_btn .btn_inner{width:100%;padding-top:11px;text-align:center;background:url(https://ssl.pstatic.net/imgstock/images5/bg_pop_btn.gif) repeat-x}
+#stock_pop .stock_pop_btn .btn_inner img{vertical-align:top}
