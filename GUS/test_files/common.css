@@ -1,0 +1,151 @@
+@charset "euc-kr";
+/* NHN Web Standardization Team (http://html.nhndesign.com/)
+author : Lee Ju Young 070523, KJM 071017, KJM 080306 */
+
+body{margin:0 auto;padding:0;background:#fff;color:#666;font-size:12px;font-family:Dotum,'돋움',Gulim,'굴림',AppleGothic,sans-serif;text-align:center}
+table, td{font-size:12px;font-family:Dotum;color:#464646}
+div, p, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form, fieldset, legend, input, textarea, button{margin:0;padding:0}
+ul, ol, li{list-style:none}
+span.no{display:none}
+img{border:0}
+fieldset{border:none}
+a:link, a:visited{color:#464646;text-decoration:none}
+a:hover, a:active{color:#000000;text-decoration:underline}
+input, textarea{font-size:12px;font-family:dotum;color:#666666}
+select{font-size:12px;font-family:dotum;color:#333333}
+.ls, a.ls:link, a.ls:visited, a.ls:active, a.ls:hover{letter-spacing:-1px}
+.ls0, a.ls0:link, a.ls0:visited, a.ls0:active, a.ls0:hover{letter-spacing:0}
+.u, a.u:link, a.u:visited, a.u:active, a.u:hover{text-decoration:underline}
+.n, a.n:link, a.n:visited, a.n:active, a.n:hover{text-decoration:none}
+.nor{font-weight: normal}
+.tah{font-family:Tahoma}
+.p9, a.p9:link, a.p9:visited, a.p9:hover, a.p9:active{font-size:9px !important}
+.p10, a.p10:link, a.p10:visited, a.p10:hover, a.p10:active{font-size:10px}
+.p11, a.p11:link, a.p11:visited, a.p11:hover, a.p11:active{font-size:11px}
+.p12, a.p12:link, a.p12:visited, a.p12:hover, a.p12:active{font-size:12px}
+.p14, a.p14:link, a.p14:visited, a.p14:hover, a.p14:active{font-size:14px}
+.p15, a.p15:link, a.p15:visited, a.p15:hover, a.p15:active{font-size:14px}
+.c{clear:both}
+.fl{float:left}
+.ft{float:right}
+.tc{text-align:center}
+.tl{text-align:left}
+.tr{text-align:right}
+.none{display:none}
+caption{overflow:hidden;margin-top:-1px;padding:0;width:1px;height:1px;font-size:0;line-height:0}
+.blind {
+	position: absolute;
+	clip: rect(0 0 0 0);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+}
+
+/* font color */
+.w, a.w:link, a.w:visited, a.w:active, a.w:hover{color:#FFFFFF}
+.c, a.c:link, a.c:visited, a.c:active, a.c:hover{color:#000000}
+.gray01, a.gray01:link, a.gray01:visited, a.gray01:active, a.gray01:hover{color:#333333}
+.gray02, a.gray02:link, a.gray02:visited, a.gray02:active, a.gray02:hover{color:#666666}
+.gray03, a.gray03:link, a.gray03:visited, a.gray03:active, a.gray03:hover{color:#999999 !important}
+.nv01, a.nv01:link, a.nv01:visited, a.nv01:hover, a.nv01:active{color:#005DDE}
+.nv02, a.nv02:link, a.nv02:visited, a.nv02:hover, a.nv02:active{color:#7449E5}
+.red01, a.red01:link, a.red01:visited, a.red01:active, a.red01:hover{color:#D90400}
+.red02, a.red02:link, a.red02:visited, a.red02:active, a.red02:hover{color:#EF1C18}
+.red03, a.red03:link, a.red03:visited, a.red03:active, a.red03:hover{color:#FF5300}
+.red04, a.red04:link, a.red04:visited, a.red04:active, a.red04:hover{color:#FF7534}
+.blue01, a.blue01:link, a.blue01:visited, a.blue01:active, a.blue01:hover{color:#2c549e}
+
+/* scroll */
+.scr01{width:645px;overflow-x:auto;overflow-y:hidden;scrollbar-face-color:#FFFFFF;scrollbar-highlight-color:#AEADAB;scrollbar-shadow-color:#AEADAB;scrollbar-3dlight-color:#FFFFFF;scrollbar-arrow-color:#AEADAB;scrollbar-track-color:#F5F5F5;scrollbar-darkshadow-color:#FFFFFF;scrollbar-base-color:#FFFFFF;overflow:auto}
+
+/* 이미지 스크롤 */
+.scrollbox{background-color:#F3F3F3;position:relative} /* 박스의 너비는 반드시 인라인으로 픽스 되어야 한다 */
+.scrollbox .content{position:relative;background:#ffffff;overflow:hidden}
+.scrollbox .plaintext{position:relative;display:block}
+
+/* 수직 */
+.scrollbox .scrollbar-v{position:absolute;top:0;right:0;width:11px;background:#f3f3f3}
+.scrollbox .scrollbar-v .button-up{position:absolute;top:0;left:0;width:11px;height:11px;background:url(https://ssl.pstatic.net/imgstock/images5/scroll_01on.gif) no-repeat}
+.scrollbox .scrollbar-v .button-down{position:absolute;bottom:0;left:0;width:11px;height:11px;background:url(https://ssl.pstatic.net/imgstock/images5/scroll_02on.gif) no-repeat}
+.scrollbox .scrollbar-v .thumb-v{position:absolute;top:15px;background:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_04.gif) repeat-y}
+.scrollbox .scrollbar-v .thumb-v img{display:block}
+.scrollbox .scrollbar-v .thumb-v .thumb-head{width:11px;height:6px;background:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_01.gif) no-repeat}
+.scrollbox .scrollbar-v .thumb-v .thumb-body{width:11px;height:18px;background:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_03.gif) no-repeat left center}
+.scrollbox .scrollbar-v .thumb-v .thumb-foot{width:11px;height:6px;background:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_02.gif) no-repeat}
+
+
+/* 수평 */
+.scrollbox .scrollbar-h{position:absolute;bottom:0;left:0;height:15px;background:#f3f3f3}
+.scrollbox .scrollbar-h .button-left{position:absolute;top:0;left:0;width:15px;height:15px;background:url(https://ssl.pstatic.net/imgstock/images5/scroll_01hon.gif) no-repeat}
+.scrollbox .scrollbar-h .button-right{position:absolute;top:0;right:0;width:15px;height:15px;background:url(https://ssl.pstatic.net/imgstock/images5/scroll_02hon.gif) no-repeat}
+.scrollbox .scrollbar-h .thumb-h{position:absolute;left:15px;background:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_04h.gif) repeat-x}
+.scrollbox .scrollbar-h .thumb-h .thumb-head{width:6px;height:15px;background:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_01h.gif) no-repeat}
+.scrollbox .scrollbar-h .thumb-h .thumb-body{height:15px;width:18px;background:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_03h.gif) no-repeat center top}
+.scrollbox .scrollbar-h .thumb-h .thumb-foot{width:6px;height:15px;background:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_02h.gif) no-repeat}
+
+/* 비활성화시 수직 */
+.scrollbox .scrollbar-v.scrollbar-v-disabled{cursor:default;background:#f3f3f3}
+.scrollbox .scrollbar-v.scrollbar-v-disabled .button-up{background-image:url(https://ssl.pstatic.net/imgstock/images5/scroll_01off.gif)}
+.scrollbox .scrollbar-v.scrollbar-v-disabled .button-down{background-image:url(https://ssl.pstatic.net/imgstock/images5/scroll_02off.gif)}
+.scrollbox .scrollbar-v.scrollbar-v-disabled .thumb-v{background-image:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_04.gif)}
+.scrollbox .scrollbar-v.scrollbar-v-disabled .thumb-v img{display:block}
+.scrollbox .scrollbar-v.scrollbar-v-disabled .thumb-v .thumb-head{background-image:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_01.gif)}
+.scrollbox .scrollbar-v.scrollbar-v-disabled .thumb-v .thumb-body{background-image:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_03.gif)}
+.scrollbox .scrollbar-v.scrollbar-v-disabled .thumb-v .thumb-foot{background-image:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_02.gif)}
+
+/* 비활설화시 수평 */
+.scrollbox .scrollbar-h.scrollbar-h-disabled{cursor:default;background:#f3f3f3}
+.scrollbox .scrollbar-h.scrollbar-h-disabled .button-left{background-image:url(https://ssl.pstatic.net/imgstock/images5/scroll_01hoff.gif)}
+.scrollbox .scrollbar-h.scrollbar-h-disabled .button-right{background-image:url(https://ssl.pstatic.net/imgstock/images5/scroll_02hoff.gif)}
+.scrollbox .scrollbar-h.scrollbar-h-disabled .thumb-h{background-image:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_04h.gif)}
+.scrollbox .scrollbar-h.scrollbar-h-disabled .thumb-h img{display:block}
+.scrollbox .scrollbar-h.scrollbar-h-disabled .thumb-h .thumb-head{background-image:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_01h.gif)}
+.scrollbox .scrollbar-h.scrollbar-h-disabled .thumb-h .thumb-body{background-image:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_03h.gif)}
+.scrollbox .scrollbar-h.scrollbar-h-disabled .thumb-h .thumb-foot{background-image:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_02h.gif)}
+
+/* 수직, 각 요소를 마우스로 눌렀을때 */
+.scrollbox .scrollbar-v .button-up.button-up-down{background-image:url(https://ssl.pstatic.net/imgstock/images5/scroll_01on.gif)}
+.scrollbox .scrollbar-v .button-down.button-down-down{background-image:url(https://ssl.pstatic.net/imgstock/images5/scroll_02on.gif)}
+.scrollbox .scrollbar-v .thumb-v.thumb-v-down{background-image:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_08.gif)}
+.scrollbox .scrollbar-v .thumb-v.thumb-v-down .thumb-head{background-image:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_05.gif)}
+.scrollbox .scrollbar-v .thumb-v.thumb-v-down .thumb-body{background-image:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_07.gif)}
+.scrollbox .scrollbar-v .thumb-v.thumb-v-down .thumb-foot{background-image:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_06.gif)}
+
+/* 수평, 각 요소를 마우스로 눌렀을때 */
+.scrollbox .scrollbar-h .button-left.button-left-down{background-image:url(https://ssl.pstatic.net/imgstock/images5/scroll_01hon.gif)}
+.scrollbox .scrollbar-h .button-right.button-right-down{background-image:url(https://ssl.pstatic.net/imgstock/images5/scroll_02hon.gif)}
+.scrollbox .scrollbar-h .thumb-h.thumb-h-down{background-image:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_08h.gif)}
+.scrollbox .scrollbar-h .thumb-h.thumb-h-down .thumb-head{background-image:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_05h.gif)}
+.scrollbox .scrollbar-h .thumb-h.thumb-h-down .thumb-body{background-image:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_07h.gif)}
+.scrollbox .scrollbar-h .thumb-h.thumb-h-down .thumb-foot{background-image:url(https://ssl.pstatic.net/imgstock/images5/scrollbar_06h.gif)}
+
+/* 페이지 네비게이션 */
+.pagenavigation{position:relative;display:block;padding:0;text-align:center;font:bold 12px Dotum, Gulim, AppleGothic, Sans-serif;clear:both}
+.pagenavigation a,.pagenavigation .current{position:relative;margin-left:-6px;font-weight:bold;display:inline-block;padding:2px 8px 0 7px;color:#404040;border-left:1px solid #dedfde;border-right:1px solid #CCCCCC;text-decoration:none;line-height:100%;font:bold 12px Dotum, Gulim, AppleGothic, Sans-serif}
+.pagenavigation .current{color:#ff1900 !important}
+.pagenavigation a:hover{background:#F7F7F7}
+.pagenavigation a.pre{padding:2px 9px 0 8px;background:url(https://ssl.pstatic.net/static/n/cmn/bu_pgarL.gif) no-repeat left 50% !important;border:none;font-weight:normal}
+.pagenavigation a.first{padding:2px 9px 0 8px;background:url(https://ssl.pstatic.net/static/n/cmn/bu_pgarLL.gif) no-repeat left 50% !important;border:none;font-weight:normal}
+.pagenavigation a.next{padding:2px 8px 0 8px;background:url(https://ssl.pstatic.net/static/n/cmn/bu_pgarR.gif) no-repeat right 50% !important;border:none;font-weight:normal}
+.pagenavigation a.last{padding:2px 8px 0 8px;background:url(https://ssl.pstatic.net/static/n/cmn/bu_pgarRR.gif) no-repeat right 50% !important;border:none;font-weight:normal}
+
+#ToolTip{position:absolute;top:0;left:0;visibility:hidden}
+.ToolTipTD{color:white}
+
+.summary_lyr{position:absolute;padding-bottom:1px;font-size:12px;text-align:left;z-index:100;font-style:normal}
+.summary_lyr .summary_info{position:relative;width:384px;*width:410px;padding:20px 12px 17px;background:#fff;border:1px solid #abaaaf;z-index:30}
+.summary_lyr .summary_info h4{margin-bottom:12px;font-size:12px;color:#6378b2;letter-spacing:-1px}
+.summary_lyr .summary_info p{display:block;padding-bottom:10px;line-height:18px;color:#666}
+.summary_lyr .summary_info .btn_area_top{position:absolute;top:15px;right:-28px}
+.summary_lyr span{display:block;overflow:hidden;position:absolute;width:3px;height:3px;z-index:150}
+.summary_lyr .bg_lt{left:0;top:0;background:url(https://ssl.pstatic.net/static/nfinance/2012/bg_plt.png) no-repeat}
+.summary_lyr .bg_rt{right:0;top:0;background:url(https://ssl.pstatic.net/static/nfinance/2012/bg_prt.png) no-repeat}
+.summary_lyr .bg_btm{position:absolute;bottom:-4px;left:-1px;width:410px;height:4px;background:url(https://ssl.pstatic.net/static/nfinance/2012/bg_lyrbtm.png) no-repeat;font-size:0;line-height:0}
+.summary_lyr .bu_arrow{position:absolute;top:-5px;left:20px;width:9px;height:6px;background:url(https://ssl.pstatic.net/static/nfinance/2016/07/bu_arrow.png) no-repeat 0 0;z-index:120}
+.summary_lyr .txt_notice{padding-top:5px;font-size:11px;color:#a2a2a2}
+.summary_lyr .txt_notice strong{font-weight:normal}
+
+@media print{
+	.scr01{overflow:visible}
+}

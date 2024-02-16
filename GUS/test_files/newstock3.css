@@ -1,0 +1,610 @@
+@charset "UTF-8";
+/* NHN Web Standardization Team (http://html.nhndesign.com/)
+author:KJM 071017,KJM 080306 */
+/* 모듈 템플릿 */
+.module .title1{height:21px;_height:23px;padding-top:2px;color:#002663;font:bold 12px dotum}
+.module a,.module a:visited,.module a:hover{color:#002663}
+.module .title img{margin-top:-2px;vertical-align:top}
+.module .thumb1 img{margin:0 0 7px 3px;border:1px solid #c9c9c9;vertical-align:top}
+.module .summary1{padding:0 5px 12px 0;color:#002663;text-align:center}
+.module .title2{min-height:17px;_height:20px;margin-bottom:6px;margin-right:8px;padding-top:2px;border-bottom:1px solid #d8d8d8;color:#002663;font:bold 12px dotum}
+.module dd.list1{padding-top:4px;padding-left:7px;background:url(https://ssl.pstatic.net/imgstock/images5/news/ico_arrow_01.gif) no-repeat 0px 7px;color:#002663}
+.module .table1{margin-right:8px}
+.module .table1 td.bdr{height:1px;_height:11px;padding-top:10px;border-bottom:1px solid #d8d8d8;font-size:1px;line-height:0em}
+.module .thumb2{padding:10px 0 0 3px}
+.module .thumb2 img{margin-right:9px;border:1px solid #c9c9c9}
+.module .title2 span{color:#989898;font:normal 11px tahoma}
+.module .chartStat{padding:4px 0 3px 0;color:#666;font:11px dotum}
+.module .chartStat .label{color:#989898;letter-spacing:-1px}
+.module .chartStat img{vertical-align:middle}
+.module .table2 .company{color:#464646;font:12px/18px dotum;padding-top:3px;padding-bottom:1px}
+.module .table2 .company a{color:#464646}
+.module .table2 .data{color:#9a9a9a;font:11px tahoma;text-align:right}
+.module .table2 .change{width:48px;font:11px tahoma;text-align:right}
+.module .table2 .change img{vertical-align:middle}
+.module .table2 .up{padding-left:9px;background:url(https://ssl.pstatic.net/imgstock/images/images4/ico_up.gif) no-repeat 0 center;color:#D90400}
+.module .table2 .down{padding-left:9px;background:url(https://ssl.pstatic.net/imgstock/images/images4/ico_down.gif) no-repeat 0 center;color:#005EDE}
+.module .title2{padding-left:3px}
+.module dd.list1{margin-left:3px}
+.module .thumb2{padding-left:6px}
+/* 메인 or 서브메인 등에 세로 한줄로 나오는 포토 & TV 리스트 */
+.innerGray{background:#F6F6F6;width:202px;float:left}
+.newsGallerySimple{padding:0px 14px}
+.newsGallerySimple dt{font-weight:bold;color:#000;padding-top:10px;word-break:break-all;overflow:hidden}
+.newsGallerySimple .thumb{border:1px solid #C9C9C7;vertical-align:top;margin:0 0 6px 1px}
+.newsGallerySimple dd{font:11px/15px dotum;color:#6A6A6A;padding-bottom:6px}
+.newsGallerySimple dd a{display:block;color:#6A6A6A;text-align:center}
+/* 레이아웃 추가/변형 */
+#leftmenu #leftmenu_sub2{float:left;display:inline;margin:3px 1px;border:1px solid #dedede;background:#FFF}
+#leftmenu #leftmenu_sub2 p{border-bottom:1px solid #dedede}
+#leftmenu #leftmenu_sub2 h4.subtlt{width:111px;_width:127px;padding:12px 8px 3px 8px;border-bottom:1px solid #dedede;color:#124694;font-size:11px;letter-spacing:-1px}
+#leftmenu #leftmenu_sub2 h4.subtlt a{color:#124694}
+#leftmenu #leftmenu_sub2 .sub1{padding:9px 8px 5px}
+#leftmenu #leftmenu_sub2 .sub1 li{_width:100%;padding:5px 0 5px 0;line-height:16px;color:#333;word-break:break-all}
+#leftmenu #leftmenu_sub2 .sub1 li a{color:#333}
+#leftmenu #leftmenu_sub2 .sub1 li img.icoImg{margin:4px -1px 0 0;_margin-top:1px;vertical-align:top}
+ul.right_list_1_2{margin:14px 0 5px 8px}
+ul.right_list_1_2 li{padding:1px 0 0 10px;height:21px;_height:22px;color:#464646;background:url(https://ssl.pstatic.net/imgstock/images5/news/ico_arrow_01.gif) no-repeat 3px 4px;width:175px;_width:185px;_clear:both}
+ul.right_list_1_2 li.division{height:1px;_height:8px;padding:0px 0 7px;border-top:1px solid #EFEFEF;font-size:1px;line-height:0em;background:transparent;_float:left}
+ul.right_list_1_2 li a{display:block;overflow:hidden;width:172px;text-overflow:ellipsis;white-space:nowrap;color:#464646}
+table.type_r2 td.item{color:#464646}
+table.type_r2 td.item a{color:#464646}
+table.type_r2 td.data{color:#9A9A9A;text-align:right;font:11px tahoma}
+table.type_r2 td.change{width:53px;text-align:right;font:11px tahoma}
+table.type_r2 td.change img{margin-right:1px;vertical-align:middle}
+table.type_r2 td.change .up{color:#D90400;background:url(https://ssl.pstatic.net/imgstock/images5/news/ico_up.gif) no-repeat 1px 4px}
+table.type_r2 td.change .down{color:#005EDE;background:url(https://ssl.pstatic.net/imgstock/images5/news/ico_down.gif) no-repeat 1px 4px}
+/* 뉴스메인 */
+#newsMainTop{height:286px}
+h4.top_tlt_news{text-indent:-5000px;border-bottom:1px solid #e1e1e1;height:18px;background:url(https://ssl.pstatic.net/imgstock/images5/news/tit_newsmain_01.gif) no-repeat 2px 0px}
+.newsmain_sise{position:absolute;right:2px;top:1px;font:11px dotum}
+.newsmain_sise dt{float:left;color:#464646;padding-left:17px}
+.newsmain_sise dd{float:left;font-weight:bold;padding:0 0 0 8px}
+.newsmain_sise dd.up{color:#D90400}
+.newsmain_sise dd.down{color:#005EDE}
+.newsmain_sise dd span{padding:0 0 0 8px}
+.newsmain_sise dd.up span{background:url(https://ssl.pstatic.net/imgstock/images5/news/ico_up.gif) no-repeat 1px 2px}
+.newsmain_sise dd.down span{background:url(https://ssl.pstatic.net/imgstock/images5/news/ico_down.gif) no-repeat 1px 2px}
+/* 기존 서브메인 상단 박스영역 변경 */
+.inner_area_left .left01{float:left;width:567px;_width:576px;height:220px;_height:246px;padding:26px 0 0 9px;display:inline}
+#newsMainTop .headLine{padding-bottom:5px;color:#464646;line-height:18px}
+#newsMainTop .headLine h5{padding:0 0 8px 0;color:#002663;font-size:20px;line-height:24px;letter-spacing:-1px}
+#newsMainTop .headLine h5 a{color:#002663}
+#newsMainTop .headLine div{margin-top:-1px;line-height:19px}
+#newsMainTop .headLine div .date{padding-left:13px;font-size:11px;color:#909090}
+#newsMainTop .headLine div .date em{padding-right:7px;margin-right:6px;background:url(https://ssl.pstatic.net/static/header/gnb/bg_bar01.gif) 100% 0 no-repeat;font-style:normal;color:#d17575;letter-spacing:-1px}
+#newsMainTop .mainNews{overflow:hidden;clear:both;margin-top:12px;color:#002663;font-family:'돋움',dotum;font-size:12px}
+#newsMainTop .mainNews li{float:left;width:279px;padding-bottom:9px;_padding-bottom:7px}
+#newsMainTop .mainNews a{display:block;overflow:hidden;width:260px;text-overflow:ellipsis;white-space:nowrap;padding-left:9px;background:url(https://ssl.pstatic.net/imgstock/item_renewal/dot_mainnews.gif) 2px 5px no-repeat;color:#002663}
+.main_news{height:178px;font-family:Apple SD Gothic Neo,'돋움',Dotum,AppleGothic,sans-serif}
+.main_news ul li{overflow:hidden;margin-bottom:8px;line-height:18px;white-space:nowrap}
+.main_news ul li a{font-size:15px;color:#333;font-weight:bold}
+.main_news ul li em{display:inline-block;*display:inline;vertical-align:1px;font-size:13px;color:#777;font-style:normal}
+.mainNewsTicker{position:absolute;left:0;right:0;bottom:8px;clear:both;height:20px;_height:31px;padding:9px 0 0 13px;border:1px solid #ededed;background:#f6f6f7;color:#333}
+.mainNewsTicker dt{float:left;margin-right:7px;font:bold 11px/1.4em dotum}
+.mainNewsTicker dd.data{float:left;position:relative}
+.mainNewsTicker dd.data a{position:absolute;height:16px;white-space:nowrap;max-width:480px;_width:480px;overflow:hidden;text-overflow:ellipsis}
+.mainNewsTicker dd.action{float:right;font-size:1px;line-height:0em;margin-top:-1px;padding-right:5px}
+.mainNewsTicker dd.action a{display:inline}
+.mainNewsTicker dd.action img{vertical-align:top;margin-right:1px}
+.mainNewsBanner{background:url(https://ssl.pstatic.net/imgstock/images5/news/bg_maintop_banner.gif) no-repeat;width:361px;height:25px;line-height:25px;position:relative}
+.mainNewsBanner a.type1{color:#FF5300;font-weight:bold;text-align:center;display:block}
+.mainNewsBanner a.action{position:absolute;right:8px;top:7px}
+#newsMainTop .news_issue p.title{line-height:1.3em;height:21px;padding-left:29px;background:url(https://ssl.pstatic.net/imgstock/images5/news/ico_issue.gif) no-repeat left top;color:#002663;font-weight:bold}
+#newsMainTop .news_issue p.title a{color:#002663;font-weight:bold}
+#newsMainTop .news_issue img.thumb{border:1px solid #C9C9C9;vertical-align:top;margin:2px 0 3px}
+#newsMainTop .inner_area_right{width:179px}
+.specialNews{height:217px;margin:0 1px 0 0}
+.specialNews .titArea{border-bottom:1px solid #e1e1e1;height:18px;_height:19px;padding-left:2px;position:relative}
+.specialNews .titArea .more{position:absolute;right:1px;top:1px;_right:0px;_top:2px;padding-left:8px;color:#999;font-size:11px;font-weight:normal;background:url(https://ssl.pstatic.net/imgstock/images5/news/ico_arrow_04.gif) no-repeat 0 2px;letter-spacing:-1px}
+.specialNews .titArea .more a{color:#999}
+.specialNews .article_subject{padding-left:6px;padding-top:12px;height:22px;_height:33px;color:#002663;font-weight:bold;text-decoration:underline;letter-spacing:-1px}
+.specialNews .article_subject a{color:#002663;text-decoration:underline}
+.specialNews ul{padding:8px 0 0 6px}
+/* 모듈(그래프) 변형 */
+.specialNews .module .title2{border-bottom:0 none;font-weight:normal;color:#000;margin:0 0 0 3px;height:16px;_height:19px}
+.specialNews .module .title2 a,.specialNews .module .title2 a:visited,.specialNews .module .title2 a:hover{color:#000}
+.specialNews .module .chartStat{padding:0px 0 3px 6px}
+#newsMainTop .inner_area_right .schNews{background:url(https://ssl.pstatic.net/imgstock/images5/news/bg_schnews.gif) no-repeat;padding:6px 0 0 7px;_padding:4px 0 0 7px;height:26px;_height:32px}
+#newsMainTop .inner_area_right .schNews input,#newsMainTop .inner_area_right .schNews img{vertical-align:middle}
+#newsMainTop .inner_area_right .schNews .txtInput{width:121px;height:21px;border:1px solid #ADADAD;border-color:#ADADAD #ADADAD #DCDCDC #DCDCDC;color:#999;letter-spacing:-1px;font-size:11px;padding:4px 5px}
+/* 메인 > 중간부분 뉴스리스트 */
+#contentarea_left2{float:left;width:602px}
+#contentarea_left2 .newsList{float:left;width:385px;overflow:hidden;padding-top:2px}
+#contentarea_left2 .simpleNewsList{margin:-8px 0 0 -3px;padding-bottom:0}
+#contentarea_left2 .simpleNewsList a{font-weight:bold}
+#contentarea_left2 .newsList span{padding-left:0px}
+#contentarea_left2 .newsList span.typeIco img{left:0}
+#contentarea_left2 .issueBox{_float:left;width:381px;_width:385px;margin:12px 0 12px;_margin-bottom:8px;padding:1px;border:1px solid #DADEE3}
+#contentarea_left2 .newsList .issueBox dl{background:#F8F9FA;height:31px;padding:0;line-height:31px}
+#contentarea_left2 .issueBox dt{font-weight:bold;color:#FF5300;padding:0px 8px 0 8px;float:left;letter-spacing:-1px}
+#contentarea_left2 .issueBox dd{float:left}
+#contentarea_left2 .issueBox dd a{color:#000}
+#contentarea_left2 .newsList .linktoMore{height:13px;_height:21px;margin-top:15px;padding-top:8px;background:url(https://ssl.pstatic.net/imgstock/images5/news/dot_gray_h.gif) repeat-x top;color:#999;letter-spacing:-1px}
+#contentarea_left2 .newsList .linktoMore a{float:right;font-size:11px;color:#999;background:url(https://ssl.pstatic.net/imgstock/images5/news/ico_arrow_04.gif) no-repeat 0px 2px;padding-left:6px}
+#contentarea_left2 .innerGray{margin-left:15px;padding:0px 0 6px}
+/* 메인>우측윙 레이아웃 */
+#contentarea_right2{float:right;width:200px}
+/* 메인>카테고리별 기사 */
+.main_summary{width:612px;clear:both;margin-left:-10px;padding-top:7px}
+.summary_block{display:inline;float:left;width:293px;height:164px;margin-left:10px}
+.summary_block .tit{padding-left:3px;border-bottom:2px solid #e1e1e1;height:19px;_height:21px;font-weight:bold;color:#333;margin-top:11px}
+.summary_block .tit em{color:#ff5300;font-style:normal}
+.summary_block .firstArticle{float:left;font-size:11px;color:#909090;padding:12px 0px 0 4px;width:72px;_width:76px;margin-right:6px;display:inline;text-align:center}
+.summary_block .firstArticle img{display:block;border:1px solid #c9c9c9;margin:0 auto}
+.summary_block .firstArticle .caption{padding-top:4px;letter-spacing:-1px}
+.summary_block .firstArticle .caption a{color:#909090}
+.summary_block ul{float:left;margin:0;padding:12px 0 0 4px}
+.summary_block ul li{_float:left;_width:100%;height:24px;margin:0;padding:0 0 0 5px;color:#464646;background:url(https://ssl.pstatic.net/imgstock/images5/news/ico_arrow_01.gif) no-repeat 0px 4px}
+.summary_block ul li a{color:#464646}
+/* 메인 > 언론사 */
+.pressWrap{clear:both;margin-top:27px;padding-bottom:11px;background:url(https://ssl.pstatic.net/imgstock/images5/news/bg_press.gif) no-repeat left bottom}
+.pressWrap .tit{padding:8px 0 0 13px;height:28px;_height:36px;background:url(https://ssl.pstatic.net/imgstock/images5/news/bg_press.gif) no-repeat left top;color:#4D4D4D;font-weight:bold;letter-spacing:-1px}
+.pressWrap .pressList{color:#686868;line-height:17px;min-height:inherit}
+.pressWrap .pressList a{color:#686868}
+.pressWrap .block{float:left;margin:0;padding:0 5px 0 10px;background:url(https://ssl.pstatic.net/imgstock/images5/news/dot_gray_v.gif) repeat-y left top}
+.pressWrap .cols01{background:transparent;width:80px;_width:95px}
+.pressWrap .cols02{width:91px;_width:106px}
+.pressWrap .cols03{width:83px;_width:98px}
+.pressWrap .cols04{width:83px;_width:98px}
+.pressWrap .cols05{width:83px;_width:98px}
+.pressWrap .cols06{width:83px;_width:98px}
+/* 페이지 타이틀 우측에 나오는 컨텐츠들 */
+#contentarea_left{position:relative}
+.sub_tit_ticker{position:absolute;top:10px;right:0;font:11px dotum;color:#464646;letter-spacing:-1px;_display:inline}
+.sub_tit_ticker a{color:#464646}
+.sub_tit_ticker dt{float:left;margin-right:5px;padding:1px 3px 0 2px;letter-spacing:-1px;font-weight:bold;color:#3eaf0e;border:1px solid #3eaf0e}
+:-ms-input-placeholder,:root .sub_tit_ticker dt{margin-top:-2px;height:13px;line-height:17px}
+.sub_tit_ticker dd{position:relative;float:left;width:213px;padding-top:1px;letter-spacing:-1px}
+.sub_tit_ticker dd a{display:block;line-height:15px;overflow:hidden}
+.sub_tit_ticker dd .btn{position:absolute;right:0;top:0}
+.sub_tit_ticker dd .btn a{float:left;margin-left:3px}
+.sub_tit_ticker dd .end{letter-spacing:-1px}
+.sub_tit_ticker .end em{font-style:normal;color:#ff6d20}
+.sub_tit_ticker2{float:right;font:11px/16px dotum;color:#464646;height:22px;overflow:hidden;background:url(https://ssl.pstatic.net/imgstock/images5/news/bg_ticker2.gif) no-repeat right top;margin-top:-29px}
+.sub_tit_ticker2 a{color:#464646}
+.sub_tit_ticker2 li{float:left;padding:4px 0px 0px 7px;background:url(https://ssl.pstatic.net/imgstock/images5/news/bg_ticker2.gif) no-repeat left top}
+.sub_tit_ticker2 li a{bdisplay:block}
+.sub_tit_ticker2 li.action{float:right;font-size:1px;line-height:0em;padding-top:3px;padding-right:7px;background:transparent}
+.sub_tit_ticker2 li.action a{display:inline;height:auto}
+.sub_tit_ticker2 li.action img{vertical-align:middle;margin-left:1px}
+.sub_tit_date .option{position:relative;padding:5px 0 0 17px;background:url(https://ssl.pstatic.net/imgstock/images5/news/bul_arrow_gray2.gif) no-repeat 9px 7px;z-index:1;font-size:11px;color:#666;font-weight:bold;letter-spacing:-1px}
+.sub_tit_date .option a{color:#666}
+/* 게시판 뷰 type1 */
+.boardView{clear:both}
+.boardView{position:relative;z-index:100;border-top:1px solid #E1E1E1;width:595px}
+.boardView .attachArea{float:right;text-align:center;margin:20px 0 20px 20px}
+.boardView .attachArea .chartBlock{padding:2px 10px}
+.boardView .attachArea .chartBlock li{padding-left:5px}
+.boardView .attachArea .chartBlock .chart{margin:3px 0 3px -1px}
+.boardView .attachArea .chartBlock .chart .standard_data{display:block;width:166px;padding:0 0 2px 0;color:#989898;font:11px dotum;text-align:right}
+.boardView .attachArea ul{padding-bottom:2px;border-bottom:1px solid #F3F3F3}
+.boardView .attachArea .action img{vertical-align:top;margin:0 auto}
+.boardView .attachArea .s_item dt .code{font-weight:normal;font-size:11px;font-family:tahoma}
+.boardView .attachArea .s_item dd.chart{margin-left:-14px;padding-top:13px}
+.boardView .articleTitle{font:bold 18px dotum;padding-bottom:7px;color:#2D2C2D}
+.articleInfo{color:#C0C0C0;font:11px dotum;height:18px}
+.articleInfo .press{color:#C88282}
+.articleInfo .wdate{color:#909090}
+.boardView .articleCont{padding:17px 0 9px 4px;color:#333;font:14px/24px dotum}
+.boardView .articleCont p{margin-bottom:24px}
+.boardView .articleCont *{margin:auto;padding:auto}
+.boardView .sourcecompany{clear:both;text-align:right;color:#2D2C2D;font:11px dotum;padding-bottom:7px}
+.boardView .sourcecompany img{vertical-align:middle}
+.boardView .vod_area{padding:15px 0 13px 0;text-align:center}
+/* 뉴스앤드 헤더 공통 추가 151019 */
+.article_header{position:relative;z-index:25;margin-top:-31px;border-bottom:1px solid #ebeced;*zoom:1}
+#contentarea_left .article_header{margin-top:0}
+#content .article_header h3,#contentarea_left .article_header h3{display:inline;margin-bottom:7px;*margin-bottom:5px;margin-right:3px;background:none;border:none;height:auto;vertical-align:top;font-size:20px;font-family:'돋움',dotum,Helvetica,sans-serif;line-height:25px;letter-spacing:-1px;color:#000;zoom:1}
+.article_btns{position:relative;padding:4px 0 9px;*padding-top:9px;font-size:0}
+.article_btns .u_likeit,.article_btns .pi_btn_count{margin-right:4px}
+.article_btns .u_likeit_layer .u_likeit_list{margin-left:-10px}
+.article_btns .u_likeit_layer .u_likeit_list_button{width:85px}
+.article_btns .u_likeit_layer{padding:0 10px 0 20px}
+.article_header .article_info{padding:19px 0 0 139px}
+.article_header .article_sponsor{padding:1px 0 10px;color:#888;font-size:11px;font-family:'돋움',Dotum,'Apple SD Gothic Neo',Helvetica,sans-serif;letter-spacing:-1px;line-height:30px}
+.article_header .article_sponsor .btn_artialoriginal{border:1px solid #dfdfdf;display:inline-block;*display:inline;zoom:1;padding:0 5px;margin-left:5px;color:#888;font-family:'나눔고딕',NanumGothic,'맑은 고딕',Malgun Gothic,'돋움',Dotum,Helvetica,'Apple SD Gothic Neo',sans-serif;line-height:19px;letter-spacing:normal}
+.article_header .article_sponsor .u_likeit{vertical-align:top;letter-spacing:normal;visibility:hidden;display:inline-block;*display:inline;zoom:1;height:32px;line-height:32px}
+.article_header .article_sponsor .u_likeit a,.sponsor .u_likeit a:hover,.sponsor .u_likeit a:visited{color:#4e4e4e;text-decoration:none}
+.article_header .article_sponsor .pi_btn_count{border:1px solid #dfdfdf;display:inline-block;*display:inline;zoom:1;height:30px;padding:0 10px;vertical-align:top;line-height:30px}
+.article_header .article_sponsor .pi_btn_count .lo_txt{display:inline-block;*display:inline;zoom:1;color:#4e4e4e;font-family:Arial,'나눔고딕',NanumGothic,'맑은 고딕',Malgun Gothic,'돋움',Dotum,Helvetica,'Apple SD Gothic Neo',sans-serif;font-size:12px;letter-spacing:normal;line-height:30px}
+.article_header .article_sponsor .pi_btn_count .lo_ico{width:17px;height:17px;background:url(https://ssl.pstatic.net/static/nfinance/lo_txt-pi_btn_count-sponsor.png) 0 0 no-repeat;display:inline-block;*display:inline;zoom:1;margin:7px 3px 0 0;vertical-align:top}
+.article_header .article_sponsor .pi_btn_count.num .lo_txt{font-size:13px;line-height:30px}
+.article_header .article_sponsor .u_likeit + .sns_share{margin:0 0 0 4px}
+.article_header .article_sponsor .sns_share{display:inline-block;*display:inline;*zoom:1;height:30px;vertical-align:top;border:1px solid #dfdfdf}
+.article_header .article_sponsor .sns_share .naver-splugin{display:block;width:34px;height:30px;cursor:pointer}
+.article_header .article_sponsor .sns_share_ico{width:19px;height:17px;background:url(https://ssl.pstatic.net/static/nfinance/sns_share_ico-end_btn_s.png) 0 0 no-repeat;display:inline-block;margin:5px 0 0 9px;vertical-align:top}
+.article_header .article_sponsor .spi_onebtn{left:0;z-index:3001}
+.article_header .article_sponsor .spi_lst_release{left:1px !important;top:5px !important}
+.article_header .article_sponsor .spi_ly_pop{left:6px !important;top:5px !important}
+.article_header .sponsor{float:left;width:118px;min-height:86px}
+.article_header .sponsor .press{position:absolute;top:50%;left:16px;margin-top:-23px;padding:3px 16px 3px 0;border-right:1px solid #efefef}
+.article_header .sponsor .bar{position:absolute;top:50%;right:0;margin-top:-23px;width:1px;height:47px;background:#efefef}
+.article_header .article_date{margin-right:3px;font-family:tahoma,Helvetica,sans-serif;font-size:11px;letter-spacing:0 !important}
+.article_header a:hover{text-decoration:none}
+.end_btn{padding-top:64px;margin-bottom:63px;text-align:center;font-size:0}
+.end_btn .u_likeit_list_button{*height:133px;*padding-top:2px}
+.end_btn .u_likeit{border-top:1px solid #e6e6e8;border-bottom:1px solid #e6e6e8;margin-bottom:25px;*margin-bottom:17px;padding:0 82px;*padding-left:43px}
+.end_btn .u_likeit a,.end_btn .u_likeit a:hover,.end_btn .u_likeit a:visited{text-decoration:none}
+.end_btn .u_likeit .u_likeit_layer{display:table;*display:inline;zoom:1;position:static;border:0;width:100%;table-layout:fixed;padding:0}
+.end_btn .u_likeit .u_likeit_layer li{margin-left:0}
+.end_btn .u_likeit .u_likeit_layer:before{display:none}
+.end_btn .u_likeit .u_likeit_list_name{margin-bottom:6px}
+.end_btn .sns_share{display:inline-block;*display:inline;*zoom:1;vertical-align:top;height:39px;border:1px solid #dfdfdf}
+.end_btn .sns_share li{list-style:none !important}
+.end_btn .sns_share .naver-splugin{position:relative;display:block;width:42px;height:39px;cursor:pointer}
+.end_btn .sns_share_ico{width:24px;height:21px;background:url(https://ssl.pstatic.net/static/nfinance/sns_share_ico-end_btn.png) 0 0 no-repeat;position:absolute;top:8px;left:11px}
+.end_btn .spi_lst .spi_lst_release{top:5px !important;left:0 !important;margin-left:-150px !important;*margin-left:-171px !important}
+.end_btn .spi_ly_pop{top:5px !important;left:0 !important;margin-left:-101px !important}
+.end_btn .spi_lst .spi_lst_release span{margin-bottom:6px}
+.end_btn .u_likeit_layer .u_likeit_list_button{width:85px}
+.end_btn .btn_column_more{display:inline-block;padding:0 18px;margin-right:6px;height:39px;border:1px solid #dfdfdf;font-size:13px;font-weight:bold;line-height:40px;*line-height:39px;color:#000;letter-spacing:-1px}
+.end_btn .btn_column_more:hover{text-decoration:none}
+.end_btn .btn_type1{display:inline-block;padding:0 12px 0 13px;height:39px;margin-right:2px;border:1px solid #dfdfdf;line-height:39px;font-size:13px;font-weight:bold;color:#222}
+.cmt_count_btn{display:inline-block;height:20px;overflow:hidden;margin:11px 1px 0 3px;color:#56585f;line-height:16px;text-decoration:none !important;vertical-align:top;cursor:pointer;background:url("https://ssl.pstatic.net/static/nfinance/2015/sp_ic_news_cmt.png") no-repeat;background-position:0 0}
+.cmt_count_btn em{display:inline-block;width:auto;padding:0 6px 0 5px;height:20px;margin:0 0 0 1px;vertical-align:middle;font-style:normal;background:url("https://ssl.pstatic.net/static/nfinance/2015/sp_ic_news_cmt.png") no-repeat;background-position:100% 0;vertical-align:top}
+.cmt_count_btn .lo_txt{display:inline-block;padding-left:16px;color:#000;font-family:Tahoma;font-size:11px;font-weight:bold;letter-spacing:0;line-height:20px;_line-height:19px;vertical-align:middle;background:url("https://ssl.pstatic.net/static/nfinance/2015/sp_ic_news_cmt.png") no-repeat;background-position:0 -20px}
+.cmt_count_btn .lo_ico{display:inline-block;width:4px;height:6px;overflow:hidden;_margin-top:1px;font-size:0;vertical-align:middle;background:url("https://ssl.pstatic.net/static/nfinance/2015/sp_ic_news_cmt.png") no-repeat;background-position:0 -41px}
+.locationbar{position:relative;top:-27px;left:486px}
+.locationbar .btn_fontsize{position:absolute;top:0;left:0}
+.locationbar .btn_viewarticle{position:absolute;top:0;left:44px;padding-right:1px;background:url(https://ssl.pstatic.net/imgstock/images5/news/ico_bar_line.gif) no-repeat right top}
+.locationbar img{vertical-align:top}
+.locationbar .btn_viewarticle img,.locationbar .btn_fontsize img{float:left;_margin:0 -3px}
+.locationbar .putinlayer{position:absolute;top:22px;left:39px;width:91px;height:53px;background-color:#EBEBEB}
+.locationbar .popup_putin{position:relative;width:89px;_width:91px;margin:-1px 0 0 -1px;padding:0;border:1px solid #969696;background:url(https://s.pstatic.net/imgnews/image/news/2007/new_section/bg_dotline_putin.gif) 0 0}
+.locationbar .popup_putin li{clear:both;display:block;float:none;height:25px;margin:0 0 1px 0;padding:0;font-size:11px;vertical-align:top;line-height:18px;letter-spacing:-1px}
+* html .locationbar .popup_putin li{float:left;width:88px}
+.locationbar .popup_putin li a{display:block;margin:0;padding:4px 0 1px 6px;border:1px solid #FFF;background-color:#FFF;color:#2D2C2D}
+.locationbar .popup_putin li a:hover{border:1px solid #FFF;background-color:#F4F4F4;color:#2D2C2D;text-decoration:none}
+.locationbar .popup_putin .last{margin-bottom:0}
+.locationbar .popup_putin .last a{padding:3px 0 2px 6px}
+/* 공시정보 리스트 */
+.boardList2{border-top:1px solid #E1E1E1;padding:11px 0}
+.boardList2 td{color:#464646}
+.boardList2 .publicSubject{padding:0 0 0 4px;line-height:22px}
+.boardList2 td a:link,.boardList2 td a:visited,.boardList2 td a:hover{color:#464646}
+.boardList2 .wdate{font:10px tahoma;color:#999}
+.boardList2 .bdr{height:20px;vertical-align:top}
+.boardList2 .bdr hr{color:#FFF;border-width:1px 0 0;border-style:solid;border-color:#F0F0F0;font-size:1px;line-height:0em}
+.boardSchForm{padding-top:19px;text-align:center}
+.boardSchForm select,.boardSchForm input,.boardSchForm img{vertical-align:middle}
+.comment{margin-top:19px;padding:10px 0 7px 0;border:1px solid #e1e1e1;background:#fdfdfd;font-size:11px;text-align:center;letter-spacing:-1px;color:#777}
+/* 게시판뷰 type2 */
+.boardView2_2{clear:both}
+.boardView2_2{border-top:1px solid #E1E1E1;padding:20px 0 0 4px}
+.boardView2_2 .articleTitle{font:bold 18px dotum;color:#2D2C2D;padding-bottom:7px}
+.boardView2_2 .articleCont{padding:21px 0 23px;color:#333;font:12px/24px gulim;width:100%;overflow-x:auto}
+.boardView2_2 .sourcecompany{clear:both;text-align:right;color:#2D2C2D;font:11px dotum;padding-bottom:7px}
+.boardView2_2 .sourcecompany img{vertical-align:middle}
+#contentarea .controlbar2{height:31px;margin:11px 0 5px 0;padding:0;background:url(https://ssl.pstatic.net/imgstock/images5/news/bg_article_controlbar_l.gif) no-repeat left top;font-size:11px}
+#contentarea .controlbar2 .action{float:right;width:300px;height:31px;background:url(https://ssl.pstatic.net/imgstock/images5/news/bg_article_controlbar01.gif) no-repeat right top;padding:10px 15px 0 0}
+#contentarea .controlbar2 .list{float:right;font:bold 11px dotum;color:#615F60;letter-spacing:1px}
+#contentarea .controlbar2 .list a{color:#615F60}
+.view_bottom_style2{padding:20px 0 0}
+.view_bottom_style2 li{padding:0px 0px 0px 18px;background-position:5px 5px;background-repeat:no-repeat;color:#333;height:26px}
+.view_bottom_style2 li a{color:#333}
+.view_bottom_style2 li.prevArticle{background-image:url(https://ssl.pstatic.net/imgstock/images5/news/bul_arrow_up.gif)}
+.view_bottom_style2 li.nowArticle{background-image:url(https://ssl.pstatic.net/imgstock/images5/news/bul_arrow_now.gif)}
+.view_bottom_style2 li.nextArticle{background-image:url(https://ssl.pstatic.net/imgstock/images5/news/bul_arrow_down.gif)}
+.view_bottom_style3{margin-top:30px;border-top:1px solid #dedede;border-bottom:1px solid #dedede;padding:25px 0 11px}
+.view_bottom_style3 li{padding-left:16px;background-position:0 1px;background-repeat:no-repeat;color:#2f2f2f;height:25px}
+.view_bottom_style3 li a{color:#2f2f2f}
+.view_bottom_style3 li.prevArticle{background-image:url(https://ssl.pstatic.net/imgstock/images5/bu_article_prev.gif)}
+.view_bottom_style3 li.prevArticle2{background-image:url(https://ssl.pstatic.net/imgstock/images5/bu_article_prev2.gif)}
+.view_bottom_style3 li.nowArticle{background-image:url(https://ssl.pstatic.net/imgstock/images5/bu_article_now.gif)}
+.view_bottom_style3 li.nextArticle{background-image:url(https://ssl.pstatic.net/imgstock/images5/bu_article_next.gif)}
+.view_bottom_style3 li.nextArticle2{background-image:url(https://ssl.pstatic.net/imgstock/images5/bu_article_next2.gif)}
+.view_bottom_pagenav{padding-top:10px;text-align:right}
+.view_bottom_pagenav li{display:inline;font-size:11px;letter-spacing:-1px;margin-left:1px}
+.view_bottom_pagenav li a,.view_bottom_pagenav li a:hover,.view_bottom_pagenav li a:focus,.view_bottom_pagenav li a:active{color:#666}
+.view_bottom_pagenav li.top{padding-left:14px;background:url(https://ssl.pstatic.net/imgstock/images5/bg_pagenav_top.gif) no-repeat left top}
+.view_bottom_pagenav li.prev{padding-left:6px;background:url(https://ssl.pstatic.net/imgstock/images5/bg_pagenav_prev.gif) no-repeat left 1px}
+/* 기사 본문 | 하단 도구 바 */
+#contentarea .controlbar{height:33px;margin:11px 0 5px 0;padding:0;background:url(https://ssl.pstatic.net/imgstock/images5/news/bg_article_controlbar.gif) repeat-x;font-size:11px}
+#contentarea .controlbar li{line-height:18px}
+#contentarea .controlbar a:link,#contentarea .controlbar a:visited,#contentarea .controlbar a:active,#contentarea .controlbar a:hover{color:#606060}
+#contentarea .controlbar .handle{display:inline;float:left;width:300px;height:35px;padding:7px 0 0 4px;background:url(https://ssl.pstatic.net/static/nfinance/img2/bg_article_controlbar01.gif) no-repeat}
+#contentarea .controlbar .handle li{display:inline;float:left;margin:0 9px;letter-spacing:-1px}
+#contentarea .controlbar .handle .print{padding:0 0 0 14px;background:url(https://ssl.pstatic.net/imgstock/images5/news/ico_bar_print.gif) no-repeat 0 3px}
+#contentarea .controlbar .handle .mail{padding:0 0 0 14px;background:url(https://ssl.pstatic.net/imgstock/images5/news/ico_bar_mail.gif) no-repeat 0 4px}
+#contentarea .controlbar .handle .mystock{padding:0 0 0 14px;background:url(https://ssl.pstatic.net/imgstock/images5/news/ico_bar_scrap.gif) no-repeat 0 2px}
+#contentarea .controlbar .handle .mystock{width:auto}
+#contentarea .controlbar .keep{display:inline;position:relative;float:right;height:35px;width:250px;padding:7px 5px 0 0;background:url(https://ssl.pstatic.net/imgstock/images5/news/bg_article_controlbar01.gif) no-repeat top right}
+#contentarea .controlbar .keep li{display:inline;float:right;margin:0 7px 0 9px;letter-spacing:-1px}
+#contentarea .controlbar .keep .putin{padding:0 0 0 13px;background:url(https://ssl.pstatic.net/imgstock/images5/news/ico_bar_putin.gif) no-repeat 0 4px}
+#contentarea .controlbar .keep .list{font-weight:bold;padding:0 2px 0 0}
+#contentarea .controlbar .keep .putin div{position:absolute;top:26px;right:71px;width:91px;height:53px;background-color:#EBEBEB}
+#contentarea .controlbar .popup_putin{position:relative;left:-1px;top:-1px;padding:0;border:1px solid #969696;background:url(https://ssl.pstatic.net/imgstock/images5/news/bg_dotline_putin.gif) 0 0}
+#contentarea .controlbar .popup_putin li{clear:both;display:block;width:89px;float:none;height:25px;margin:0 0 1px 0;padding:0;vertical-align:top;line-height:18px}
+#contentarea .controlbar .popup_putin li a{display:block;margin:0;padding:4px 0 1px 6px;border:1px solid #FFF;background-color:#FFF;color:#2D2C2D}
+#contentarea .controlbar .popup_putin li a:visited,#contentarea .controlbar .popup_putin li a:active{color:#2D2C2D}
+#contentarea .controlbar .popup_putin li a:hover{border:1px solid #FFF;background-color:#F4F4F4;color:#2D2C2D;text-decoration:none}
+#contentarea .controlbar .popup_putin .last{margin-bottom:0}
+#contentarea .controlbar .popup_putin .last a{padding:3px 0 2px 6px}
+/* 묶음기사 */
+#contentarea .articleSet{margin-top:10px;padding:0 0 2px;clear:both;border:1px solid #D5DDE0}
+#contentarea .articleSet .caption{padding:10px 0px 0px 12px;height:24px;_height:34px;background:url(https://ssl.pstatic.net/imgstock/images5/news/bg_articleset_top.gif) repeat-x;color:#13377B;font-weight:bold}
+#contentarea .articleSet .caption a{color:#13377B}
+#contentarea .articleSet ul{padding:12px 0 0 13px;line-height:14px}
+#contentarea .articleSet li{height:22px;float:left;_display:inline;padding:0 0 0 10px;width:279px;_width:289px;background:url(https://ssl.pstatic.net/imgstock/images5/news/bul_cross.gif) no-repeat 0px 3px}
+#contentarea .articleSet a{color:#002663}
+#contentarea .hot_articleSet a{color:#2D2D2D}
+/* 페이지유형별 기사리스트 변형 */
+.mainNewsList{border-top:1px solid #E1E1E1}
+.mainNewsList .block1{background:url(https://ssl.pstatic.net/imgstock/images5/news/dot_gray_h.gif) repeat-x bottom}
+.issueInner2 .mainNewsList{border:0 none}
+.issueInner2 .newsList{background:url(https://ssl.pstatic.net/imgstock/images5/news/dot_gray_h.gif) repeat-x bottom}
+.photoNewslist{border-top:1px solid #E1E1E1;padding-top:5px;padding-bottom:22px}
+.photoNewslist .block1{background:url(https://ssl.pstatic.net/imgstock/images5/news/dot_gray_h.gif) repeat-x bottom;padding-bottom:1px}
+.realtimeNewsList{border-top:1px solid #E1E1E1}
+.realtimeNewsList .top{background:url(https://ssl.pstatic.net/imgstock/images5/news/dot_gray_h.gif) repeat-x bottom;_float:left}
+.realtimeNewsList .top dl{padding-top:0}
+.realtimeNewsList .articleSummary:after{clear:left;display:block;content:'X';height:1px;visibility:hidden;overflow:hidden}
+.realtimeNewsList .newsList .articleSummary{overflow:visible}
+/* 개별이슈 */
+.issueTitle{margin-bottom:-1px;border-top:1px solid #E1E1E1;color:#104EC8;font:bold 14px dotum}
+.issueTitle .txt{display:block;padding:15px 0 13px 7px;background:url(https://ssl.pstatic.net/imgstock/images5/news/dot_gray_h.gif) repeat-x bottom;color:#104EC8}
+.issueTitle img{margin:10px 0 13px 0;vertical-align:top}
+.issueTitle .date{display:block;_display:inline;height:45px;_height:75px;margin-top:10px;padding-top:30px;color:#274a81;font-size:11px;font-family:Verdana;font-weight:bold;letter-spacing:3px}
+.issueTitle .date em{padding-right:19px;_padding-right:22px;font-style:normal;_display:inline-block}
+.issueTitle .today{width:294px;_width:595px;padding-left:301px;background:url(https://ssl.pstatic.net/imgstock/images5/news/bg_issue_today.gif) no-repeat left top}
+.issueTitle .total{width:308px;_width:595px;padding-left:287px;background:url(https://ssl.pstatic.net/imgstock/images5/news/bg_issue_total.gif) no-repeat left top}
+.issueTitleImg a,.issueTitleImg a:visited,.issueTitleImg a:hover{color:#274A81}
+.issueWrapper{clear:both;width:595px;padding-top:15px}
+.issueWrapper .innerGray{float:right}
+.issueInner2{float:left}
+.issueInner2 .mainNewsList{margin-top:-16px;padding-top:0}
+/* 개별이슈 중간영역 타입별 */
+.issueWrapper .module1A{position:relative;top:-1px;width:374px;_width:376px;border:1px solid #EFEFEF;background:#F8F9FA;color:#002664;text-align:center;padding-top:14px;padding-bottom:10px}
+.issueWrapper .module1A img{margin-bottom:10px}
+.issueWrapper .module1A a{color:#002664}
+/* 개별이슈 중간영역 타입별 하단 기사리스트 */
+.issueWrapper .block2 .module2A dt.articleSubject{padding-top:0px}
+.issueWrapper .block2 .module2A .bdr{background:url(https://ssl.pstatic.net/imgstock/images5/news/dot_gray_h.gif) repeat-x left 15px;height:21px;overflow:hidden;line-height:0em;font-size:1px}
+/* 전체기사보기 텍스트 */
+.moreArticle{text-align:right;font:11px dotum;color:#999;padding-top:8px}
+.moreArticle a,.moreArticle a:hover,.moreArticle a:visited{color:#999;padding-left:6px;background:url(https://ssl.pstatic.net/imgstock/images5/news/bul_arrow_gray.gif) no-repeat left 2px}
+/* 뉴스 검색 */
+.newsSearchForm{position:relative;padding:19px 0 9px 21px}
+.newsSearchForm .keywordArea{height:35px;_padding-top:1px;background:url(https://ssl.pstatic.net/imgstock/images5/news/dot_gray_h.gif) repeat-x bottom;text-align:center}
+.newsSearchForm .keywordArea .inputTxt{border:1px solid #9B9B9B;border-color:#9B9B9B #D8D8D8 #D8D8D8 #9B9B9B;width:240px;height:23px;padding:4px 0 0 4px;_margin-top:-1px}
+.newsSearchForm .keywordArea input,.newsSearchForm .keywordArea img{vertical-align:top}
+.newsSearchForm dl{padding-top:6px;padding-left:29px;color:#2D2C2D}
+.newsSearchForm dl input{vertical-align:middle}
+.newsSearchForm dt{font-weight:bold;float:left;position:relative;padding-top:4px;height:17px;_height:21px}
+.newsSearchForm dd{position:relative;height:23px}
+.newsSearchForm dd span{padding-right:2px}
+.newsSearchForm dd span.bar{color:#464646;width:16px;text-align:center;font-size:11px}
+.newsSearchForm dd.bdr{clear:both;height:1px;font-size:1px}
+.newsSearchForm dl .inputTxt{border:1px solid #9B9B9B;border-color:#9B9B9B #D8D8D8 #D8D8D8 #9B9B9B;height:18px;width:70px;padding:0;text-align:center}
+.newsSearchForm .bdr{clear:both}
+.newsSchResult .resultCount{padding-top:20px;color:#2D2C2D;height:22px;_height:42px;background:url(https://ssl.pstatic.net/imgstock/images5/news/dot_gray_h.gif) repeat-x bottom}
+.newsSchResult .resultCount strong{color:#FF5300;font-weight:bold}
+.newsSchResult .articleSummary:after{clear:left;display:block;content:'X';height:1px;visibility:hidden;overflow:hidden}
+.newsSchResult .newsList .articleSummary{overflow:visible}
+/* 라운드박스 1 */
+span.bt,span.bt span,span.bb,span.bb span{display:block;height:10px;font-size:1px;background:url(https://ssl.pstatic.net/imgstock/images5/news/grey.gif) no-repeat;position:relative}
+span.bt{top:-3px;left:-3px}
+span.bt span{background-position:100% -10px;left:6px}
+span.bb{background-position:0 -20px;top:3px;left:-3px}
+span.bb span{background-position:100% -30px;left:6px}
+.roundWrap{border:#EFEFEF 3px solid;font:12px/18px dotum;min-width:196px;_width:0px;overflow-x:visible}
+#roundWrap{border:#EFEFEF 3px solid;font:12px/18px dotum;min-width:196px;_width:0px;overflow-x:visible}
+/* 라운드박스 안으로 들어간 모듈 */
+.box_type_r .module{background:url(https://ssl.pstatic.net/imgstock/images5/news/box_right_top.gif) no-repeat left top;padding:10px 0px 1px 11px}
+.box_type_r .module02{padding:10px 0px 13px 8px}
+.box_type_r .module03{padding:10px 0px 18px 8px}
+.box_type_r .module04{padding:10px 0px 10px 8px}
+.box_type_r .summarySpace{height:8px;padding:0;font-size:1px;line-height:0em}
+/* 이슈투자리스트 */
+.issueMain{border-top:1px solid #E1E1E1;padding-top:20px;margin-bottom:-9px}
+.issueMain .issueMainBlock{clear:both}
+.issueMain .titArea{height:20px;_height:26px;padding:6px 0px 0 11px;background:#EBF0F6;position:relative;font:bold 14px dotum;color:#094481}
+.issueMain .titArea a,.issueMain .titArea a:hover{color:#094481}
+.issueMain .titArea .moreBtn{position:absolute;right:8px;top:8px;font:11px dotum;color:#585858;padding-left:8px;letter-spacing:-0.1em;background:url(https://ssl.pstatic.net/imgstock/images5/news/bul_cross2.gif) no-repeat left 2px;cursor:pointer}
+.issueMain .titArea .moreBtn a{color:#585858}
+.issueMain .contArea{padding-top:16px}
+.issueMain .topArticle{float:left;padding:0 12px 0 4px;width:302px;_width:318px}
+.issueMain .topArticle .topSubject{font:bold 12px gulim;color:#333;padding-bottom:3px;letter-spacing:-0.1em}
+.issueMain .toparticle .topCont{font-family:dotum;color:#333;line-height:20px;overflow:auto;padding-bottom:19px}
+* html .issueMain .toparticle .topCont{height:1%}
+.issueMain .topArticle .thumb{float:left;margin:0 9px 0 0;display:inline;padding-bottom:25px}
+.issueMain .topArticle .thumb img{border:1px solid #C9C9C9}
+.issueMain .articleList{float:left;padding-bottom:14px;color:#333}
+.issueMain .articleList li{height:22px;padding-left:6px;background:url(https://ssl.pstatic.net/imgstock/images5/news/bul_dot_01.gif) no-repeat 0px 5px}
+.issueMain a,.issueMain a:visited,.issueMain a:hover{color:#333}
+/* 포토뉴스& TV뉴스 */
+.photoNewsList .thumb{float:left;display:inline;margin:0px 5px 0px 4px;padding-bottom:15px}
+.photoNewsList .thumb a{display:block;padding:1px;border:1px solid #DADADA}
+.photoNewsList .thumb img{border:0 none}
+.photoNewsList dd{overflow:auto}
+* html .photoNewsList dd{height:1%}
+.photoNewsList .articleSummary{padding-bottom:9px}
+.photoNewsList span.press{padding-left:0}
+.photoNewsList dl{padding:0}
+/* 오늘의전략&마감종합 */
+#datePrintArea{border-top:1px solid #E1E1E1;padding-top:10px;height:75px;_height:86px;background-repeat:no-repeat;background-position:left 10px}
+/* 많이본뉴스 */
+.hotNewsList{padding:5px 0 22px;_padding:9px 0 18px;border-top:1px solid #F0F0F0}
+.hotNewsList .newsList .block1{border-bottom:1px solid #F0F0F0;padding:10px 0 7px;_padding:6px 0 7px}
+.hotNewsList .simpleNewsList{margin:0;padding:0;_float:left}
+/* 현재 네이버뉴스 일자별 네비 */
+#contentarea .pagenavi_day{clear:both;margin:15px 0 47px;text-align:center;font-size:12px}
+#contentarea .pagenavi_day a:link,#contentarea .pagenavi_day a:visited,#contentarea .pagenavi_day a:active,#contentarea .pagenavi_day a:hover{color:#5E5E5E}
+#contentarea .pagenavi_day .viewday{color:#FF7635}
+#contentarea .pagenavi_day .devidebar{margin:0 2px;font-weight:bold;color:#5E5E5E}
+.innerGray .block{padding:6px;width:190px}
+.innerGray .moduleWhite{background:#FFF}
+.innerGray .module{width:182px;_width:190px;padding-left:8px;padding-top:4px}
+.innerGray .module00{padding-top:8px}
+.innerGray .module00 .title1{height:20px;_height:22px;overflow:hidden}
+.innerGray .module .title2{padding-left:0}
+.innerGray .module dd.list1{margin-left:0}
+.innerGray .module .thumb1 img{margin-left:0;margin-bottom:8px}
+.innerGray .module .summary1{padding:0 0 1px 0;text-align:left}
+.innerGray .module .summary1{padding:0 0 1px 0;text-align:center}
+.innerGray .module .title2{padding-top:6px;min-height:21px;_height:24px}
+.innerGray .module02{padding-bottom:7px}
+.innerGray .module05{padding-bottom:3px}
+.innerGray .blockDivision{margin:0px 14px 0px;border-top:1px solid #E4E4E4;height:1px;font-size:1px;line-height:0em}
+/* 팝업 */
+.newsPopWrap{margin:0 6px 6px;text-align:left}
+.newsPopWrap .topLogo{padding:10px 0 7px 15px;font-size:1px;line-height:0em}
+.newsPopWrap .topLogo img{vertical-align:top}
+.newsPopWrap .newsCont{padding:9px 9px 19px 10px;border-top:1px solid #BABCC1;background:#ECEDF0}
+.newsPopWrap h1{padding-left:3px;color:#002663;font-size:14px;font-weight:bold;line-height:28px;letter-spacing:-0.1em}
+.newsPopWrap .articleInfo{height:19px;padding-left:3px}
+.newsPopWrap .playerArea{float:left;height:323px;overflow:hidden}
+.newsPopWrap .article{display:inline;float:left;width:220px;height:323px;margin-left:10px;background:url(https://ssl.pstatic.net/imgstock/images5/news/bg_pop_article.gif) no-repeat left bottom;overflow:hidden}
+.newsPopWrap .article textarea{width:210px;height:289px;margin:1px 0 4px 5px;padding:7px 5px 7px 7px;background:#FFF;color:#333;font-size:14px;line-height:20px}
+.newsPopWrap .label{padding:4px 0 0 0px;color:#FFF;font-size:12px;font-weight:bold;background:url(https://ssl.pstatic.net/imgstock/images5/news/bg_pop_article.gif) no-repeat left top}
+.newsPopWrap .label span{display:block;height:17px;_height:23px;padding:6px 0 0 0px;text-align:center}
+/* location */
+.loca_sec{position:relative;z-index:102}
+.btn_news{position:absolute;top:-37px;right:0}
+.loca_sec .btn_news{position:absolute;top:43px;right:0}
+.btn_news .font_setup{float:left;position:relative}
+.btn_news .font_setup button{border:0}
+.btn_news .button{float:left;font-size:0}
+.btn_news span{display:none}
+.btn_news .font{display:block;width:48px;height:25px;background:url(https://ssl.pstatic.net/static/nfinance/2015/news_fontsetup_txt.png) no-repeat;cursor:pointer}
+.btn_news .font_big{width:25px;height:25px;margin-left:-1px;background:url(https://ssl.pstatic.net/static/nfinance/2015/news_fontsetup_big.png) no-repeat;cursor:pointer}
+.btn_news .font_small{width:25px;height:25px;margin-left:-1px;background:url(https://ssl.pstatic.net/static/nfinance/2015/news_fontsetup_small.png) no-repeat;cursor:pointer}
+.btn_news .menu{float:left;position:relative;margin:5px 5px 0 0}
+.btn_news .menu a{float:left;padding:0 6px 0 7px;background:url(https://ssl.pstatic.net/static/nfinance/ico_bar2.gif) no-repeat;color:#666;font-size:11px;letter-spacing:-1px;cursor:pointer}
+.btn_news .menu a.first{background:none}
+.btn_news .menu img{vertical-align:top}
+.btn_news .print{display:inline-block;margin:0 2px 0 0;padding-left:8px;background:url(https://ssl.pstatic.net/static/nfinance/btn_news_print.gif) no-repeat 0 0;font-style:normal}
+.btn_news .print a{display:inline-block;padding-top:1px;background:none;color:#666}
+.font_setup .font_setup_txt{display:none;float:left;height:25px;padding-right:7px;font-size:11px;letter-spacing:-1px;color:#666;line-height:26px}
+.menu + .font_setup .font_setup_txt{margin-left:-5px}
+.menu + .font_setup .font_setup_txt .bar{display:inline-block;width:1px;height:14px;margin:0 6px 0 0;background:#eee;vertical-align:-3px}
+html[data-useragent*="Mac OS X"] .font_setup .font_setup_txt{display:block}
+html[data-useragent*="Mac OS X"] .font_setup .font{display:none}
+.btn_list{position:absolute;top:-19px;right:1px}
+.btn_news .menu a span{display:inline-block;margin-top:2px;background:url(https://ssl.pstatic.net/static/nfinance/ico_menu.gif) no-repeat}
+.btn_news .menu a.btn_menu1 span{padding-left:15px;background-position:0 -100px}
+.btn_news .menu a.btn_menu2 span{padding-left:10px;background-position:0 -149px}
+.layer_font{display:none;position:absolute;top:24px;left:0}
+.font_setup .layer_font .layer_content{width:94px;*width:96px}
+.layer_font .layer_content{overflow:hidden;position:relative;z-index:2;border:1px solid #d3d3d3;background:#fff;filter:progid:DXImageTransform.Microsoft.Shadow(color="#cccccc",Direction=135,Strength=1)}
+.layer_font .layer_content li{float:left;width:100%}
+.layer_font .layer_content li a{display:block;height:23px}
+.layer_font .layer_content li:first-child a{padding-top:4px}
+.layer_font .layer_content li:last-child a{padding-bottom:4px}
+.layer_font .layer_content li a:hover{background:#ecf0f6;text-decoration:none}
+.layer_font .layer_content li a:hover img{background:#ecf0f6}
+.layer_font .layer_content li{zoom:1}
+/* 기사하단 */
+#contentarea_left .article_footer{padding-bottom:18px}
+#contentarea_left .article_footer .menu_area{width:593px;height:41px;_height:43px;margin-bottom:37px;border:1px solid #e5e5e5;background-color:#fefefe;font-size:11px;letter-spacing:-1px}
+#contentarea_left .article_footer .menu_area .menu1{_display:inline;float:left;margin-left:20px;padding-top:15px}
+#contentarea_left .article_footer .menu_area .menu2{_display:inline;float:right;position:relative;margin-right:19px;padding-top:15px}
+#contentarea_left .article_footer .menu_area a{padding-top:1px;color:#606060}
+#contentarea_left .article_footer .menu_area a.btn_menu1{padding-left:13px;background:url(https://ssl.pstatic.net/static/nfinance/ico_menu.gif) no-repeat 0 1px}
+#contentarea_left .article_footer .menu_area a.btn_menu2{padding-left:15px;background:url(https://ssl.pstatic.net/static/nfinance/ico_menu.gif) no-repeat 0 -48px}
+#contentarea_left .article_footer .menu_area a.btn_menu3{padding-left:16px;background:url(https://ssl.pstatic.net/static/nfinance/ico_menu.gif) no-repeat 0 -99px}
+#contentarea_left .article_footer .menu_area a.btn_menu4{padding-left:12px;background:url(https://ssl.pstatic.net/static/nfinance/ico_menu.gif) no-repeat 0 -148px}
+#contentarea_left .article_footer .menu_area .bar{padding:0 5px 0 2px;color:#dedede}
+#contentarea_left .article_footer .section_headline{overflow:hidden;width:595px}
+#contentarea_left .article_footer .section_headline ul{width:595px;margin-top:-2px}
+#contentarea_left .article_footer .section_headline ul li{float:left;width:281px;_width:291px;margin-top:10px;padding-left:10px;background:url(https://ssl.pstatic.net/static/nfinance/bu_dot.gif) no-repeat 3px 5px}
+#contentarea_left .article_footer .section_headline ul li a{color:#333}
+#contentarea_left .article_footer .fund_list{margin-top:40px;padding-top:21px;border-top:1px solid #e5e5e5}
+#contentarea_left .article_footer .fund_list li{padding-left:42px;line-height:24px}
+#contentarea_left .article_footer .fund_list li.prev{background:url(https://ssl.pstatic.net/static/nfinance/txt_fund_list.gif) no-repeat 0 5px}
+#contentarea_left .article_footer .fund_list li.view{background:url(https://ssl.pstatic.net/static/nfinance/txt_fund_list.gif) no-repeat 0 -43px}
+#contentarea_left .article_footer .fund_list li.next{background:url(https://ssl.pstatic.net/static/nfinance/txt_fund_list.gif) no-repeat 0 -91px}
+#contentarea_left .article_footer .fund_list a{color:#333}
+#contentarea_left .article_footer .btn_list{position:absolute;top:19px;right:1px}
+#contentarea_left .rb_link{width:557px;margin-top:46px;text-align:right}
+#contentarea_left .rb_link a{padding-left:8px;background:url(https://ssl.pstatic.net/static/nfinance/img2/spr_bu.gif) no-repeat;color:#666;font-size:11px}
+#contentarea_left .rb_link a.back{background-position:1 -278px}
+#contentarea_left .rb_link a.top{background-position:0 -297px}
+#contentarea_left .rb_link span{margin:0 3px 0 2px;color:#dedede}
+#content .article_footer h3.h_headline2{margin:20px 0 3px 0;padding-top:20px;border-top:1px solid #ededed;background:none;font-size:12px;color:#000;letter-spacing:-1px;font-weight:bold;font-family:Dotum,'돋움',AppleSDGothicNeo,sans-serif}
+.h_headline{display:block;margin:20px 0 3px 0;padding-top:20px;border-top:1px solid #ededed;font-size:12px;color:#000;letter-spacing:-1px;font-weight:bold;font-family:Dotum,'돋움',AppleSDGothicNeo,sans-serif}
+.da_view{text-align:center}
+.notice_section{position:relative;width:680px;margin-top:20px;border-top:1px solid #dedede}
+/*
+.size1 .articletitle{font-size:12px !important;line-height:21px !important}
+.size2 .articletitle{font-size:13px !important;line-height:23px !important}
+.size3 .articletitle{font-size:15px !important;line-height:26px !important}
+.size4 .articletitle{font-size:17px !important;line-height:27px !important}
+.size5 .articletitle{font-size:19px !important;line-height:32px !important}
+*/
+.size1 .articleCont{font-size:12px;line-height:21px}
+.size2 .articleCont{font-size:13px;line-height:23px}
+.size3 .articleCont{font-size:15px;line-height:26px}
+.size4 .articleCont{font-size:17px;line-height:27px}
+.size5 .articleCont{font-size:19px;line-height:32px}
+/* 소셜플러그인 */
+.socialplugin_wrap{padding:24px 0 29px}
+.socialplugin_wrap .spi_default{text-align:center}
+.socialplugin_wrap .spi_default .spi_lst{display:inline-block;_display:inline;text-align:left}
+/* 공통댓글 영역 */
+.stock_cbox{clear:both;padding-bottom:15px}
+.body_cmt_end .article_header{margin-bottom:20px}
+.body_cmt_end .boardView{margin-bottom:0;padding-bottom:20px;border-bottom:none}
+.body_cmt_end .boardView .article_header{margin-bottom:0;border-bottom:1px solid #e0e0e0}
+.body_cmt_end .section_world .spot h2{margin-top:12px}
+/* 에러페이지 */
+.error{clear:both;height:339px;_height:341px;margin:20px 0;border:1px solid #eaeaea;text-align:center;font-size:12px}
+.error_msg{margin:102px 0 0 177px;text-align:left}
+.error_msg .error_explain{margin:7px 0 33px;font-family:'나눔고딕',NanumGothic,'돋움',Dotum,Helvetica,sans-serif;color:#666;line-height:1.5}
+.error_title{font-family:'나눔고딕',NanumGothic,'돋움',Dotum,Helvetica,sans-serif;font-size:20px;color:#555}
+.error_title strong{color:#03C75A}
+.error_msg a{padding:9px;border:1px solid #e3e3e3;color:#333 !important;margin-right:6px;text-decoration:none;font-family:'나눔고딕',NanumGothic,'돋움',Dotum,Helvetica,sans-serif;*zoom:1}
+.error_judgment{margin:98px 0 0 207px}
+.error_judgment .error_title{padding-bottom:31px;line-height:28px}
+#contentarea_left .error{margin:0 0 20px}
+#contentarea_left .error_msg{margin-left:114px}
+#contentarea_left .error_judgment{margin-left:144px}
+.inner_sub .error_msg{margin-left:157px}
+.inner_sub .error_judgment{margin-left:187px}
+/* 공매도 */
+.inner_sub .short_cont{margin-top:-17px;margin-bottom:-22px;*margin-bottom:0;padding-bottom:0}
+/* IPO */
+.type_7 .last .item_area .layer_wrap{top:auto;bottom:21px}
+.type_7 .item_area{position:relative;padding:7px 0 0 14px}
+.type_7 .item_area.on{z-index:10}
+.type_7 .item_area .lst_info{position:relative;z-index:1;width:522px}
+.type_7 .item_area .lst_info:after{display:block;overflow:hidden;clear:both;content:''}
+.type_7 .item_area .lst_info li{overflow:hidden;float:left;width:164px;height:16px;margin-right:10px;margin-top:7px;font-size:12px;color:#000;line-height:16px;letter-spacing:-1px}
+.type_7 .item_area .lst_info li.area_price,.type_7 .item_area .lst_info li.area_type,.type_7 .item_area .lst_info li.area_sup,.type_7 .item_area .lst_info li.area_private,.type_7 .item_area .lst_info li.area_list{text-overflow:ellipsis;white-space:nowrap}
+.type_7 .item_area .lst_info li .num{display:inline-block;*display:inline;*zoom:1;margin-top:-3px;font-family:Tahoma,Helvetica,Sans-serif;letter-spacing:0;vertical-align:middle;line-height:15px}
+.type_7 .item_area .lst_info li.area_state{overflow:visible}
+.type_7 .item_area .lst_info .tit{display:inline-block;*display:inline;*zoom:1;vertical-align:top;padding-right:4px;font-style:normal;font-family:Dotum,'돋움',Gulim,'굴림',AppleGothic,sans-serif;font-size:12px;color:#888;letter-spacing:-1px;line-height:16px}
+.type_7 .item_area .item_name{margin-bottom:5px;font-size:14px;line-height:17px;font-weight:bold;color:#000;letter-spacing:-1px}
+.type_7 .item_area .item_name .type{display:inline-block;*display:inline;*zoom:1;margin:-2px 3px 0 0;width:36px;height:15px;border:1px solid #000;font-size:11px;line-height:18px;color:#000;letter-spacing:-1px;vertical-align:top;font-weight:normal;text-align:center}
+.type_7 .item_area .ico_q_tip{display:inline-block;*display:inline;*zoom:1;position:relative;z-index:20;outline:none;width:14px;height:14px;margin:-1px 0 0 5px;border:0;background:transparent url(https://ssl.pstatic.net/static/nfinance/ico_tip.png) 0 0 no-repeat;color:transparent;vertical-align:middle;cursor:pointer}
+.type_7 .item_area .layer_wrap{display:none;position:absolute;left:-15px;z-index:20;top:50px;white-space:normal}
+.type_7 .item_area .layer{position:relative;background:#fff;border:1px solid #9e9e9e;width:345px;padding:25px 0}
+.type_7 .item_area .layer li{overflow:visible;position:relative;float:none;width:auto;height:auto;margin:15px 0 0 0;border-left:1px solid #dedede;font-size:12px;color:#878787;letter-spacing:-1px;line-height:17px}
+.type_7 .item_area .layer li.on{border-left:1px solid #03C75A}
+.type_7 .item_area .layer li.first{margin-top:0}
+.type_7 .item_area .layer_close{width:35px;height:35px;background:url(https://ssl.pstatic.net/static/nfinance/btn_layer_close.png) 0 0 no-repeat;position:absolute;right:1px;top:0}
+.type_7 .item_area .stat_step{overflow:hidden;padding:0 40px 0 69px;background:url(https://ssl.pstatic.net/static/nfinance/bg_line_dot2.gif) 69px 0 repeat-y}
+.type_7 .item_area .stat_step .tit{width:200px;padding:0 0 0 10px;font-size:15px;font-weight:bold;color:#000;line-height:17px;vertical-align:top}
+.type_7 .item_area .stat_step .txt{display:block;margin-top:5px;padding-left:10px;vertical-align:top}
+.type_7 .item_area .step{position:absolute;left:-55px;top:0;background:url(https://ssl.pstatic.net/static/nfinance/2019/02/27/sp_step.png) 0 0 no-repeat;width:49px;height:21px;vertical-align:top}
+.type_7 .item_area .step1{background-position:0 0}
+.type_7 .item_area .step2{background-position:0 -26px}
+.type_7 .item_area .step3{background-position:0 -52px}
+.type_7 .item_area .step4{background-position:0 -78px}
+.type_7 .item_area .on .step1{background-position:-54px 0}
+.type_7 .item_area .on .step2{background-position:-54px -26px}
+.type_7 .item_area .on .step3{background-position:-54px -52px}
+.type_7 .item_area .on .step4{background-position:-54px -78px}
+.type_7 .item_area .on .tit{color:#03C75A}
+.type_7 .lst_item{border-left:1px solid #efefef;overflow-y:auto;overflow-x:hidden;width:100%;height:96px;padding:15px 0 0 0}
+.type_7 .lst_item .lst{display:block;width:240px;margin-bottom:8px;padding:0 10px;text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;color:#000;letter-spacing:-1px}
+.type_7 .lst_item .lst:hover .txt{text-decoration:underline}
+.type_7 .lst_item .ico_area{display:inline-block;*display:inline;*zoom:1;width:21px;height:14px;margin-right:2px;vertical-align:-2px}
+.type_7 .lst_item .ico_pdf{background:url(https://ssl.pstatic.net/static/nfinance/ico_pdf.png) 0 0 no-repeat}
+.type_7 .lst_item .ico_video{background:url(https://ssl.pstatic.net/static/nfinance/ico_video.png) 0 0 no-repeat}
+.article_cont table{width:100%}
+.end_photo_org{position:relative;z-index:1;display:block;text-align:center;zoom:1}
+.end_photo_org:after{clear:both;display:block;content:''}
+.end_photo_org img{display:inline-block;*display:inline;margin-bottom:5px;vertical-align:middle}
+.end_photo_org .img_desc{display:block;padding-bottom:10px;color:#666;font-size:11px;font-family:'돋움',dotum}

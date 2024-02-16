@@ -1,0 +1,92 @@
+var MAX_LIST_NUM = 30;
+
+codeList_cookie = getCookie("naver_stock_codeList");
+codeList = codeList_cookie.split("|");
+
+function getCookie( name ) {
+	var nameOfCookie = name + "=";
+	var x = 0;
+	while ( x <= document.cookie.length )
+	{
+		var y = (x+nameOfCookie.length);
+		
+		if ( document.cookie.substring( x, y ) == nameOfCookie ) {
+			if ( (endOfCookie = document.cookie.indexOf( ";", y )) == -1 ) {
+				endOfCookie = document.cookie.length;
+			}
+			
+			return unescape( document.cookie.substring( y, endOfCookie ) );
+		}
+		
+		x = document.cookie.indexOf( " ", x ) + 1;
+		
+		if ( x == 0 ) {
+			break;
+		}
+	}
+	
+	return "";
+}
+
+function setCookie( name, value, expiredays, domain ) {
+	if(expiredays == 0) {
+		document.cookie = name + "=" + escape( value ) + "; path=/;"
+	} else {
+		var todayDate = new Date();
+		todayDate.setDate( todayDate.getDate() + expiredays );
+		document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + "; domain="+domain+";";
+	}
+}
+
+function addCode(code) {
+	var newCodeList = new Array;
+	newCodeList[0] = code;
+
+	for(i = 0, index=1; index < MAX_LIST_NUM && i < codeList.length; i++) {
+		if(code != "" + codeList[i]) {
+			newCodeList[index] = codeList[i];
+			index++;
+		}
+	}
+
+	codeList = newCodeList;
+	saveList();
+}
+
+function deleteCode(code) {
+	copyCodeList(code);
+	location.reload();
+}
+
+function deleteCodeFromRecent(targetCode, currentCode, type, page) {
+	copyCodeList(targetCode);
+	movePage(currentCode, type, page);
+}
+
+function copyCodeList(code) {
+	var newCodeList = new Array;
+
+	for(i = 0, index = 0; i < codeList.length && i <= MAX_LIST_NUM; i++) {
+		if(code != "" + codeList[i]) {
+			newCodeList[index] = codeList[i];
+			index++;
+		}
+	}
+
+	codeList = newCodeList;
+	saveList();
+}
+
+function saveList() {
+	codeList_cookie = "";
+	const itemCodeRegex = /^[0-9]{1}[0-9A-HJ-NP-TV-Z]{5}$/
+
+	for(i = 0; i < codeList.length; i++) {
+		tempCode = "" + codeList[i];
+		if(tempCode != "undefined" && tempCode.length > 0 && itemCodeRegex.test(tempCode)) {
+			codeList_cookie = codeList_cookie+codeList[i] + "|";
+		}
+	}
+
+	setCookie("naver_stock_codeList", codeList_cookie, 30, location.hostname);
+}
