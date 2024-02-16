@@ -1,0 +1,323 @@
+@charset "UTF-8";
+@font-face{font-family:'NanumSquare';font-weight:400;src:url(https://ssl.pstatic.net/static/nfinance/2019/02/22/font/NanumSquareR.eot);src:url(https://ssl.pstatic.net/static/nfinance/2019/02/22/font/NanumSquareR.eot?#iefix) format("embedded-opentype"),url(https://ssl.pstatic.net/static/nfinance/2019/02/22/font/NanumSquareR.woff2) format("woff2"),url(https://ssl.pstatic.net/static/nfinance/2019/02/22/font/NanumSquareR.woff) format("woff"),url(https://ssl.pstatic.net/static/nfinance/2019/02/22/font/NanumSquareR.ttf) format("truetype")}
+/* 기존 css 변경및추가 */
+h3.top_tlt{clear:both}
+h4.top_tlt{clear:both}
+h5.top_tlt{clear:both}
+h4.top_tlt img{margin:-2px 0 3px 0;position:relative}
+.submain_top_sise_graph2{position:relative;float:left;padding:11px 0 0 10px}
+.submain_top_sise_graph2 img{border:1px solid #d5d5d5}
+.box_type_m{clear:both}
+.box_top_sub .inner_area img{vertical-align:top}
+.tab_style_1{overflow:visible !important}
+.tab_style_1 .choice{height:18px !important;_height:31px !important}
+table.type_1 .dot{color:#999;font-size:12px}
+table.type_1 th.view_sbj{padding-right:15px}
+table.type_1 .view_sbj .sponsor{margin:0;padding:0;color:#999;font-size:10px;font-family:tahoma;font-weight:normal;background:none}
+table.type_1 .view_sbj .sponsor em.name{color:#464646;font-size:12px;font-family:dotum;background:none}
+table.type_2{clear:both}
+table.type_2 td.date{color:#999;font-size:10px;font-family:tahoma;text-align:center}
+table.type_2 td.date2 strong.on{color:#ff5300;font-weight:normal}
+table.type_2 td.time strong.on{color:#ff5300;font-weight:normal}
+table.type_2 td strong.on{color:#ff5300}
+table.type_r1 td.num3{padding-right:15px;text-align:right}
+.graph_type_1{background:none !important}
+.sub_tit_ticker dd a .num{letter-spacing:0}
+.sub_tit_ticker dd a{display:inherit !important;_display:block}
+/* snb */
+.snb{float:left;width:135px;padding:2px 2px 100px 2px}
+.snb img{vertical-align:top}
+.snb ul.nav li ul.sub{float:left;width:100%;padding-bottom:13px}
+.snb ul.nav li ul.sub li{padding:0;border:none}
+.snb ul.nav li ul.sub li a{padding:6px 0 6px 14px}
+.snb ul.nav1{width:131px;margin-top:1px;background:#fff}
+.snb ul.nav1 li{clear:both;_float:left;_width:131px;padding:14px 0 9px 0;border-top:1px solid #efefef}
+.snb ul.nav1 li.last-child{padding:14px 0 5px}
+.snb ul.nav1 li strong a{display:block;margin-top:-9px;padding-top:9px}
+.snb ul.nav1 li strong img{margin:0 0 9px 9px}
+.snb ul.nav1 li.first-child strong.other{margin:-9px 0 -9px 0}
+.snb ul.nav1 li strong.other{display:block;margin:-14px 0 -9px 0}
+.snb ul.nav1 li strong.other img{margin:0}
+.snb ul.nav1 li strong.other a{display:block;_display:inline-block;width:122px;_width:131px;height:23px;_height:31px;margin:0;padding:8px 0 0 9px}
+.snb ul.nav1 li ul.sub{clear:both;_display:inline;_width:100%;margin:0 0 0 13px;overflow:hidden}
+.snb ul.nav1 li ul.sub li{_display:inline;margin-left:3px;padding:0 0 4px 0;border:none}
+.snb ul.nav1 li ul.sub li.type1{clear:none;float:left;width:auto;margin-left:-1px;padding:0 4px 4px 4px;border:none;background:url(https://ssl.pstatic.net/imgstock/images5/bar_ddd.gif) no-repeat 0 3px}
+.snb ul.nav1 li ul.sub li.type2{clear:both;float:left;width:auto;margin-left:-1px;padding:0 4px 4px 4px}
+.snb .nav1_blank{display:block;width:131px;height:5px;font-size:0;background:#fff}
+.snb ul.link{margin:5px 0 0 3px}
+.snb ul.ad{margin:1px 0 0 3px}
+.snb ul.ad img{margin-top:4px}
+.snb .section_news{float:left;display:inline;margin:3px 1px;border:1px solid #dedede;background:#FFF}
+.snb .section_news p{border-bottom:1px solid #dedede}
+.snb .section_news h4.subtlt{width:111px;_width:127px;padding:12px 8px 3px 8px;border-bottom:1px solid #dedede;color:#124694;font-size:11px;letter-spacing:-1px}
+.snb .section_news h4.subtlt a{color:#124694}
+.snb .section_news .sub1{padding:9px 8px 5px}
+.snb .section_news .sub1 li{_width:100%;padding:5px 0 5px 0;line-height:16px;color:#333;word-break:break-all}
+.snb .section_news .sub1 li a{color:#333}
+.snb .section_news .sub1 li img.icoImg{margin:4px -1px 0 0;_margin-top:1px;vertical-align:top}
+/* 국내증시 SNB */
+.snb2 h2,.snb2 ul.nav1 li strong,.snb2 ul.nav1 li ul li a{display:inline-block;height:13px;background:url(https://ssl.pstatic.net/static/nfinance/2019/12/20/sp_snbmenu5_v9.png) no-repeat}
+.snb2 h2,.snb2 h2 a{display:inline-block;width:131px;height:33px}
+.snb2 h2.h_sise{margin-bottom:-1px;background-position:-149px 0}
+.snb2 h2.h_invest{margin-bottom:-1px;background-position:-150px -1080px}
+.snb2 h2.h_news{margin-bottom:-1px;background-position:-150px -1350px}
+.snb3 ul.nav1 li ul.sub li{_margin-bottom:1px;padding-bottom:0 !important}
+.snb2 ul.nav1 li{padding:0}
+.snb2 ul.nav1 li a{display:block;width:131px;padding:8px 0 7px 0;_padding-bottom:6px;cursor:pointer}
+.snb2 ul.nav1 li strong{display:inline-block;*display:inline;*zoom:1;width:122px;margin-left:9px}
+.snb2 ul.nav1 li strong.other2{height:13px}
+.snb2 ul.nav1 li.frst a{_padding-top:13px}
+.snb2 ul.nav1 li.last a{padding:15px 0 10px}
+.snb2 ul.nav1 li strong.lst_sise{margin:14px 0 9px 10px;background-position:0 -30px}
+.snb2 ul.nav1 li strong.lst_search{margin:16px 0 9px 10px;background-position:0 -60px}
+.snb2 ul.nav1 li strong.news_focus{margin:14px 0 9px 9px;background-position:0 -1530px}
+.snb2 ul.nav1 li strong.invest_info{margin:14px 0 9px 9px;background-position:0 -1650px}
+.snb2 ul.nav1 li strong.lst_prevent{margin:17px 0 8px 10px;background-position:0 0}
+.snb2 ul.nav1 li strong.lst_report{background-position:0 -90px}
+.snb2 ul.nav1 li strong.lst_short{background-position:0 -2124px}
+.snb2 ul.nav1 li.selected strong.lst_short{background-position:-151px -2124px}
+.snb2 ul.nav1 li strong.lst_in{width:27px;background-position:0 -1110px}
+.snb2 ul.nav1 li strong.lst_in2{background-position:0 -1140px}
+.snb2 ul.nav1 li strong.lst_in3{background-position:0 -1170px}
+.snb2 ul.nav1 li strong.lst_in4{background-position:0 -1200px}
+.snb2 ul.nav1 li strong.lst_in5{background-position:0 -1230px}
+.snb2 ul.nav1 li strong.lst_in6{background-position:0 -1260px}
+.snb2 ul.nav1 li strong.lst_in7{background-position:0 -1290px}
+.snb2 ul.nav1 li strong.lst_in8{background-position:0 -1320px}
+.snb2 ul.nav1 li strong.lst_in9{background-position:0 -1350px}
+.snb2 ul.nav1 li strong.lst_news{background-position:0 -1410px}
+.snb2 ul.nav1 li strong.lst_news2{background-position:0 -1440px}
+.snb2 ul.nav1 li strong.lst_news3{background-position:0 -1470px}
+.snb2 ul.nav1 li strong.lst_news4{background-position:0 -1500px}
+.snb2 ul.nav1 li strong.lst_news5{background-position:0 -1560px}
+.snb2 ul.nav1 li strong.lst_news6{background-position:0 -1590px}
+.snb2 ul.nav1 li strong.lst_news7{background-position:0 -1620px}
+.snb2 ul.nav1 li strong.lst_news8{background-position:0 -1680px}
+.snb2 ul.nav1 li strong.lst_news9{background-position:0 -1710px}
+.snb2 ul.nav1 li ul li a{overflow:hidden;height:17px;padding:0;vertical-align:top}
+.snb2 ul.nav1 li ul li.lst1_1 a{width:32px;background-position:0 -120px}
+.snb2 ul.nav1 li ul li.lst1_1 a.on{background-position:-150px -120px}
+.snb2 ul.nav1 li ul li.lst1_2 a{width:33px;background-position:0px -150px}
+.snb2 ul.nav1 li ul li.lst1_2 a.on{background-position:-152px -150px}
+.snb2 ul.nav1 li ul li.lst1_3 a{width:23px;background-position:0px -180px}
+.snb2 ul.nav1 li ul li.lst1_3 a.on{background-position:-150px -180px}
+.snb2 ul.nav1 li ul li.lst1_4 a{width:23px;background-position:0 -210px}
+.snb2 ul.nav1 li ul li.lst1_4 a.on{background-position:-150px -210px}
+.snb2 ul.nav1 li ul li.lst1_5 a{width:22px;background-position:-1px -240px}
+.snb2 ul.nav1 li ul li.lst1_5 a.on{background-position:-151px -240px}
+.snb2 ul.nav1 li ul li.lst1_6 a{width:33px;background-position:0 -270px}
+.snb2 ul.nav1 li ul li.lst1_6 a.on{background-position:-150px -270px}
+.snb2 ul.nav1 li ul li.lst1_7 a{width:33px;margin-right:30px;background-position:-1px -300px}
+.snb2 ul.nav1 li ul li.lst1_7 a.on{background-position:-151px -300px}
+.snb2 ul.nav1 li ul li.lst1_8 a{width:23px;background-position:0 -330px}
+.snb2 ul.nav1 li ul li.lst1_8 a.on{background-position:-150px -330px}
+.snb2 ul.nav1 li ul li.lst1_9 a{width:23px;background-position:-1px -360px}
+.snb2 ul.nav1 li ul li.lst1_9 a.on{background-position:-151px -360px}
+.snb2 ul.nav1 li ul li.lst1_10 a{width:23px;background-position:-1px -390px}
+.snb2 ul.nav1 li ul li.lst1_10 a.on{background-position:-152px -390px}
+.snb2 ul.nav1 li ul li.lst1_11 a{width:42px;background-position:0 -420px}
+.snb2 ul.nav1 li ul li.lst1_11 a.on{background-position:-150px -420px}
+.snb2 ul.nav1 li ul li.lst1_12 a{width:23px;background-position:-1px -450px}
+.snb2 ul.nav1 li ul li.lst1_12 a.on{background-position:-151px -450px}
+.snb2 ul.nav1 li ul li.lst1_13 a{width:24px;background-position:0px -480px}
+.snb2 ul.nav1 li ul li.lst1_13 a.on{background-position:-152px -480px}
+.snb2 ul.nav1 li ul li.lst1_14 a{width:23px;margin:0 50px 10px 0;background-position:0px -510px}
+.snb2 ul.nav1 li ul li.lst1_14 a.on{background-position:-151px -510px}
+.snb2 ul.nav1 li ul li.lst1_15 a{width:24px;margin-bottom:10px;background-position:1px -540px}
+.snb2 ul.nav1 li ul li.lst1_15 a.on{background-position:-150px -540px}
+.snb2 ul.nav1 li ul li.lst1_16 a{width:43px;margin-top:10px;background-position:0 -570px}
+.snb2 ul.nav1 li ul li.lst1_16 a.on{background-position:-150px -570px}
+.snb2 ul.nav1 li ul li.lst1_17 a{width:52px;background-position:0 -600px}
+.snb2 ul.nav1 li ul li.lst1_17 a.on{background-position:-150px -600px}
+.snb2 ul.nav1 li ul li.lst1_18 a{width:43px;background-position:-1px -630px}
+.snb2 ul.nav1 li ul li.lst1_18 a.on{background-position:-152px -630px}
+.snb2 ul.nav1 li ul li.lst1_19 a{width:81px;background-position:0 -660px}
+.snb2 ul.nav1 li ul li.lst1_19 a.on{background-position:-150px -660px}
+.snb2 ul.nav1 li ul li.lst1_20 a{width:44px;background-position:0 -690px}
+.snb2 ul.nav1 li ul li.lst1_20 a.on{background-position:-150px -690px}
+.snb2 ul.nav1 li ul li.lst1_21 a{width:44px;margin-top:10px;background-position:0 -720px}
+.snb2 ul.nav1 li ul li.lst1_21 a.on{background-position:-150px -720px}
+.snb2 ul.nav1 li ul li.lst1_22 a{width:62px;background-position:1px -750px}
+.snb2 ul.nav1 li ul li.lst1_22 a.on{background-position:-149px -750px}
+.snb2 ul.nav1 li ul li.lst1_23 a{width:82px;margin:11px 0 -1px;background-position:1px -781px}
+.snb2 ul.nav1 li ul li.lst1_23 a.on{background-position:-149px -781px}
+.snb2 ul.nav1 li ul li.lst1_24 a{width:54px;background-position:0 -810px}
+.snb2 ul.nav1 li ul li.lst1_24 a.on{background-position:-150px -810px}
+.snb2 ul.nav1 li ul li.lst1_25 a{width:41px;background-position:0 -2147px}
+.snb2 ul.nav1 li ul li.lst1_25 a.on{background-position:-151px -2147px}
+.snb2 ul.nav1 li ul li.lst1_26 a{width:50px;background-position:0 -870px}
+.snb2 ul.nav1 li ul li.lst1_26 a.on{background-position:-150px -870px}
+.snb2 ul.nav1 li ul li.lst1_27 a{width:24px;margin-bottom:8px;background-position:1px -901px}
+.snb2 ul.nav1 li ul li.lst1_27 a.on{background-position:-150px -901px}
+.snb2 ul.nav1 li ul li.lst1_28 a{width:62px;background-position:1px -1977px}
+.snb2 ul.nav1 li ul li.lst1_28 a.on{background-position:-150px -1977px}
+.snb2 ul.nav1 li ul li.lst1_29 a{width:60px;background-position:1px -2007px}
+.snb2 ul.nav1 li ul li.lst1_29 a.on{background-position:-150px -2007px}
+.snb2 ul.nav1 li ul li.lst1_30 a{width:33px;background-position:0px -2040px}
+.snb2 ul.nav1 li ul li.lst1_30 a.on{background-position:-152px -2040px}
+.snb2 ul.nav1 li ul li.lst1_31 a{width:33px;margin-right:15px;background-position:0px -2075px}
+.snb2 ul.nav1 li ul li.lst1_31 a.on{background-position:-150px -2075px}
+.snb ul.nav1 li ul.sub li.lst1_32{width:50px;background-position:0 13px}
+.snb2 ul.nav1 li ul li.lst1_32 a{margin-top:10px;width:23px;background-position:-209px -118px}
+.snb2 ul.nav1 li ul li.lst1_32 a.on{background-position:-239px -118px}
+.snb2 ul.nav1 li ul li.lst1_33 a{width:24px;background-position:2px -2098px}
+.snb2 ul.nav1 li ul li.lst1_33 a.on{background-position:-150px -2098px}
+.snb2 ul.nav1 li ul li.lst1_34.type1{background-position:0 2px}
+.snb2 ul.nav1 li ul li.lst1_34 a{width:24px;margin:0 50px 8px 0;background-position:1px -2172px}
+.snb2 ul.nav1 li ul li.lst1_34 a.on{background-position:-150px -2172px}
+.snb2 ul.nav1 li ul li.lst2_1 a{width:35px;background-position:-1px -930px}
+.snb2 ul.nav1 li ul li.lst2_1 a.on{background-position:-150px -930px}
+.snb2 ul.nav1 li ul li.lst2_2 a{width:53px;background-position:1px -960px}
+.snb2 ul.nav1 li ul li.lst2_2 a.on{background-position:-149px -960px}
+.snb2 ul.nav1 li ul li.lst2_3 a{width:52px;background-position:0 -990px}
+.snb2 ul.nav1 li ul li.lst2_3 a.on{background-position:-150px -990px}
+.snb2 ul.nav1 li ul li.lst2_4 a{width:43px;background-position:0px -1020px}
+.snb2 ul.nav1 li ul li.lst2_4 a.on{background-position:-151px -1020px}
+.snb2 ul.nav1 li ul li.lst2_5 a{width:64px;background-position:1px -1050px}
+.snb2 ul.nav1 li ul li.lst2_5 a.on{background-position:-149px -1050px}
+.snb2 ul.nav1 li ul li.lst3_1 a{width:75px;background-position:0 -1740px}
+.snb2 ul.nav1 li ul li.lst3_1 a.on{background-position:-150px -1740px}
+.snb2 ul.nav1 li ul li.lst3_2 a{width:75px;background-position:0 -1770px}
+.snb2 ul.nav1 li ul li.lst3_2 a.on{background-position:-150px -1770px}
+.snb2 ul.nav1 li ul li.lst3_3 a{width:75px;background-position:0 -1800px}
+.snb2 ul.nav1 li ul li.lst3_3 a.on{background-position:-150px -1800px}
+.snb2 ul.nav1 li ul li.lst3_4 a{width:75px;background-position:0 -1830px}
+.snb2 ul.nav1 li ul li.lst3_4 a.on{background-position:-150px -1830px}
+.snb2 ul.nav1 li ul li.lst3_5 a{width:75px;background-position:0 -1860px}
+.snb2 ul.nav1 li ul li.lst3_5 a.on{background-position:-150px -1860px}
+.snb2 ul.nav1 li ul li.lst3_6 a{width:75px;background-position:0 -1890px}
+.snb2 ul.nav1 li ul li.lst3_6 a.on{background-position:-150px -1890px}
+.snb2 ul.nav1 li ul li.lst3_7 a{width:75px;background-position:0 -1920px}
+.snb2 ul.nav1 li ul li.lst3_7 a.on{background-position:-150px -1920px}
+.snb2 ul.nav1 li ul li.lst3_8 a{width:75px;background-position:0 -1950px}
+.snb2 ul.nav1 li ul li.lst3_8 a.on{background-position:-150px -1950px}
+.snb2 ul.nav1 li ul.sub{padding-bottom:9px}
+.snb3 ul.nav1 li ul.sub{padding-bottom:10px}
+.snb3 ul.nav1 li ul.sub{padding-bottom:10px}
+.snb .ico_new{display:inline-block;*display:inline;*zoom:1;width:8px;height:8px;margin:2px 0 0 4px;background:url(https://ssl.pstatic.net/static/nfinance/2018/03/12/ico_new.png) 0 0 no-repeat;vertical-align:top}
+/* Footer */
+#footer{position:relative;clear:both;width:960px;padding:32px 0 36px;border-top:1px solid #bebfc1;text-align:center}
+.home #footer{border-top:3px solid #535663}
+#footer *{margin:0;padding:0;color:#444;font-family:'나눔고딕',nanumgothic,'돋움',dotum,gulim,AppleGothic,Sans-serif;font-size:12px;line-height:normal;list-style:none;font-style:normal}
+#footer ul{margin:0 0 10px}
+#footer ul li{display:inline;position:relative;padding:0 2px 0 7px;background:url(https://ssl.pstatic.net/static/common/footer/bu_bar.gif) 0 1px no-repeat;font-size:12px;white-space:nowrap}
+#footer ul li a:hover,#footer ul li a:hover strong{color:#438a01}
+#footer ul li.first{padding:0 4px 0 0;background:none}
+#footer .desc{margin-bottom:24px;color:#767678;font-size:11px;line-height:15px;font-family:'나눔고딕',nanumgothic,'돋움',dotum,gulim,AppleGothic,Sans-serif}
+#footer .desc + ul{margin-top:30px}
+#footer .desc .naver{font-weight:500;color:#767678}
+#footer .desc .desc_help{color:#7e7e7e;text-decoration:underline}
+#footer .logo{display:inline-block;vertical-align:middle}
+#footer .gomobile{clear:both;padding-top:50px}
+#footer .provider_layer{position:absolute;top:-158px;left:50%;margin-left:-135px;width:238px;*width:270px;padding:16px;text-align:left;border-radius:6px;border:1px solid rgba(0,0,0,0.15);background:#fff;z-index:100;-webkit-box-shadow:0 2px 4px 0 rgba(0,0,0,0.1);box-shadow:0 2px 4px 0 rgba(0,0,0,0.1)}
+#footer .provider_layer__tit{display:block;padding-bottom:10px;font-weight:700;color:#404048;font-size:14px;letter-spacing:-0.5px;line-height:20px}
+#footer .provider_layer__txt{font-weight:500;font-size:13px;line-height:18px;color:#767678;letter-spacing:-0.3px}
+#footer .provider_layer__txt strong{font-weight:700;font-size:13px;line-height:18px;color:#404048}
+#footer .provider_layer__info{margin-top:10px;padding-top:16px;border-top:1px solid #f3f5f7}
+#footer .provider_layer .button_close{position:absolute;top:0;right:0;padding:12px;background-color:transparent;border:0 none;cursor:pointer}
+#footer.footer_news .provider_layer{top:-88px}
+/* common */
+.updown_up{color:#d90400;font-size:11px;font-family:tahoma}
+.updown_up img{vertical-align:middle}
+.updown_up a:link,.updown_up a:visited,.updown_up a:active,.updown_up a:hover{color:#d90400}
+.updown_down{color:#005dde;font-size:11px;font-family:tahoma}
+.updown_down img{vertical-align:middle}
+.updown_down a:link,.updown_down a:visited,.updown_down a:active,.updown_down a:hover{color:#005dde}
+a.sort_up,a.sort_up:link,a.sort_up:visited,a.sort_up:active,a.sort_up:hover{display:inline-block;padding-right:8px !important;color:#666;background:url(https://ssl.pstatic.net/imgstock/images5/bu_arrow_up2.gif) no-repeat right 4px !important}
+a.sort_down,a.sort_down:link,a.sort_down:visited,a.sort_down:active,a.sort_down:hover{display:inline-block;padding-right:8px !important;color:#666;background:url(https://ssl.pstatic.net/imgstock/images5/bu_arrow_down2.gif) no-repeat right 4px !important}
+/* 페이지네비게이션 */
+/* box */
+.box_top_sub2 .rb{position:absolute;right:0;_right:-1px;bottom:0;width:100%;height:500px;background:url(https://ssl.pstatic.net/imgstock/images5/box_top_sub2.gif) no-repeat right bottom}
+.box_top_sub2 .lb{position:absolute;left:0;bottom:0;width:4px;height:500px;background:url(https://ssl.pstatic.net/imgstock/images5/box_top_sub2.gif) no-repeat left bottom}
+.box_top_sub2 .rt{position:absolute;right:0;_right:-1px;top:0;height:4px;width:100%;background:url(https://ssl.pstatic.net/imgstock/images5/box_top_sub2.gif) no-repeat right top}
+.box_top_sub2 .lt{position:absolute;left:0;top:0;height:4px;width:4px;background:url(https://ssl.pstatic.net/imgstock/images5/box_top_sub2.gif) no-repeat left top}
+.box_top_sub3 .rb{position:absolute;right:0;_right:-1px;bottom:0;width:100%;height:500px;background:url(https://ssl.pstatic.net/imgstock/images5/box_top_sub3.gif) no-repeat right bottom}
+.box_top_sub3 .lb{position:absolute;left:0;bottom:0;width:3px;height:500px;background:url(https://ssl.pstatic.net/imgstock/images5/box_top_sub3.gif) no-repeat left bottom}
+.box_top_sub3 .rt{position:absolute;right:0;_right:-1px;top:0;height:3px;width:100%;background:url(https://ssl.pstatic.net/imgstock/images5/box_top_sub3.gif) no-repeat right top}
+.box_top_sub3 .lt{position:absolute;left:0;top:0;height:3px;width:3px;background:url(https://ssl.pstatic.net/imgstock/images5/box_top_sub3.gif) no-repeat left top}
+.box_type_4 .updown_up img{margin-right:-1px;vertical-align:middle}
+.box_type_4 .updown_down img{margin-right:-1px;vertical-align:middle}
+.box_type_5 .sub_location_inner{width:581px;_width:595px;height:20px;_height:31px;padding:11px 0 0 14px;color:#a2a2a2;font-size:11px}
+.box_type_5 .sub_location_inner a{color:#666}
+.box_type_5 .term{position:relative;_display:inline;float:left;width:201px;height:171px;margin:23px 0 0 24px}
+.box_type_5 .term li{float:left;margin-right:-1px}
+.box_type_5 .term li a{display:block;float:left;width:51px;height:16px;_height:23px;padding-top:7px;background:url(https://ssl.pstatic.net/imgstock/images5/bg_term_tab.gif) no-repeat left top;color:#999;font-size:11px;text-align:center;text-decoration:none;overflow:hidden}
+.box_type_5 .term li.on a{background:url(https://ssl.pstatic.net/imgstock/images5/bg_term_tab.gif) no-repeat left -23px;color:#ff5300;font-weight:bold}
+.box_type_5 .term li .graph{display:none;position:absolute;top:35px;left:0}
+.box_type_5 .term li.on .graph{display:block;clear:both}
+/* 리스트 타입 */
+/* 현재시간 */
+/* 안내문구 */
+/* 숨겨진 텍스트 */
+/* 버튼 영역 */
+.btn_area{clear:both;position:relative;padding-top:15px}
+.btn_area .Nnavi{margin-top:0}
+/* 서브메인 */
+.roll_markets table.markets td .updown_up,.roll_markets table.markets td .updown_down,.roll_markets table.markets td .updown_steady{float:left;margin-top:4px;padding-right:14px;line-height:13px;white-space:nowrap}
+.roll_markets .roll_btn{position:absolute;top:3px;right:3px}
+.roll_markets .roll_btn img{margin-bottom:3px;vertical-align:top}
+h4.subtlt_world{clear:both;position:relative;padding:0 0 6px 5px;font-size:11px;border-bottom:2px solid #d5d5d5}
+h4.subtlt_world img{vertical-align:top}
+.article{float:left;width:310px;margin-top:23px}
+.article h4 .more{position:absolute;top:1px;right:3px;color:#999;font-size:11px;letter-spacing:-1px;font-weight:normal;background:url(https://ssl.pstatic.net/imgstock/images5/news/ico_arrow_04.gif) no-repeat 0 2px}
+.article h4 .more a{padding-left:5px;color:#999}
+.article ul.list{margin:15px 0 6px 10px}
+.article ul.list li{width:280px;padding-bottom:7px;color:#002663;vertical-align:top}
+.article ul.list li a{color:#002663}
+.article ul.list li a:hover{color:#002663}
+/* 증시현황_시황전략 */
+/* 증시현황_시황전략_리스트 */
+/* 미국증시 */
+/* 외환·금융시장 */
+.list_chart table td em.date{position:absolute;top:0;right:1px;color:#aaa;font-size:10px;font-family:tahoma;font-style:normal;font-weight:normal;vertical-align:top}
+.list_chart table td em.date img{vertical-align:middle}
+.list_chart table td .data_updown{margin-top:-2px;overflow:hidden}
+.list_chart table td .data_updown .total{float:left}
+.list_chart table td .data_updown .total .updown_up{font-size:15px;font-family:arial;font-weight:bold}
+.list_chart table td .data_updown .total .updown_down{font-size:15px;font-family:arial;font-weight:bold}
+.list_chart table td .data_updown .total .updown_steady{color:#585858;font-size:15px;font-family:arial;font-weight:bold}
+.list_chart table td .data_updown .total img{vertical-atdgn:bottom}
+.list_chart table td .data_updown .total_detail{float:right;padding-top:3px;text-atdgn:right}
+.list_chart table td .data_updown img{margin-left:3px}
+.list_chart table td .data_graph{clear:both;width:100%;padding-top:12px}
+.list_chart table td .data_graph img{vertical-align:top}
+/* 투자가이드 */
+.stock_day{margin:9px 0 11px 0;text-align:center}
+.stock_day img{margin-left:2px;vertical-align:middle}
+.stock_day img.year{margin:0 1px 0 3px;vertical-align:middle}
+.stock_day img.month{margin:0 1px 0 1px;vertical-align:middle}
+.stock_day a.btn{display:inline-block;padding:2px;margin-top:1px;vertical-align:middle}
+.stock_day a.btn img{margin:0 1px;vertical-align:middle}
+/* 팝업_차트전광판 */
+#wrap_chart{width:738px;background:#d8dcde;text-align:left}
+#wrap_chart #header_chart{height:39px}
+#wrap_chart #header_chart h1{float:left;margin:0;padding:0}
+#wrap_chart #header_chart h1 img{margin:16px 0 0 16px;vertical-align:top}
+#wrap_chart #header_chart ul.choice_date{float:left;margin:14px 0 0 13px}
+#wrap_chart #header_chart ul.choice_date li{float:left;color:#464646}
+#wrap_chart #header_chart ul.choice_date li label{padding-right:5px;color:#464646}
+#container_chart{clear:both}
+#container_chart ul.content{width:723px;margin:0 0 0 10px;overflow:hidden}
+#container_chart ul.content li{position:relative;float:left;width:235px;_width:237px;height:229px;_height:231px;margin:0 4px 4px 0;border:1px solid #cfd5d9;background:#fff}
+#container_chart ul.content li h2{padding:20px 95px 0 18px;color:#222;font-size:14px}
+#container_chart ul.content li em.date{position:absolute;top:23px;right:21px;color:#aaa;font-size:10px;font-family:tahoma;font-style:normal}
+#container_chart ul.content li em.date span{font-size:10px;font-family:dotum}
+#container_chart ul.content li .data_updown{width:195px;margin:0 0 0 20px}
+#container_chart ul.content li .data_updown .total{float:left}
+#container_chart ul.content li .data_updown .total .updown_up{font-size:16px;font-family:arial}
+#container_chart ul.content li .data_updown .total .updown_down{font-size:16px;font-family:arial}
+#container_chart ul.content li .data_updown .total .updown_steady{color:#585858;font-size:16px;font-family:arial}
+#container_chart ul.content li .data_updown .total img{vertical-align:bottom}
+#container_chart ul.content li .data_updown .total_detail{float:right;padding-top:3px;text-align:right}
+#container_chart ul.content li .data_graph{clear:both;margin:13px 0 0 16px}
+#container_chart ul.content li .data_graph img{vertical-align:top}
+/* 기업 전자공시 */
+.section_company{overflow:hidden;width:810px}
+.section_company .section_board{margin-top:6px}
+/* 금융뉴스 */
+.news_text .article{float:none;width:100%}
+.full_size{width:100%}
+.full_size .sub595t{width:100%}
+.common_btn{padding-top:0;font-size:12px;color:#666}
+.common_btn .sise_guide_txt{float:left}
+.common_btn .more_group{float:right;color:#124694;text-decoration:underline}
