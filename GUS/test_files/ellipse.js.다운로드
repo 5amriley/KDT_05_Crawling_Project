@@ -1,0 +1,403 @@
+/**
+	 * @fileOverview 컴포넌트에 상속되어 사용되는 Component Core
+	 * @author gony, hooriza, senxation
+	 * @see http://wiki.nhncorp.com/display/lsuit/nhn.Component
+	 * @version 0.3.1
+	 */
+
+jindo.Component = jindo.$Class({
+	/** @lends jindo.Component */
+
+	_htEventHandler : null,
+	_oOption : null,
+
+	/**
+	 * 모든 진도 컴포넌트는 jindo.Component를 상속받아 구현한다.
+	 * 
+	 * @class 다른 컴포넌트가 상속해 사용하는 Jindo Component의 Core
+	 * @constructs
+	 */
+	$init  : function() {
+		var aInstance = this.constructor.getInstance();
+		aInstance.push(this);
+		this._htEventHandler = {};
+		this._oOption = {};
+		this._oOption._oSetter = {};
+	},
+	
+	/**
+	 * 옵션값을 설정하거나 가져온다.
+	 * 
+	 * @param {String}
+	 *            sName 옵션의 이름
+	 * @param {String}
+	 *            sValue 옵션의 값
+	 * @return {this} 컴포넌트 객체 자신
+	 * @example var MyComponent = $Class({ method : function() {
+	 *          alert(this._option.foo); } }).extend(jindo.Component);
+	 * 
+	 * var oInst = new MyComponent(); oInst.option('foo', 123); // 또는
+	 * oInst.option({ foo : 123 }); oInst.method(); // 결과 123
+	 */
+	option : function(sName, vValue) {
+		var sNameType = (typeof sName);
+
+		if (sNameType == "undefined") {
+			return this._oOption;
+		} else if (sNameType == "string") {
+			if (typeof vValue != "undefined") {
+				this._oOption[sName] = vValue;
+				if (typeof this._oOption._oSetter[sName] == "function") {
+					this._oOption._oSetter[sName](vValue);	
+				}
+				return this;
+			} else {
+				return this._oOption[sName];
+			}
+		} else if (sNameType == "object") {
+			for(var x in sName) {
+				this._oOption[x] = sName[x];
+				if (typeof this._oOption._oSetter[x] == "function") {
+					this._oOption._oSetter[x](sName[x]);	
+				}
+			}
+			return this;
+		}
+	},
+	
+	/**
+	 * 옵션의 setter 함수를 설정하거나 가져온다.
+	 * 
+	 * @param {String}
+	 *            sName setter의 이름
+	 * @param {Function}
+	 *            fSetter setter 함수
+	 * @return {this} 컴포넌트 객체 자신
+	 */
+	optionSetter : function(sName, fSetter) {
+		var sNameType = (typeof sName);
+		if (sNameType == "undefined") {
+			return this._oOption._oSetter;
+		} else if (sNameType == "string") {
+			if (typeof fSetter != "undefined") {
+				this._oOption._oSetter[sName] = jindo.$Fn(fSetter, this).bind();
+				return this;
+			} else {
+				return this._oOption._oSetter[sName];
+			}
+		} else if (sNameType == "object") {
+			for(var x in sName) {
+				this._oOption._oSetter[x] = jindo.$Fn(sName[x], this).bind();
+			}
+			return this;
+		}		
+	},
+	
+	/**
+	 * 이벤트를 발생시킨다.
+	 * 
+	 * @param {Object}
+	 *            sEvent 커스텀이벤트명
+	 * @param {Object}
+	 *            oEvent 커스텀이벤트 핸들러에 전달되는 객체.
+	 * @return {Boolean} 핸들러의 커스텀이벤트객체에서 stop메소드가 수행되면 false를 리턴
+	 * @example //커스텀 이벤트를 발생시키는 예제 var MyComponent = $Class({ method :
+	 *          function() { this.fireEvent('happened', { sHello : 'world', sAbc :
+	 *          '123' }); } }).extend(jindo.Component);
+	 * 
+	 * var oInst = new MyComponent().attach({ happened : function(oCustomEvent) {
+	 * alert(eCustomEvent.sHello + '/' + oCustomEvent.nAbc); // 결과 : world/123 } };
+	 * 
+	 * <button onclick="oInst.method(event);">Click me</button>
+	 */
+	fireEvent : function(sEvent, oEvent) {
+		var oEvent = oEvent || {};
+		var fInlineHandler = this['on' + sEvent];
+		var aHandlerList = this._htEventHandler[sEvent] || [];
+		var bHasInlineHandler = typeof fInlineHandler == 'function';
+		var bHasHandlerList = aHandlerList.length;
+		if (!bHasInlineHandler && !bHasHandlerList){
+			return true;
+		}
+		
+		aHandlerList = aHandlerList.concat(); // fireEvent수행시 핸들러 내부에서
+												// detach되어도 최초수행시의 핸들러리스트는 모두
+												// 수행
+		
+		oEvent.sType = sEvent;
+		if (typeof oEvent._aExtend == 'undefined') {
+			oEvent._aExtend = [];
+			oEvent.stop = function(){
+				if (oEvent._aExtend.length > 0) {
+					oEvent._aExtend[oEvent._aExtend.length - 1].bCanceled = true;
+				}
+			}
+		}
+		oEvent._aExtend.push({
+			sType: sEvent,
+			bCanceled: false
+		});
+		
+		var aArg = [ oEvent ];
+	
+		for (var i = 2, nLen = arguments.length; i < nLen; i++){
+			aArg.push(arguments[i]);
+		}
+		
+		if (bHasInlineHandler) {
+			fInlineHandler.apply(this, aArg);
+		}
+	
+		if (bHasHandlerList) {
+			for (var i = 0, fHandler; fHandler = aHandlerList[i]; i++) {
+				fHandler.apply(this, aArg);
+			}
+		}
+		var oPopedEvent = oEvent._aExtend.pop();
+		return !oPopedEvent.bCanceled;
+	},
+
+	/**
+	 * 커스텀 이벤트 핸들러를 등록한다.
+	 * 
+	 * @param {Object}
+	 *            sEvent
+	 * @param {Object}
+	 *            fHandlerToAttach
+	 * @return {this} 컴포넌트 객체 자신
+	 * @example //이벤트 등록 방법 예제 //아래처럼 등록하면 appear 라는 사용자 이벤트 핸들러는 총 3개가 등록되어 해당
+	 *          이벤트를 발생시키면 각각의 핸들러 함수가 모두 실행됨. //attach 을 통해 등록할때는 이벤트명에 'on' 이
+	 *          빠지는 것에 유의. function fpHandler1(oEvent) { .... }; function
+	 *          fpHandler2(oEvent) { .... };
+	 * 
+	 * var oInst = new MyComponent(); oInst.onappear = fpHandler1; // 직접 등록
+	 * oInst.attach('appear', fpHandler1); // attach 함수를 통해 등록 oInst.attach({
+	 * appear : fpHandler1, more : fpHandler2 });
+	 */
+	attach : function(sEvent, fHandlerToAttach) {
+
+		if (arguments.length == 1) {
+
+			jindo.$H(arguments[0]).forEach(jindo.$Fn(function(fHandler, sEvent) {
+				this.attach(sEvent, fHandler);
+			}, this).bind());
+		
+			return this;
+		}
+
+		var aHandler = this._htEventHandler[sEvent];
+
+		if (typeof aHandler == 'undefined'){
+			aHandler = this._htEventHandler[sEvent] = [];
+		}
+
+		aHandler.push(fHandlerToAttach);
+
+		return this;
+
+	},
+	
+	/**
+	 * 커스텀 이벤트 핸들러를 해제한다.
+	 * 
+	 * @param {Object}
+	 *            sEvent
+	 * @param {Object}
+	 *            fHandlerToDetach
+	 * @return {this} 컴포넌트 객체 자신
+	 * @example //이벤트 해제 예제 oInst.onappear = null; // 직접 해제
+	 *          oInst.detach('appear', fpHandler1); // detach 함수를 통해 해제
+	 *          oInst.detach({ appear : fpHandler1, more : fpHandler2 });
+	 */
+	detach : function(sEvent, fHandlerToDetach) {
+
+		if (arguments.length == 1) {
+
+			jindo.$H(arguments[0]).forEach(jindo.$Fn(function(fHandler, sEvent) {
+				this.detach(sEvent, fHandler);
+			}, this).bind());
+		
+			return this;
+		}
+
+		var aHandler = this._htEventHandler[sEvent];
+
+		if (typeof aHandler == 'undefined') return this;
+
+		for (var i = 0, fHandler; fHandler = aHandler[i]; i++) {
+			if (fHandler === fHandlerToDetach) {
+				aHandler = aHandler.splice(i, 1);
+				break;
+			}
+		}
+
+		return this;
+
+	},
+	
+	/**
+	 * 등록된 모든 커스텀 이벤트 핸들러를 해제한다.
+	 * 
+	 * @param {Object}
+	 *            sEvent
+	 * @return {this} 컴포넌트 객체 자신
+	 */
+	detachAll : function(sEvent) {
+		var aHandler = this._htEventHandler;
+		
+		if (arguments.length) {
+			
+			if (typeof aHandler[sEvent] == 'undefined') {
+				return this;
+			}
+	
+			delete aHandler[sEvent];
+	
+			return this;
+		}	
+		
+		for (var o in aHandler) {
+			delete aHandler[o];
+		}
+		return this;				
+	}
+
+});
+/**
+ * 다수의 컴포넌트를 일괄 생성하는 Static Method
+ * 
+ * @param {Object}
+ *            aObject
+ * @param {Object}
+ *            oOption
+ * @return {Array} 생성된 컴포넌트 객체 배열
+ * @example var Instance = jindo.Component.factory( cssquery('li'), { foo : 123,
+ *          bar : 456 } );
+ */
+jindo.Component.factory = function(aObject, oOption) {
+	var aReturn = [];
+
+	if (typeof oOption == "undefined") {
+		oOption = {};
+	}
+	for(var i=0; i < aObject.length; i++) {
+		oInstance = new this(aObject[i], oOption);
+		aReturn[aReturn.length] = oInstance;
+	}
+
+	return aReturn;
+};
+
+/**
+ * 컴포넌트의 생성된 인스턴스를 리턴한다.
+ * 
+ * @return {Array} 생성된 인스턴스에 배열
+ */
+jindo.Component.getInstance = function(){
+	if (typeof this._aInstance == "undefined") {
+		this._aInstance = [];
+	}
+	return this._aInstance;
+};
+
+
+
+jindo.EllipseText = jindo.$Class({
+	
+$init : function(el, htOption) {
+	var htDefaultOption = {
+		nAssistWidth : 0,
+		nContainerWidth : 0,
+		sTextElementQuery : "A",
+		sTextTail : "..."
+	}
+
+	this.option(htDefaultOption);
+	this.option(htOption || {});
+
+	this._elBaseTarget = jindo.$Element(el);
+
+	this._setElement();
+	this.ellipse();
+},
+
+_setElement : function() {
+	var elBaseElement = this._elBaseTarget;
+	var elTextElement = jindo.$$.getSingle(this.option("sTextElementQuery"), elBaseElement.$value());
+	var sTextElementQuery = this.option("sTextElementQuery");
+
+	var aElseElements = [];
+
+	jindo.$A(elBaseElement.child()).forEach(function(item) {
+		if (item.$value().nodeName == sTextElementQuery) {
+		} else {
+			aElseElements.push(jindo.$Element(item));
+		}
+	});
+
+	this._elTextElement = jindo.$Element(elTextElement);
+	this._elElseElements = jindo.$A(aElseElements);
+
+},
+
+_getContainerWidth : function() {
+	var nContainerWidth = this.option("nContainerWidth");
+
+	if (nContainerWidth <= 0) {
+		return this._elBaseTarget.width();
+	} else {
+		return nContainerWidth;
+	}
+},
+
+_getInnerElementWidthSum : function() {
+	var nSum = 0;
+
+	this._elElseElements.forEach(function(item) {
+		nSum += item.width();
+	});
+
+	return nSum;
+},
+
+_getText : function() {
+	return jindo.$S(this._elTextElement.text()).trim().$value();
+},
+
+ellipse : function() {
+	var nCompareWidth = this._getContainerWidth() - this._getInnerElementWidthSum() - this.option("nAssistWidth");
+	
+	var sOriginalText = this._getText();
+	var nOriginalTextLength = sOriginalText.length;
+	var nCurrentHeight = this._elTextElement.height();
+	var nCurrentWidth = this._elTextElement.width();
+	
+	var i = 0;
+	
+	var nBaseHeight = this._elTextElement.text('A').height();
+	
+	var sTextTail = this.option("sTextTail");
+	
+	if(nCurrentHeight < nBaseHeight * 1.5 && nCurrentWidth < nCompareWidth) {
+		this._elTextElement.text(sOriginalText);
+		return;
+	}
+	
+	nCurrentHeight = nBaseHeight;
+	nCurrentWidth = this._elTextElement.width();
+	
+	while(nCurrentHeight < nBaseHeight * 1.5 && nCurrentWidth < nCompareWidth && i < nOriginalTextLength + 1) {
+		i += Math.max(Math.ceil((nOriginalTextLength - i) / 2), 1);
+		nCurrentHeight = this._elTextElement.text(sOriginalText.substring(0, i) + sTextTail).height();
+		nCurrentWidth = this._elTextElement.width();
+	}
+	
+	while(nCurrentHeight > nBaseHeight * 1.5 || nCurrentWidth > nCompareWidth && i >= 0) {
+		i--;
+		nCurrentHeight = this._elTextElement.text(sOriginalText.substring(0, i) + sTextTail).height();
+		nCurrentWidth = this._elTextElement.width();
+	}
+	
+}
+
+}).extend(jindo.Component);

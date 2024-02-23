@@ -1,0 +1,240 @@
+var requestType = "recent";
+var requestCode;
+var requestPage;
+var itemInfo = jindo.$H();
+
+function updatePage(url, type) {
+	var ajax = new jindo.$Ajax(url, {
+		onload : loadRecentInnerHtml
+	});
+	ajax.request();
+}
+
+function loadRecentInnerHtml(res) {
+	var tableDivObj = jindo.$("recent_area");
+	var buttonDivObj = jindo.$("recent_button");
+	var templateTable;
+	var templateButton;
+	
+	var data = res.json();
+	
+	if (data.type == "recent") {
+		if (data.item_list.length == 0) {
+			templateTable = jindo.$Template("recent_list_none");
+			tableDivObj.innerHTML = templateTable.process(data);
+		} else {
+			templateTable = jindo.$Template("recent_list_exist");
+			renderRecentArea("recent", data);
+		}
+	} else {
+		if (data.login == "true") {
+			if (data.item_list.length == 0) {
+				templateTable = jindo.$Template("mystock_list_none");
+				tableDivObj.innerHTML = templateTable.process(data);
+			} else {
+				templateTable = jindo.$Template("recent_list_exist");
+				renderRecentArea("mystock", data);
+			}
+		} else {
+			templateTable = jindo.$Template("mystock_logout");
+			tableDivObj.innerHTML = templateTable.process(data);
+		}
+	}
+	
+	templateButton = jindo.$Template("recent_btn_tmpl");
+	buttonDivObj.innerHTML = templateButton.process(data);
+
+	clearTimer();	
+	doPolling();
+}
+
+/**
+ * 종목엔드 페이지의 최근검색&MYSTOCK 영역 렌더링 하는 함수입니다.
+ * 페이지 로딩시 처음 한번만 호출됩니다. 
+ * 이후 renderRecentAreaRealtime를 호출하여 실시간 시세 데이터를 업데이트 하게됩니다.
+ * 
+ * @param type
+ * @param data
+ */
+function renderRecentArea(type, data) {
+	var tableData;
+	var itemList = jindo.$A(data.item_list);	
+	var listNclicksId;
+	
+	if (type == "recent") {
+		listNclicksId="rch.2";
+	} else {
+		listNclicksId="rch.4"
+	}
+	var oTabList = jindo.$$.getSingle("#recent_area");
+	jindo.$Element(oTabList).empty();
+
+	if (type == "recent") {
+		tableData = '<table class="con_search1"><colgroup><col><col width="50"><col width="72"></colgroup>';
+	} else {
+		tableData = '<table class="con_search2"><colgroup><col><col width="60"><col width="60"></colgroup>';
+	}
+
+	tableData += '<thead><tr><th>업체명</th><th scope="col">거래량</th><th scope="col">전일비</th></tr></thead>';
+
+	itemcodes = "";
+	itemInfo.empty();
+	itemList.forEach(function(item, index, value) {
+		if (index != 0) {
+			itemcodes += ",";
+		}
+		itemcodes += item.itemcode;
+		itemInfo.$(item.itemcode, item.itemname);
+		
+		if (index == 5 || index == 10) {
+			tableData += '<tr><td colspan="3" class="line"></td></tr>';		
+		}
+		
+		tableData += '<tr><th scope="row">';
+		tableData += '<a href="/item/main.naver?code=' + item.itemcode + '" onClick="clickcr(this, \'' + listNclicksId + '\', \'' + item.itemcode + '\', \'' + Number(index + 1) + '\', event);" target=_top>' + item.itemname + '</a>';
+		tableData += '</th><td id="nowVal_td_' + index + '">' + item.now_val + '</td><td>';
+		
+		if (item.risefall == '1') {
+			tableData += '<em class="f_up up_arrow" id="changeVal_em_' + index + '"><span id="changeVal_span_' + index + '">상한가</span>' + item.change_val + '</em>';	
+		} else if (item.risefall == '2') {
+			tableData += '<em class="f_up up" id="changeVal_em_' + index + '"><span id="changeVal_span_' + index + '">상향</span>' + item.change_val + '</em>';
+		} else if (item.risefall == '4') {
+			tableData += '<em class="f_down down_arrow" id="changeVal_em_' + index + '"><span id="changeVal_span_' + index + '">하한가</span>' + item.change_val + '</em>';
+		} else if (item.risefall == '5') {
+			tableData += '<em class="f_down down" id="changeVal_em_' + index + '"><span id="changeVal_span_' + index + '">하향</span>' + item.change_val + '</em>';
+		} else {
+			tableData += '<em class="sam" id="changeVal_em_' + index + '"><span id="changeVal_span_' + index + '">보합</span></em>';
+		}
+		
+		if (type == "recent") {
+			tableData += '<a href="javascript:deleteCodeFromRecent(\'' + item.itemcode + '\', \'' + requestCode + '\', \'' + requestType + '\', \'' + requestPage + '\')">';
+			tableData += '<img src="https://ssl.pstatic.net/imgstock/item_renewal/btn_delete.gif" alt="삭제" width="11" height="11"></a>';
+		}
+		tableData += '</td></tr>';
+	});
+	tableData += '</table>';
+	
+	oTabList.innerHTML = tableData;
+}
+
+/**
+ * 웹 접근성 스펙에 맞추는 과정중 탭버튼을 통해 화면을 이동하는 과정에서
+ * 포커스를 잃어버리고 화면 상단으로 포커스가 이동되는 이슈가 있어서
+ * 기존에 renderRecentArea 처럼 테이블 마크업 전체를 새로 렌더링 하는 구조에서
+ * 실시간 시세 정보 업데이트가 필요한 부분만 부분적으로 업데이트 시키는 구조로 변경하였습니다.
+ * 이후에는 포커스를 잃어버리는 현상을 해소되었습니다.
+ * http://bts1.nhncorp.com/nhnbts/browse/STOCKSUS-4516
+ * 
+ * 
+ * @param type
+ * @param data
+ */
+function renderRecentAreaRealtime(type, data) {
+	var itemList = jindo.$A(data.datas);	
+	
+	itemList.forEach(function(item, index, value) {
+		var oNowValTd = jindo.$$.getSingle("#nowVal_td_" + index);
+		var nowValTdData = changeNumberFormat(item.nv);
+		jindo.$Element(oNowValTd).text(nowValTdData);
+		
+		var oChangeValEm = jindo.$$.getSingle("#changeVal_em_" + index);
+		var changeValEmData = "";
+		var changeValEmClassName = "";
+		
+		if (item.rf == '1') {
+			changeValEmData = changeNumberFormat(item.cv);
+			changeValEmClassName = "f_up up_arrow";
+		} else if (item.rf == '2') {
+			changeValEmData = changeNumberFormat(item.cv);
+			changeValEmClassName = "f_up up";
+		} else if (item.rf == '4') {
+			changeValEmData = changeNumberFormat(item.cv);
+			changeValEmClassName = "f_down down_arrow";
+		} else if (item.rf == '5') {
+			changeValEmData = changeNumberFormat(item.cv);
+			changeValEmClassName = "f_down down";
+		} else {
+			changeValEmClassName = "sam";
+		}
+		
+		jindo.$Element(oChangeValEm).text(changeValEmData);
+		
+		var oldClassName = jindo.$Element(oChangeValEm).className();
+		jindo.$Element(oChangeValEm).removeClass(oldClassName);
+		jindo.$Element(oChangeValEm).addClass(changeValEmClassName);
+
+	});
+}
+
+function showArea(tabId, tabClassName, enableAreaId, disableAreaId) {
+	jindo.$(tabId).className = tabClassName;
+	jindo.$(enableAreaId).style.display="block";
+	jindo.$(disableAreaId).style.display="none";
+	
+	if (tabId == 'tab_fav') {
+		var blindText = jindo.$Element("blind_text_tab_fav");
+		if (enableAreaId == 'fav_kospi') {
+			blindText.text("코스피");
+		} else {
+			blindText.text("코스닥");
+		}
+	}
+}
+
+function showRecent(tabId, tabClassName, itemcode, type) {
+	itemcodes = "";
+	jindo.$(tabId).className = tabClassName;
+	movePage(itemcode, type, '1');
+	
+	var blindText = jindo.$Element("blind_text_tab_search");
+	if (type == 'recent') {
+		blindText.text("최근검색");
+	} else {
+		blindText.text("My stock");
+	}
+}
+
+function movePage(itemcode, type, page) {
+	requestType = type;
+	requestCode = itemcode;
+	requestPage = page;
+		
+    var url = "item_right_ajax.naver?type=" + type + "&code=" + itemcode + "&page=" + page;
+    updatePage(url, type);
+}
+
+function openMyitem() {
+	document.domain = 'naver.com';
+	window.open('/mystock/myitem.naver?pop=2', 'myitem_win', 'width=400,height=267,resizable=no');
+}
+
+function naver_login() {
+	location.replace ('https://nid.naver.com/nidlogin.login?mode=form&url=' + encodeURIComponent(location.href));
+}
+
+function showPannel(layerId){
+	var layer = jindo.$(layerId);
+	layer.style.display='block';
+	
+	if (layerId == "summary_lyr") {
+		var layerHeight = jindo.$Element(layer).height();
+		jindo.$Element("summary_ifr").height(layerHeight);
+	}
+}
+
+function hidePannel(layerId){
+	var layer = jindo.$(layerId);
+	layer.style.display='none';
+}
+
+function togglePannel(layerId) {
+	var elTargetLayer = jindo.$Element(jindo.$$.getSingle("#" + layerId));
+
+	if (elTargetLayer != null) {
+		if (elTargetLayer.visible()) {
+			hidePannel(layerId);
+		} else {
+			showPannel(layerId);
+		}
+	}
+}

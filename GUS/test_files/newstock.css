@@ -1,0 +1,945 @@
+@charset "UTF-8";
+@font-face{font-family:'NanumSquare';font-weight:400;src:url(https://ssl.pstatic.net/static/nfinance/2019/02/22/font/NanumSquareR.eot);src:url(https://ssl.pstatic.net/static/nfinance/2019/02/22/font/NanumSquareR.eot?#iefix) format("embedded-opentype"),url(https://ssl.pstatic.net/static/nfinance/2019/02/22/font/NanumSquareR.woff2) format("woff2"),url(https://ssl.pstatic.net/static/nfinance/2019/02/22/font/NanumSquareR.woff) format("woff"),url(https://ssl.pstatic.net/static/nfinance/2019/02/22/font/NanumSquareR.ttf) format("truetype")}
+table.type_5 .btn_history,.btn_theme_layer,.info_layer_wrap .btn_close .icon{background-image:url(https://ssl.pstatic.net/static/nfinance/2019/11/25/sp_theme.png);background-size:33px 32px}
+/* NHN Web Standardization Team (http://html.nhndesign.com/)
+author:Lee Ju Young 070523,KJM 071017,KJM 080306 */
+.scr01 ol li{list-style-type:decimal;margin:0 0 0 25px}
+.scr01 ul li{list-style-type:disc;margin:0 0 0 25px}
+.scr01 ul li ul li{list-style-type:circle}
+.scr01 ul li ul li ul li{list-style-type:square}
+/* 재무검색 */
+.titlearea3 h3 span.p11{color:#999;font-size:11px;font-weight:normal}
+.box_search_1 .inbox table input#check{margin-left:15px}
+.box_search_1 .inbox table input#text{width:60px;height:18px;margin-right:3px;border-width:1px;border-style:solid;border-color:#adadad #dcdcdc #dcdcdc #adadad;font-size:11px}
+.box_search_1 .inbox table img.line{margin:0 8px}
+.ment span.black{color:#666}
+.quickorder .title{position:absolute;left:8px;top:10px}
+.quickorder .title h3{float:left;font-size:16px;height:18px;color:#000}
+.quickorder .title span{color:#7e7e7e;font:bold 11px Tahoma}
+.quickorder .term{position:relative;float:left;width:201px;height:171px}
+.quickorder .term li{float:left;margin-right:-1px}
+.quickorder .term li.on a{background:url(https://ssl.pstatic.net/imgstock/images5/bg_term_tab.gif) no-repeat left -23px;color:#ff5300;font-weight:bold}
+.quickorder .term li .graph{display:none;position:absolute;top:35px;left:0}
+.quickorder .term li.on .graph{display:block;clear:both}
+.quickorder .detail .report th.top{height:30px;padding:0 3px 0 30px;padding-top:6px !important}
+.quickorder .detail .report td.top{height:30px}
+.quickorder .detail .info{padding-top:10px;color:#999;font-size:11px;text-align:right}
+#quickOrderBox{position:absolute;width:712px;height:296px;z-index:1;display:none}
+#quickOrderLayer{width:712px;height:296px;text-align:left;background:url(https://ssl.pstatic.net/imgstock/images5/quickorder_bg.jpg) no-repeat left top}
+#quickOrderLayer .imgTxt{clear:both;margin:42px 0 0 42px;vertical-align:top}
+.tlline1{padding:0px 0 5px 9px;font-size:12px;text-align:left}
+.tlline1 a{font-weight:normal}
+.tlline1 strong em.normal,.tlline2 strong em.normal{margin-left:2px;font-style:normal;font-weight:normal;font-size:11px;color:#999;letter-spacing:-1px}
+.tlline1 strong em.normal span,.tlline2 strong em.normal span{letter-spacing:0}
+.tlline2{height:19px;padding:0 0 0 9px;border-bottom:2px solid #e1e1e1;font-size:12px;text-align:left}
+.tlline2 a{font-weight:normal}
+.tlline2 strong{float:left;vertical-align:top}
+.tlline2 .info_txt{float:right;font-size:11px;line-height:15px;color:#999;letter-spacing:-0.3px;vertical-align:top}
+.tlline2 img{vertical-align:top}
+.tlline2 .btn_info_layer{display:inline-block;*display:inline;*zoom:1;margin:-1px 0 0 3px;vertical-align:middle}
+.tlline2 .layer_section{position:absolute;right:0;top:16px;padding:20px 14px 13px 21px;*width:340px;background:#fff;border:1px solid #ccc;letter-spacing:-0.3px;font-family:"돋움",Dotum,AppleGothic,sans-serif;z-index:1}
+.tlline2 .layer_section strong{display:block;float:none;margin-bottom:8px;font-size:12px;line-height:12px;font-weight:normal;color:#000}
+.tlline2 .layer_section .txt{font-size:12px;line-height:18px;color:#808080}
+.tlline2 .layer_section .txt_opt{display:inline-block;*display:inline;*zoom:1;padding-top:10px}
+.tlline2 .layer_section .btn_close{position:absolute;right:0;top:0;width:32px;height:32px;background:url(https://ssl.pstatic.net/static/nfinance/2017/09/25/btn_close.png) 0 0 no-repeat}
+.tlline2 .select_lst{float:left;margin-left:20px}
+.tlline2 .select_lst a{display:inline-block;*display:inline;*zoom:1;margin-right:10px;font-size:12px;color:#666 !important;letter-spacing:-0.3px}
+.tlline2 .select_lst a:hover{text-decoration:none}
+.tlline2 .select_lst .on{font-weight:bold;color:#03C75A !important}
+.tlline2 .select_lst .on .ico_chk{background:url(https://ssl.pstatic.net/static/nfinance/2019/02/27/ico_chk_on.png) 0 0 no-repeat}
+.tlline2 .select_lst .ico_chk{display:inline-block;*display:inline;*zoom:1;width:11px;height:8px;margin-right:5px;background:url(https://ssl.pstatic.net/static/nfinance/2017/09/25/ico_chk.png) 0 0 no-repeat;vertical-align:0}
+.titlearea2{width:100%;height:39px;border-bottom:1px solid #dadada;zoom:1}
+.titlearea2:before,.titlearea2:after{display:table;content:''}
+.titlearea2:after{clear:both}
+.titlearea2 h3,.titlearea2 h4{float:left;padding:7px 0 0 9px;font-size:12px;text-align:left;font-weight:bold !important;font-family:dotum}
+.titlearea2 div{float:right}
+.titlearea2 a.caution{float:left;margin:7px 9px -7px 0;*margin:4px 5px -4px 0;*padding:3px 0 3px;color:#666;letter-spacing:-1px;font-size:11px}
+.titlearea2 a.caution .tip{letter-spacing:0}
+.titlearea2 a.notice{max-width:310px;margin:7px 20px -7px 30;letter-spacing:-0.5px}
+.titlearea2 a.notice img{float:left;padding-right:3px}
+.titlearea2 a.notice .text{display:block;overflow:hidden;text-overflow:ellipsis;height:14px;padding-right:1px;white-space:nowrap}
+.titlearea2 a.caution img{margin:-2px 0 2px 0;vertical-align:middle}
+.titlearea2 a.caution:link,.titlearea2 a.caution:visited,.titlearea2 a.caution:hover,.titlearea2 a.caution:active{color:#666}
+.btn_type1{display:inline-block;*display:inline;*zoom:1;padding:0 6px;height:23px;line-height:25px;border:1px solid #e0e0e0;font-size:12px;font-family:Dotum,'돋움',Gulim,'굴림',AppleSDGothicNeo,sans-serif;color:#000 !important;letter-spacing:-1px}
+.btn_type1:hover{text-decoration:none}
+table.type1{clear:both;width:100%;margin-top:15px;font-size:12px}
+table.type1 td{padding:0 0 8px 8px;vertical-align:top}
+table.type1 td.date{padding-right:10px;color:#999;font:10px tahoma;text-align:right}
+table.type2{clear:both;width:100%;border-bottom:1px solid #e1e1e1;font-family:dotum;font-size:12px}
+table.type2 th{padding:8px 0 5px 0;background:#fafafa;color:#777;font-weight:normal;border-bottom:1px solid #e5e5e5}
+table.type2 td{margin:0;padding:0;font-size:11px}
+table.type2 td.num{padding:5px 10px 5px 0;text-align:right}
+table.type2 td.title{padding:5px 0 5px 10px;text-align:left}
+table.type2 td.title2{padding:2px 0 0 0;text-align:left}
+table.type2 td.bg01{background:#EBF2FC}
+table.type2 td.bg02{background:#FCEBEB}
+table.type2 td.bg03{background:#E4EDFB}
+table.type2 td.bg04{background:#FBE4E4}
+table.type2 th.title{text-align:left;padding:8px 0 3px 10px}
+table.type2 tr.title1 th{padding:4px 0 3px 0;border-right:1px solid #e1e1e1;border-bottom:1px solid #e1e1e1}
+table.type2 tr.title1 th.last{padding:4px 0 3px 0;border-right:0;border-bottom:1px solid #e1e1e1}
+table.type2 tr.title1 th.bg01{padding:3px 0;border-right:1px solid #e1e1e1;border-bottom:1px solid #e1e1e1;background:#E8E8E8}
+table.type_tax th.title{padding:8px 0 4px 10px}
+table.type_tax td.num{padding:5px 10px 6px 0}
+.bor{border-right:1px solid #e1e1e1;background:#f0f0f0}
+table.type3 tr.last td,table.type3 tr.last th{border-bottom:0}
+table.type3 th.title{height:27px;border-bottom:0;background:#f0f0f0;color:#777;font-weight:normal}
+table.type3 td.graph{padding:5px 7px 0 7px;text-align:center}
+table.type3 td.line{border-right:1px solid #e1e1e1;border-bottom:1px solid #e1e1e1;text-align:center}
+table.type4{clear:both;width:100%;border-collapse:collapse;font-family:dotum;font-size:12px}
+table.type4 th{padding:6px 0 3px 0;border:1px solid #e1e1e1;border-top:0;background:#e8e8e8}
+table.type4 td{border-bottom:1px solid #e1e1e1}
+table.type4 tr.line td{border-bottom:1px solid #c4c4c4}
+table.type4 td.title{padding:7px 0 2px 10px;background:#f7f7f7}
+table.type4 td.bg{padding-right:10px;background:#f7f7f7;text-align:right}
+table.type4 td.num{padding-right:10px;text-align:right}
+table.type5{clear:both;width:100%;table-layout:fixed;border-bottom:1px solid #e1e1e1;border-spacing:0;border-collapse:collapse;font-family:Dotum,'돋움',AppleGothic,sans-serif;font-size:12px}
+table.type5 th{padding:8px 0 5px 0;background:#fafafa;color:#777;font-weight:normal;border-bottom:1px solid #e5e5e5}
+table.type5 td{padding:10px 0 12px 0;border-top:1px solid #e1e1e1;font-size:12px;letter-spacing:-0.3px;font-family:Dotum,'돋움',AppleGothic,sans-serif,apple;color:#666;text-align:right;vertical-align:top}
+table.type5 .relation_tit td{padding-bottom:8px}
+table.type5 .first td{padding-top:15px;border-top:none}
+table.type5 .last td{padding-bottom:20px}
+table.type5 td.title{padding-right:0;padding-left:15px;text-align:left}
+table.type5 td.title a.tit{display:inline-block;*display:inline;*zoom:1;font-size:12px;font-weight:bold;color:#000 !important;letter-spacing:-0.3px;vertical-align:top}
+table.type5 td.date{padding-right:15px;font-family:tahoma,Helvetica,sans-serif;font-size:11px;line-height:11px;color:#888}
+table.type5 td.info{padding-right:40px}
+table.type5 .last .type5{margin-bottom:12px}
+table.type5 .last .link_area{margin-top:-8px;padding-top:0;padding-bottom:19px}
+table.type5 .relation_lst td{padding:0;border-top:none}
+table.type5 .relation_lst table.type5{margin-bottom:0;border-bottom:none}
+table.type5 .relation_lst table.type5 tbody tr:first-child td{padding-top:0}
+table.type5 .relation_lst table.type5 td{padding:0 0 8px 0;border-top:none}
+table.type5 .relation_lst table.type5 td.date{padding-right:15px}
+table.type5 .relation_lst table.type5 td.info{padding-right:40px}
+table.type5 .relation_lst table.type5 td.title{padding:0 0 0 15px}
+table.type5 .relation_lst table.type5 td.title a.tit{font-weight:normal}
+table.type5 .relation_lst table.type5 .hide_news.none{display:none}
+table.type5 .link_area{padding:1px 0 9px 27px;text-align:left}
+table.type5 .link_area a{font-size:12px;line-height:13px;color:#000 !important;letter-spacing:-0.3px}
+table.type5 .link_area em{font-weight:bold;font-style:normal;letter-spacing:0;color:#00ab33}
+table.type5 .ico_up{display:inline-block;*display:inline;*zoom:1;width:9px;height:5px;margin:2px 0 0 3px;background:url(https://ssl.pstatic.net/static/nfinance/2017/09/25/ico_arr_up.png) 0 0 no-repeat;vertical-align:top}
+table.type5 .ico_down{display:inline-block;*display:inline;*zoom:1;width:9px;height:5px;margin:3px 0 0 3px;background:url(https://ssl.pstatic.net/static/nfinance/2017/09/25/ico_arr_down.png) 0 0 no-repeat;vertical-align:top}
+table.type5 .ico_reply{display:inline-block;*display:inline;*zoom:1;width:6px;height:6px;margin:1px 3px 0 2px;background:url(https://ssl.pstatic.net/static/nfinance/2017/09/25/ico_reply.png) 0 0 no-repeat;vertical-align:top}
+.r_vod{display:inline-block;*display:inline;*zoom:1;width:14px;height:14px;margin:-1px 0 0 4px;background:url(https://ssl.pstatic.net/static/nfinance/2017/10/27/ico_vod.png) 0 0 no-repeat;vertical-align:0}
+.info_text_area{padding:33px 0 79px;text-align:center}
+.info_text_area .txt{position:relative;overflow:visible;padding:73px 0 13px;width:100%;font-size:14px;line-height:24px;font-weight:bold;color:#333;letter-spacing:-0.3px}
+.info_text_area .ico{position:absolute;top:0;left:50%;margin-left:-29px;width:57px;height:57px;background:url(https://ssl.pstatic.net/static/nfinance/2017/09/25/ico_info.png) 0 0 no-repeat}
+.info_text_area em{font-style:normal;color:#00ab33}
+.info_text_area span{display:block;margin-bottom:-13px}
+table.type6{clear:both;width:100%;table-layout:fixed;border-bottom:1px solid #e1e1e1;border-spacing:0;border-collapse:collapse;font-family:Dotum,'돋움',AppleGothic,sans-serif;font-size:12px}
+table.type6 th{padding:8px 0 5px 0;background:#fafafa;color:#777;font-weight:normal}
+table.type6 td{padding:0 0 8px 0;font-size:12px;letter-spacing:-0.3px;font-family:Dotum,'돋움',AppleGothic,sans-serif;color:#666;text-align:right;vertical-align:top}
+table.type6 tbody.first tr.first td{padding-top:20px;border-top:1px solid #e5e5e5}
+table.type6 tbody.first tr.last td{padding-bottom:10px}
+table.type6 tbody.last tr.first td{padding-top:15px;border-top:1px solid #e5e5e5}
+table.type6 tbody.last tr.last td{padding-bottom:15px}
+table.type6 .line td{border-top:1px solid #e5e5e5}
+table.type6 td.title{padding-right:0;padding-left:15px;text-align:left}
+table.type6 td.title a.tit{display:inline-block;*display:inline;*zoom:1;font-size:12px;color:#000 !important;letter-spacing:-0.3px}
+table.type6 td.date{font-family:tahoma,Helvetica,sans-serif;font-size:11px;line-height:11px;color:#888;text-align:center}
+table.type6 td.info{padding-right:40px}
+table.design td.bgbottom{width:100%;height:8px;background:url(https://ssl.pstatic.net/imgstock/images5/tblrnd_bgbottom.gif) repeat-x bottom}
+table.mystock{clear:both;width:100%;font-family:dotum;font-size:12px}
+table.mystock th{font-weight:normal;text-align:left}
+table.mystock td{height:23px}
+table.mystock td img{vertical-align:middle}
+table.view{clear:both;width:100%;font-family:dotum;font-size:12px}
+table.view th{padding:15px 0 0 11px;background:#fafafa;color:#333;font-size:11px;font-weight:normal}
+table.view th.info{width:562px;padding:5px 0 11px 11px;font-size:12px;border-bottom:1px solid #e5e5e5}
+table.view td{padding:21px 18px 74px;font-size:14px;line-height:1.6em}
+table.view td table td{padding-bottom:0}
+.font_info{position:absolute;top:62px;right:10px;vertical-align:top}
+.font_setup{position:relative}
+.font_setup button{border:0}
+.font_setup .button{position:relative;float:left;font-size:0}
+.font_setup span{display:none}
+.font{display:block;width:48px;height:25px;background:url(https://ssl.pstatic.net/static/nfinance/2015/news_fontsetup_txt.png) no-repeat;cursor:pointer}
+.font_big{width:25px;height:25px;margin-left:-1px;background:url(https://ssl.pstatic.net/static/nfinance/2015/news_fontsetup_big.png) no-repeat;cursor:pointer}
+.font_small{width:25px;height:25px;margin-left:-1px;background:url(https://ssl.pstatic.net/static/nfinance/2015/news_fontsetup_small.png) no-repeat;cursor:pointer}
+table.view th .report_article{padding-left:11px;background:url(https://ssl.pstatic.net/imgstock/images5/ico_report.gif) no-repeat left 1px;color:#333;font-size:11px}
+table.view .btn_smore{padding-right:7px;background:url(https://ssl.pstatic.net/static/nfinance/2015/ic_view_more_arrow.png) no-repeat right 2px}
+table.view .button{position:relative;float:left}
+table.view .bar{color:#cacaca;margin:0 3px}
+table.reply td.sub{padding:0 0 0 25px}
+table.reply tr.last th,table.reply tr.last td{border-bottom:0}
+table.Nnavi{clear:both;height:13px;margin:15px auto 0 auto;border-collapse:collapse}
+table.Nnavi td{padding:0;border-right:1px solid #ddd}
+table.Nnavi td.pgRR{border-right:0}
+table.Nnavi a{display:block;padding:1px 3px 0;min-width:15px;color:#333;font-size:12px;font-family:dotum;font-weight:bold;text-decoration:none;text-align:center}
+table.Nnavi a:hover{background-color:#F7F7F7}
+table.Nnavi .pgLL a,table.Nnavi .pgL a,table.Nnavi .pgR a,table.Nnavi .pgRR a{font-weight:normal}
+table.Nnavi .pgLL a:hover,table.Nnavi .pgL a:hover,table.Nnavi .pgR a:hover,table.Nnavi .pgRR a:hover{background-color:#fff}
+table.Nnavi .pgLL img,table.Nnavi .pgL img,table.Nnavi .pgR img,table.Nnavi .pgRR img{margin-bottom:1px;border:0}
+table.Nnavi .pgLL img,table.Nnavi .pgL img{margin:0 5px 2px 0}
+table.Nnavi .pgRR img,table.Nnavi .pgR img{margin:0 0 2px 5px}
+table.Nnavi .on,table.Nnavi .on a,table.Nnavi .on a:visited{color:#FF8400 !important}
+*html body table.Nnavi a{width:1em}
+table.Nnavi .pgLL a,table.Nnavi .pgL a,table.Nnavi .pgR a,table.Nnavi .pgRR a{width:auto;padding-top:0}
+/* sub style */
+#subcnt{width:700px;_width:712px;padding:0 6px}
+.subtab ul li.first{border:1px solid #d0d0d0;border-bottom:0}
+.subtab ul li.select{height:27px;border-right:0;background:#fff}
+.subtab ul li a:link{color:#777;white-space:nowrap}
+.subtab ul li.select a{display:block;float:left;height:18px;_height:25px;padding:7px 15px 0 15px;border-right:1px solid #d0d0d0;color:#000;font-weight:bold;white-space:nowrap}
+.subtab ul li.select a:link{color:#000;white-space:nowrap}
+/* 종목게시판 제목 */
+input.text{border-width:1px;border-style:solid;border-color:#aaa #dadada #dadada #aaa}
+.subtab01{position:relative;float:left;width:305px;height:171px}
+.subtab01 li{float:left;margin-right:-1px}
+.subtab01 li.on{float:left;margin-right:-1px;_margin-right:0}
+.subtab01 li .graph{display:none;position:absolute;top:25px;left:0}
+.subtab01 li.on .graph{display:block;width:303px;_width:305px;padding:0 0 8px 0;border-left:1px solid #d0d0d0;border-right:1px solid #d0d0d0;background:url(https://ssl.pstatic.net/imgstock/images5/boxbottom.gif) no-repeat bottom;text-align:center}
+.mbox06 .more{position:absolute;top:14px;right:13px;padding-left:6px;background:url(https://ssl.pstatic.net/imgstock/images5/ico_arrow_04.gif) no-repeat left 3px;color:#999;font-size:11px;letter-spacing:-1px}
+.box_type_1 .more{position:absolute;top:14px;right:15px;padding-left:6px;background:url(https://ssl.pstatic.net/imgstock/images5/ico_arrow_04.gif) no-repeat left 3px;color:#999;font-size:11px;letter-spacing:-1px}
+.box_type_2 table td.thumb{width:77px}
+.box_type_2 table td.thumb img{border:1px solid #e1e1e1}
+.box_type_2 table td.list{height:16px;padding-left:7px;background:url(https://ssl.pstatic.net/imgstock/images5/ico_arrow_01.gif) no-repeat left 3px;color:#999;font-size:11px;vertical-align:top}
+#news_read p{margin:10px 0}
+/* 서브메인 상단박스 */
+.box_top_submain{position:relative;width:810px;margin-bottom:8px;overflow:hidden}
+.box_top_submain .rb{position:absolute;right:0;bottom:0;width:100%;height:500px;background:url(https://ssl.pstatic.net/imgstock/images5/box_top_810.gif) no-repeat right bottom}
+.box_top_submain .lb{position:absolute;left:0;bottom:0;width:4px;height:500px;background:url(https://ssl.pstatic.net/imgstock/images5/box_top_810.gif) no-repeat left bottom}
+.box_top_submain .rt{position:absolute;right:0;top:0;height:4px;width:100%;background:url(https://ssl.pstatic.net/imgstock/images5/box_top_810.gif) no-repeat right top}
+.box_top_submain .lt{position:absolute;left:0;top:0;height:4px;width:4px;background:url(https://ssl.pstatic.net/imgstock/images5/box_top_810.gif) no-repeat left top}
+.box_top_submain .inner_area{position:relative;padding:17px 12px 14px 14px;z-index:99}
+.box_top_sub{position:relative;width:595px;margin-bottom:5px;overflow:hidden}
+.box_top_sub .rb{position:absolute;right:0;bottom:0;width:100%;height:500px;background:url(https://ssl.pstatic.net/imgstock/images5/box_top_595.gif) no-repeat right bottom}
+.box_top_sub .lb{position:absolute;left:0;bottom:0;width:4px;height:500px;background:url(https://ssl.pstatic.net/imgstock/images5/box_top_595.gif) no-repeat left bottom}
+.box_top_sub .rt{position:absolute;right:0;top:0;height:4px;width:100%;background:url(https://ssl.pstatic.net/imgstock/images5/box_top_595.gif) no-repeat right top}
+.box_top_sub .lt{position:absolute;left:0;top:0;height:4px;width:4px;background:url(https://ssl.pstatic.net/imgstock/images5/box_top_595.gif) no-repeat left top}
+.box_top_sub .inner_sub{position:relative;padding-left:27px;z-index:99}
+.box_top_sub .inner_area{position:relative;padding:17px 12px 14px 14px;z-index:99}
+.box_top_submain2{width:808px;height:442px;_height:445px;_width:810px;margin-bottom:8px;overflow:hidden;border:1px solid #bfc2cb;border-bottom:2px solid #71778a}
+.box_top_submain2 .lft{width:609px;_width:610px;border-right:1px solid #dddee4;height:100%;float:left}
+.box_top_submain2 .rgt{width:198px;background:#fafafa;height:100%;float:left;position:relative}
+.box_top_submain2 .tab{height:61px;width:609px}
+.box_top_submain2 .tab_sel1{background:url(https://ssl.pstatic.net/static/nfinance/img3/sp_subtabmnu_05.gif) 0 0 no-repeat}
+.box_top_submain2 .tab_sel2{background:url(https://ssl.pstatic.net/static/nfinance/img3/sp_subtabmnu_05.gif) 0 -92px no-repeat}
+.box_top_submain2 .tab_sel3{background:url(https://ssl.pstatic.net/static/nfinance/img3/sp_subtabmnu_05.gif) 0 -184px no-repeat}
+.box_top_submain2 .tab li{float:left}
+.box_top_submain2 .tab li span{cursor:pointer}
+.box_top_submain2 .tab a{width:204px;height:61px;display:block;position:relative}
+.box_top_submain2 .tab a:hover{text-decoration:none}
+.box_top_submain2 .tab a.mnu2{background-position:-204px -93px;width:203px}
+.box_top_submain2 .tab a.mnu3{background-position:-407px -93px;width:202px;*width:201px}
+.box_top_submain2 .tab li .num{position:absolute;top:12px;left:83px;display:block;height:19px;font-family:arial;font-weight:bold;font-size:21px;color:#e00400}
+.box_top_submain2 .tab li .num2{color:#005dde}
+.box_top_submain2 .tab li .num3{color:#666}
+.box_top_submain2 .tab li .num_s{display:block;position:absolute;top:35px;left:83px;height:11px;font-family:tahoma;font-size:11px;font-weight:bold;color:#e00400}
+.box_top_submain2 .tab li .num_s span{background:url(https://ssl.pstatic.net/imgfinance/finance/sp_subnum.gif) 0 -20px no-repeat;display:inline-block;height:11px;width:6px;font-size:1px;margin-right:1px}
+.box_top_submain2 .tab li .num_s3 span{width:7px;margin-right:3px;background:url(https://ssl.pstatic.net/static/nfinance/ico_same2.gif) 0 3px no-repeat}
+.box_top_submain2 .tab li .num_s span.nup{background-position:-147px -18px;width:7px;margin-right:3px}
+.box_top_submain2 .tab li .num_s span.ndown{background-position:-147px -18px;width:7px;margin-right:3px}
+.box_top_submain2 .tab li .num_s2{color:#005dde}
+.box_top_submain2 .tab li .num_s2 span{background:url(https://ssl.pstatic.net/imgfinance/finance/sp_subnum2.gif) 0 -20px no-repeat}
+.box_top_submain2 .tab li .num_s3{color:#666}
+.box_top_submain2 .tab li a.mnu2 .num{top:12px;left:78px}
+.box_top_submain2 .tab li a.mnu2 .num_s{top:35px;left:78px}
+.box_top_submain2 .tab li a.mnu3 .num{top:12px;left:95px}
+.box_top_submain2 .tab li a.mnu3 .num_s{top:35px;left:95px}
+.box_top_submain2 .context .t{height:20px;padding:23px 0 0 85px;zoom:1}
+.box_top_submain2 .context .t li{float:left;margin-right:10px;height:13px}
+.box_top_submain2 .context .t li a:hover{text-decoration:none}
+.box_top_submain2 .context .t li.c1{margin-top:1px}
+.box_top_submain2 .context .t li .cbox{width:7px;height:7px;vertical-align:middle;font-size:1px;margin:-1px 0 1px 0;display:inline-block;text-indent:-9999em;*text-indent:0}
+.box_top_submain2 .context .t li .cbox em{position:relative;z-index:-1;font-size:0}
+.box_top_submain2 .context .t li.c1 .cbox{background:#50c008}
+.box_top_submain2 .context .t li.c2 .cbox{background:#9e5ccd}
+.box_top_submain2 .context .t li.c3 .cbox{background:#f48416}
+.box_top_submain2 .context .t li.c4 .cbox{background:#1193f0}
+.box_top_submain2 .context .t li .tit{font-size:11px;color:#666;margin-left:3px}
+.box_top_submain2 .context .t li .val{font-size:11px}
+.box_top_submain2 .context .t li .val em{font-style:normal;font-family:tahoma}
+.box_top_submain2 .context .t li .up{margin-left:2px;color:#e00400}
+.box_top_submain2 .context .t li .dn{margin-left:3px;color:#003ace}
+.box_top_submain2 .context .t li .noc{margin-left:4px;color:#666}
+.box_top_submain2 .context .flash_area{position:relative;margin:0 0 0 25px}
+.box_top_submain2 .ly_realtime{position:relative;margin:3px 25px 15px 0;color:#999;font-family:tahoma;font-size:11px;text-align:right}
+.box_top_submain2 .ly_realtime span span{margin-left:5px;font-family:'돋움',dotum}
+.box_top_submain2 .ly_realtime .btn_realtime{position:relative;_overflow:hidden;display:inline-block;width:35px;height:15px;margin-right:5px;background:url(https://ssl.pstatic.net/static/nfinance/img3/btn_realtime.gif) 0 0 no-repeat;vertical-align:top}
+.box_top_submain2 .ly_realtime .btn_realtime .ly_help{position:relative;display:none;position:absolute;top:-47px;left:-5px;width:128px;height:49px;padding:7px 10px;background:url(https://ssl.pstatic.net/static/nfinance/img3/ly_realtime_help.gif) no-repeat;color:#666;font-family:'돋움',dotum;letter-spacing:-1px;line-height:14px;text-align:left}
+.box_top_submain2 .ly_realtime .btn_realtime:hover{overflow:visible;text-decoration:none}
+.box_top_submain2 .ly_realtime .btn_realtime:hover .ly_help{display:block}
+.box_top_submain2 .ly_realtime .sub{color:#666}
+.box_top_submain2 .ly_realtime .sub2{margin-left:-3px;color:#666}
+.box_top_submain2 .context .b{width:557px;_width:559px;height:52px;_height:54px;background:#fafafa;border:1px solid #e9e9e9;margin-left:25px}
+.box_top_submain2 .context .b dl{height:50px;_height:52px;border:1px solid #fdfdfd;border-right:none;float:left}
+.box_top_submain2 .context .b dt,.box_top_submain2 .context .b dd{float:left}
+.box_top_submain2 .context .b .stock{width:267px;_width:268px}
+.box_top_submain2 .context .b .stock dt{width:40px;height:100%;background:url(https://ssl.pstatic.net/imgfinance/finance/sp_subbtmtxt.gif) 14px 11px no-repeat}
+.box_top_submain2 .context .b .stock dd{width:45px;vertical-align:middle;height:15px;_height:40px;padding-top:25px;text-align:center;background:url(https://ssl.pstatic.net/static/nfinance/img/spr_bu.gif) no-repeat}
+.box_top_submain2 .context .b .stock dd a{font-size:12px;text-decoration:underline;font-family:tahoma}
+.box_top_submain2 .context .b .stock dd img{vertical-align:top}
+.box_top_submain2 .context .b .stock dd.uup{background-position:19px -29px}
+.box_top_submain2 .context .b .stock dd.uup a{color:#e6000a}
+.box_top_submain2 .context .b .stock dd.up{background-position:19px 14px}
+.box_top_submain2 .context .b .stock dd.up a{color:#e6000a}
+.box_top_submain2 .context .b .stock dd.noc{background-position:18px -145px}
+.box_top_submain2 .context .b .stock dd.noc a{color:#666769}
+.box_top_submain2 .context .b .stock dd.dn{background-position:19px -66px}
+.box_top_submain2 .context .b .stock dd.dn a{color:#024ccf}
+.box_top_submain2 .context .b .stock dd.ddn{background-position:19px -109px}
+.box_top_submain2 .context .b .stock dd.ddn a{color:#024ccf}
+.box_top_submain2 .context .b .bar{float:left;width:0;height:100%;margin-left:-1px;border-right:1px solid #ececec;font-size:1px}
+.box_top_submain2 .context .b .trend{width:286px;_width:287px}
+.box_top_submain2 .context .b .trend dt{width:59px;height:100%;background:url(https://ssl.pstatic.net/imgfinance/finance/sp_subbtmtxt.gif) -47px 12px no-repeat}
+.box_top_submain2 .context .b .trend dt a{width:100%;height:100%;display:block}
+.box_top_submain2 .context .b .trend dd{width:76px;vertical-align:middle;height:100%;text-align:center}
+.box_top_submain2 .context .b .trend dd p{font-size:11px;color:#888;padding-top:12px}
+.box_top_submain2 .context .b .trend dd a{padding-top:1px;display:block;font-size:11px}
+.box_top_submain2 .context .b .trend dd a:hover{text-decoration:none}
+.box_top_submain2 .context .b .trend dd a em{font-family:tahoma;font-style:normal;font-size:12px}
+.box_top_submain2 .context .b .trend dd.total{width:75px}
+.box_top_submain2 .context .b .trend dd a.up{color:#e00400}
+.box_top_submain2 .context .b .trend dd a.dn{color:#003ace}
+.box_top_submain2 .context .b .trend dd a.noc{color:#666}
+.box_top_submain2 .context .b .bs dt.basis{width:64px;background:url(https://ssl.pstatic.net/static/nfinance/img2/sp_cospi2.gif) -68px -30px no-repeat;height:100%}
+.box_top_submain2 .context .b .bs dd.basis{width:105px}
+.box_top_submain2 .context .b .bs dd.basis em{font-family:tahoma;margin-top:18px;float:left;font-style:normal}
+.box_top_submain2 .context .b .bs dd.up em{color:#E00400}
+.box_top_submain2 .context .b .bs dd.dn em{color:#003ace}
+.box_top_submain2 .context .b .bs dd.noc em{color:#666666}
+.box_top_submain2 .context .b .basis{width:267px;_width:268px}
+.box_top_submain2 .context .b .basis dt{width:88px;height:100%;background:url(https://ssl.pstatic.net/static/nfinance/img2/sp_cospi2.gif) 29px -81px no-repeat}
+.box_top_submain2 .context .b .basis dd{position:relative;margin-top:17px;color:#666;font-family:arial;font-size:14px;font-weight:bold}
+.box_top_submain2 .context .b .basis dd.up{padding-right:41px;color:#e00400}
+.box_top_submain2 .context .b .basis dd.dn{padding-right:57px;color:#005dde}
+.box_top_submain2 .context .b .basis dd em{display:inline-block;position:absolute;top:0;right:0;height:17px;background:url(https://ssl.pstatic.net/static/nfinance/img2/sp_cospi2.gif) no-repeat}
+.box_top_submain2 .context .b .basis dd.up em{width:33px;background-position:0 -150px}
+.box_top_submain2 .context .b .basis dd.dn em{width:49px;background-position:0 0}
+.box_top_submain2 .rgt .hpop{margin:17px 0 0 15px;background:url(https://ssl.pstatic.net/imgfinance/finance/sp_rgthead.gif) no-repeat;width:69px;height:12px;font-size:1px}
+.box_top_submain2 .rgt .btn_pmore{position:absolute;top:18px;right:15px;padding-right:4px;background:url(https://ssl.pstatic.net/imgfinance/finance/ico_bumore.gif) 100% 2px no-repeat;display:block;font-size:11px;color:#a1a1a1;letter-spacing:-1px}
+.box_top_submain2 .rgt .lst_pop{margin:10px 14px 0 15px;padding-bottom:12px;border-bottom:1px solid #e2e4ea}
+.box_top_submain2 .rgt .lst_pop li{height:21px}
+.box_top_submain2 .rgt .lst_pop li em{font-size:11px;font-weight:bold;color:#6879ab;margin-right:2px;font-style:normal;display:inline-block;width:16px;text-align:center;font-family:tahoma}
+.box_top_submain2 .rgt .lst_pop li a,.box_top_submain2 .rgt .lst_pop li a:visited{overflow:hidden;color:#666;display:inline-block;width:73px;white-space:nowrap;text-overflow:ellipsis;vertical-align:text-top}
+.box_top_submain2 .rgt .lst_pop li span{display:inline-block;width:59px;text-align:right;font-family:tahoma}
+.box_top_submain2 .rgt .lst_pop li span.up{color:#e00400}
+.box_top_submain2 .rgt .lst_pop li span.dn{color:#003ace}
+.box_top_submain2 .rgt .lst_pop li span.noc{color:#666}
+.box_top_submain2 .rgt .lst_pop li img{vertical-align:middle;margin:-1px 0 1px 9px}
+.box_top_submain2 .rgt .lst_pop li em.bu_p{vertical-align:middle;margin:-1px 0 1px 9px}
+.box_top_submain2 .rgt .hmajor{margin:20px 0 0 15px;background:url(https://ssl.pstatic.net/imgfinance/finance/sp_rgthead.gif) 0 -25px no-repeat;width:68px;height:12px;font-size:1px}
+.box_top_submain2 .rgt .lst_major{margin:10px 15px 0 16px}
+.box_top_submain2 .rgt .lst_major li{height:21px}
+.box_top_submain2 .rgt .lst_major a,.box_top_submain2 .rgt .lst_major a:visited{color:#666;display:inline-block;width:89px}
+.box_top_submain2 .rgt .lst_major li span{display:inline-block;width:59px;text-align:right;font-family:tahoma}
+.box_top_submain2 .rgt .lst_major li span.up{color:#e00400}
+.box_top_submain2 .rgt .lst_major li span.dn{color:#003ace}
+.box_top_submain2 .rgt .lst_major li span.noc{color:#666}
+.box_top_submain2 .rgt .lst_major li img{margin:-1px 0 1px 9px;vertical-align:middle}
+.box_top_submain2 .rgt .lst_major li em.bu_p{margin:-1px 0 1px 9px;vertical-align:middle}
+.tab_toptit{background:url(https://ssl.pstatic.net/imgfinance/finance/bg_tabtop.gif) repeat-x;height:24px;width:548px;position:relative;margin:6px 0 0 9px}
+.subtop_sise_graph2 .tab_toptit{margin-left:0}
+.tab_toptit ul li{float:left;width:65px;margin-right:-1px;height:24px;background:url(https://ssl.pstatic.net/imgfinance/finance/bg_tabprg.gif) -64px 0 no-repeat;font-size:11px}
+.tab_toptit ul li.on{background-position:0 0}
+.tab_toptit ul li a,.tab_toptit ul li a:visited{display:block;width:65px;height:24px;color:#656565;text-align:center}
+.tab_toptit ul li a:hover{color:#656565}
+.tab_toptit ul li a span{margin-top:7px;display:inline-block;cursor:pointer}
+.tab_toptit .notice{position:absolute;top:4px;right:0;line-height:1.2;font-size:11px;color:#a2a2a2}
+.tab_toptit .notice .date{font-family:tahoma;margin:0 3px 0 2px;color:#999}
+.box_top_sub .tab_toptit .notice img{vertical-align:middle}
+h4.top_tlt2{height:22px}
+h4.top_tlt2 .head{font-weight:bold;color:#333;font-size:13px;letter-spacing:-1px;float:left;margin:3px 0 0 2px}
+h4.top_tlt2 .top_tlt_guide{float:right;color:#999;font-size:11px;font-weight:normal;margin:6px 4px 0 0}
+.box_type_m2{clear:both;width:595px;margin:31px 0 40px 0}
+table.type_1 tr.udline th.noln{border-left:0}
+/* 서브메인 상단박스 내부 영역 */
+.inner_area_left{float:left;position:relative;width:586px}
+.inner_area_right{float:right;position:relative;width:180px}
+.inner_area_right h5.top_subtlt{position:relative;margin-top:1px;padding-left:3px}
+/* 투자전략 메인 상단 박스 */
+.box_top_submain.bx_invest{position:relative;width:810px;margin-bottom:8px;overflow:hidden}
+.box_top_submain.bx_invest .rb{position:absolute;right:0;bottom:0;width:100%;height:500px;background:url(https://ssl.pstatic.net/imgstock/images5/bx_top811.gif) no-repeat right bottom}
+.box_top_submain.bx_invest .lb{position:absolute;left:0;bottom:0;width:4px;height:500px;background:url(https://ssl.pstatic.net/imgstock/images5/bx_top811.gif) no-repeat left bottom}
+.box_top_submain.bx_invest .rt{position:absolute;right:0;top:0;height:4px;width:100%;background:url(https://ssl.pstatic.net/imgstock/images5/bx_top811.gif) no-repeat right top}
+.box_top_submain.bx_invest .lt{position:absolute;left:0;top:0;height:4px;width:4px;background:url(https://ssl.pstatic.net/imgstock/images5/bx_top811.gif) no-repeat left top}
+.box_top_submain.bx_invest .inner_area{position:absolute;padding:4px 0 4px 4px;z-index:99}
+/* 서브메인 상단박스 내부 영역 */
+.box_top_submain.bx_invest .inner_area_left{float:left;position:relative;width:606px}
+.box_top_submain.bx_invest .strategy2 .strategy_list{margin:0;padding:0;height:184px}
+.box_top_submain.bx_invest .strategy2 .strategy_list li{position:relative;width:175px;height:48px;margin:0;padding:0 0 0 0;letter-spacing:-1px}
+.box_top_submain.bx_invest .strategy2 .strategy_list li img.on{display:none}
+.box_top_submain.bx_invest .strategy2 .strategy_list li.on img{display:none}
+.box_top_submain.bx_invest .strategy2 .strategy_list li.on img.on{display:inline}
+.box_top_submain.bx_invest .strategy2 .strategy_list li img{float:left}
+.box_top_submain.bx_invest .strategy2 .strategy_list li span{font-size:11px;color:#a6a6a6}
+.box_top_submain.bx_invest .strategy2 .strategy_list li strong{display:block;color:#8f8f8f}
+.box_top_submain.bx_invest .strategy2 .strategy_list li a{height:48px;display:block}
+.box_top_submain.bx_invest .strategy2 .strategy_list li a:hover{height:56px;border:2px solid #4a79ad;text-decoration:none}
+.box_top_submain.bx_invest .strategy2 a.pre{display:block;position:absolute;top:0}
+.box_top_submain.bx_invest .inner_area_right{position:relative;float:left;width:188px;height:184px;margin:0 0 0 4px;padding:14px 0 0 3px}
+.box_top_submain.bx_invest .inner_area_right h5.top_subtlt{clear:both;position:relative;margin-top:1px;padding-left:12px}
+.box_top_submain.bx_invest .inner_area_right a.tlt_more{clear:both;position:absolute;right:6px;top:14px;width:40px;padding-left:6px;background:url(https://ssl.pstatic.net/imgstock/images5/ico_arrow_04.gif) no-repeat 0 2px;color:#999;font-size:11px;letter-spacing:-1px;font-weight:normal;z-index:10000}
+/* 111006 투자전략 spot 영역 */
+.spot_tactic{display:block;position:relative;height:187px;margin-bottom:15px;border:1px solid #bfc2cb}
+.spot_tactic .group_navi{position:absolute;bottom:0;left:0;height:53px;_height:53px;border-top:1px solid #b0bfd6}
+.spot_tactic .group_navi .btn_prev,.spot_tactic .group_navi .btn_next,.spot_tactic .group_navi ol,.spot_tactic .group_navi ol li{float:left}
+.spot_tactic .group_navi .btn_prev,.spot_tactic .group_navi .btn_next{display:inline-block;width:26px;height:53px}
+.spot_tactic .group_navi a.btn_prev,.spot_tactic .group_navi a.btn_next{cursor:pointer}
+.spot_tactic .group_navi .btn_prev em,.spot_tactic .group_navi .btn_next em{display:block;height:53px;background:url(https://ssl.pstatic.net/static/nfinance/img2/bg_tacticbtn.gif) no-repeat}
+.spot_tactic .group_navi .btn_prev em{background-position:0 0}
+.spot_tactic .group_navi .btn_next em{background-position:-30px 0}
+.spot_tactic .group_navi a.btn_prev em{background-position:0 -60px}
+.spot_tactic .group_navi a.btn_next em{background-position:-30px -60px}
+.spot_tactic .group_navi a.btn_prev:hover em{background-position:0 -120px}
+.spot_tactic .group_navi a.btn_next:hover em{background-position:-30px -120px}
+.spot_tactic .group_navi ol{overflow:hidden;width:553px;height:54px;margin-top:-1px}
+.spot_tactic .group_navi ol li{overflow:hidden;z-index:10;width:183px;_width:185px;height:53px;_height:54px;margin-right:-1px;border-top:1px solid #b1c0d7;border-right:1px solid #b1c0d7;border-left:1px solid #b1c0d7;background:#f7f7f7}
+.spot_tactic .group_navi ol li.on{z-index:50;border-top:1px solid #94a9be;border-right:1px solid #a6b7c9;border-left:1px solid #a6b7c9;background:#dde4ec}
+.spot_tactic .group_navi ol li a{display:block;position:relative;height:54px;border-top:1px solid #fff;border-left:1px solid #fff}
+.spot_tactic .group_navi ol li a,.spot_tactic .group_navi ol li a:hover,.spot_tactic .group_navi ol li a:active{text-decoration:none}
+.spot_tactic .group_navi ol li.on a{border-top:1px solid #dde4ec;border-left:1px solid #dde4ec}
+.spot_tactic .group_navi ol li a span{position:absolute;top:0;left:0;width:57px;height:53px;cursor:pointer}
+.spot_tactic .group_navi ol li a em,.spot_tactic .group_navi ol li a strong{display:block;position:relative;width:125px;margin-left:58px;line-height:16px;letter-spacing:-1px}
+.spot_tactic .group_navi ol li a em{margin-top:11px;font-size:11px;font-style:normal;color:#7c9abb;cursor:pointer}
+.spot_tactic .group_navi ol li a strong{color:#213d5d;cursor:pointer}
+.spot_tactic .group_person{display:block;overflow:hidden;float:left;width:605px;height:142px}
+.spot_tactic .person_area{display:block;width:604px;_width:605px;height:142px;border-right:1px solid #f0f1f6}
+.spot_tactic .person_area a{display:block;position:absolute;top:0;left:0;height:142px;font-family:'돋움',dotum,AppleGothic,sans-serif;text-decoration:none}
+.spot_tactic .person_area a:hover,.spot_tactic .person_area a:active{text-decoration:none}
+.spot_tactic .person_area a em,.spot_tactic .person_area a strong,.spot_tactic .person_area a span{display:block;width:420px;margin-left:183px;line-height:28px;cursor:pointer}
+.spot_tactic .person_area a em{margin-top:23px;font-size:12px;font-weight:bold;font-style:normal;color:#7e90d6}
+.spot_tactic .person_area a strong{font-size:24px;color:#212e5d;letter-spacing:-2px}
+.spot_tactic .person_area a span{margin-top:3px;font-size:11px;line-height:17px;color:#666}
+.spot_tactic .group_rgt{overflow:hidden;position:absolute;top:0;right:0;bottom:0;width:200px;height:100%;background:#fafafa;border-left:1px solid #dddee5}
+.spot_tactic .group_rgt .info_area{overflow:hidden;width:199px;padding-left:20px;line-height:21px;box-sizing:border-box;-webkit-box-sizing:border-box}
+.spot_tactic .group_rgt .info_area h4{margin:21px 0 0 0;font-size:12px;font-weight:bold;color:#464646;letter-spacing:-1px}
+.spot_tactic .group_rgt .info_area li{letter-spacing:-1px}
+.spot_tactic .group_rgt .info_area li a{font-size:12px;color:#464646;letter-spacing:-1px}
+.spot_tactic .group_rgt .info_area li.line{padding-bottom:6px;border-bottom:1px solid #efeff1}
+.spot_tactic .group_rgt .info_area li.tpd{padding-top:8px}
+.spot_tactic .group_rgt .info_area .btn_more{position:absolute;top:22px;right:17px;padding-left:6px;background:url(https://ssl.pstatic.net/imgstock/images5/ico_arrow_04.gif) no-repeat 0 6px;font-size:11px;font-size:11px;font-weight:normal;color:#999;letter-spacing:-1px}
+.spot_tactic .news_wrap{overflow:hidden;padding:20px 0}
+.spot_tactic .news_wrap .news_lft{float:left;width:304px;height:142px;padding:5px 20px 0;box-sizing:border-box;-webkit-box-sizing:border-box}
+.spot_tactic .news_wrap .news_rgt{border-left:1px solid #dcdce1;float:left;width:303px;height:142px;padding:5px 20px 0;box-sizing:border-box;-webkit-box-sizing:border-box}
+.spot_tactic .thumb_area{position:relative;float:left;margin:0 15px 13px 0}
+.spot_tactic .thumb_area .mask{position:absolute;left:0;right:0;top:0;bottom:0;background:url(https://ssl.pstatic.net/static/nfinance/2018/03/07/mask_border.png) 0 0 no-repeat}
+.spot_tactic .thumb_area + .txt_area dt{margin-bottom:13px}
+.spot_tactic .txt_area dt{padding-top:3px;margin-bottom:16px}
+.spot_tactic .txt_area dt a{font-size:14px;color:#002663;line-height:22px;letter-spacing:-1px;font-weight:bold}
+.spot_tactic .txt_area dd{clear:both;font-size:12px;color:#464646;line-height:20px;letter-spacing:-1px}
+.spot_tactic .txt_area .press,.spot_tactic .txt_area .date{display:inline-block;*display:inline;*zoom:1;margin-left:2px;font-size:12px;color:#aaa;letter-spacing:-1px}
+.spot_tactic .txt_area .date{font-family:Helvetica,'돋움',Dotum,sans-serif;letter-spacing:0}
+/* rolling box _ 최근검색&관심종목 */
+/* 서브메인 타이틀 스타일 */
+h3.top_tlt{position:relative;padding:0 0 4px 4px;color:#333;font-size:12px}
+h3.top_tlt em{color:#ff5300;font-style:normal}
+h3.top_tlt .top_tlt_guide{position:absolute;right:4px;top:2px;color:#999;font-size:11px;font-weight:normal}
+h3.top_tlt .tlt_more{position:absolute;right:2px;top:1px;padding-left:6px;background:url(https://ssl.pstatic.net/imgstock/images5/ico_arrow_04.gif) no-repeat 0 2px;color:#999;font-size:11px;font-weight:normal}
+h3.top_tlt .tlt_more a{color:#999;font-size:11px;letter-spacing:-1px}
+h3.sub_tlt{position:relative;height:17px;padding:13px 0 11px 11px;background:url(https://ssl.pstatic.net/static/nfinance/2015/news_ic_title_bar.png) no-repeat 3px 15px;color:#000;font-family:'돋움',dotum;font-size:16px;line-height:20px}
+h3.sub_tlt .sub_txt{display:inline-block;*display:inline;*zoom:1;margin-left:2px;font-size:11px;color:#666;font-weight:normal;letter-spacing:-1px;vertical-align:middle}
+h3.sub_tlt .tlt_page{position:absolute;right:0;top:14px;padding-left:8px;color:#999;font-size:11px;font-weight:normal}
+h3.sub_tlt .tlt_page strong{padding-right:3px;color:#666;font:bold 10px tahoma}
+h3.sub_tlt .tlt_page span{color:#666;font:10px tahoma}
+h3.sub_tlt .tlt_page em{color:#ff5300;font-weight:bold;font-style:normal}
+h3.sub_tlt .tlt_btn{position:absolute;right:3px;top:9px}
+h3.sub_tlt .tlt_more{position:absolute;right:3px;top:19px;padding-left:6px;background:url(https://ssl.pstatic.net/imgstock/images5/ico_arrow_04.gif) no-repeat 0 4px;color:#999;font-size:11px;font-weight:normal}
+h3.sub_tlt .tlt_more a{color:#999;font-size:11px;letter-spacing:-1px}
+h4.top_tlt{position:relative;padding:0 0 4px 4px;color:#333;font-size:12px}
+h4.top_tlt em{color:#ff5300;font-style:normal}
+h4.top_tlt .tlt_more{position:absolute;right:2px;top:1px;padding-left:6px;background:url(https://ssl.pstatic.net/imgstock/images5/ico_arrow_04.gif) no-repeat 0 2px;color:#999;font-size:11px;font-weight:normal}
+h4.top_tlt .tlt_more a{color:#999;font-size:11px;letter-spacing:-1px}
+h2.r_subtlt{position:relative;width:184px;margin-left:8px;padding:11px 0 6px 0;_padding:11px 0 4px 0;font-size:12px}
+h2.r_subtlt img{margin-left:3px;vertical-align:top}
+h2.r_subtlt .tlt_more{position:absolute;right:2px;_right:1px;top:11px;_top:12px;padding-left:6px;background:url(https://ssl.pstatic.net/imgstock/images5/ico_arrow_04.gif) no-repeat 0 2px;color:#999;font-size:11px;font-weight:normal}
+h2.r_subtlt .tlt_more a{color:#999;font-size:11px;letter-spacing:-1px}
+.tlt_bottom_line{border-bottom:1px solid #e1e1e1}
+.tlt_bottom_line2{width:806px;border-bottom:1px solid #e1e1e1}
+/* 박스 스타일 */
+.box_type_ms{float:left;width:277px;margin-top:20px}
+.box_type_s{float:left;width:293px;margin-top:20px}
+.box_type_m{float:left;width:595px;margin-top:20px}
+.box_type_m_1{clear:both;width:595px;margin-top:20px;background:url(https://ssl.pstatic.net/imgstock/images5/box_type_m.gif) no-repeat left bottom}
+.box_type_m_1 .box_type_m_1_top{padding:0 16px 20px 16px;background:url(https://ssl.pstatic.net/imgstock/images5/box_type_m_top.gif) no-repeat left top}
+.box_type_l{clear:both;width:810px;padding-top:35px}
+.box_type_l2{clear:both;width:810px;padding:25px 0 0}
+.box_type_l .type_1{table-layout:fixed}
+.box_type_r{overflow:hidden;width:200px !important;margin-top:8px;background:url(https://ssl.pstatic.net/imgstock/images5/box_right_bg.gif) no-repeat left bottom}
+.box_type_r img{position:relative;top:0;vertical-align:top}
+.box_type_r .box_type_r_top{background:url(https://ssl.pstatic.net/imgstock/images5/box_right_top.gif) no-repeat left top}
+.box_type_r1 .box_type_r_top{background:url(https://ssl.pstatic.net/imgstock/images5/box_right_top.gif) no-repeat left top}
+.box_type_r2{width:200px;margin-top:8px;background:url(https://ssl.pstatic.net/imgstock/images5/box_right_bg_2.gif) no-repeat left bottom}
+.box_type_r2 img{vertical-align:top}
+.box_type_r2 .mystock_tail{position:relative;height:26px}
+.box_type_r2 .mystock_tail .btn_updn{position:absolute;left:11px;top:6px}
+.box_type_r2 .mystock_tail .btn_updn .up,.box_type_r2 .mystock_tail .btn_updn .dn{float:left}
+.box_type_r2 .mystock_tail .btn_updn .bar{float:left;height:12px;margin-top:0;_margin-top:1px;padding:0 1px 0 0;color:#bbb}
+.box_type_r2 .mystock_tail .btn_myitem{position:absolute;top:7px;right:10px;padding-left:6px;background:url(https://ssl.pstatic.net/imgstock/images5/ico_arrow_04.gif) no-repeat 0px 3px;vertical-align:top}
+.box_type_r2 .mystock_tail .btn_myitem a{display:inline-block;margin-top:0;color:#999;font-size:11px;letter-spacing:-1px}
+.box_type_r2 .box_type_r_top{background:url(https://ssl.pstatic.net/imgstock/images5/box_right_top.gif) no-repeat left top}
+.box_type_r2 .box_type_r1_txt{height:176px;_height:238px;padding-top:62px;color:#656565;font-size:11px;line-height:18px;text-align:center}
+.box_type_r2 .box_type_r1_txt em{color:#FF5300;font-style:normal;font-weight:bold}
+.box_type_r2 .box_type_r1_txt .submit_txt{color:#000}
+.box_type_r2 .box_type_r1_txt img{margin-top:10px;vertical-align:top}
+/* 테이블 스타일 */
+table.type_1{width:100%}
+table.type_1 tr.udline th{padding:5px 0 3px 0;border-bottom:1px solid #d5d5d5;border-left:1px solid #d5d5d5}
+table.type_1 tr.udline th.eb{background-color:#f9f9f9}
+table.type_1 tr.udline th.sub{border-top:none;background-color:#fbfbfb}
+table.type_1 tr.blue th{padding:8px 0 6px 0;border-top:1px solid #DEE4EB;border-bottom:1px solid #DEE4EB;background:#ECF0F6;color:#777;font-weight:normal}
+table.type_1 th{padding:8px 0 6px 0;border-top:1px solid #d5d5d5;border-top:1px solid #d5d5d5;border-bottom:1px solid #efefef;background:#ffffff;color:#333;font-weight:normal}
+table.type_1 th .add_txt{color:#777;font-size:11px}
+table.type_1 th.view_sbj{padding-right:15px;font-size:16px;font-weight:bold;text-align:left;line-height:23px}
+table.type_1 th.view_sbj .view_file{padding-top:5px;color:#999;font-size:11px;font-weight:normal}
+table.type_1 th.view_sbj .view_file a{color:#999}
+table.type_1 th.view_sbj span{position:relative;top:-2px;display:inline-block;height:18px;margin:0 3px 1px 0;padding-left:6px;background:url(https://ssl.pstatic.net/imgstock/images5/box_view_tit.gif) no-repeat;font-size:11px;font-weight:normal}
+table.type_1 th.view_sbj span em{display:inline-block;height:18px;background:url(https://ssl.pstatic.net/imgstock/images5/box_view_tit.gif) no-repeat right 0;padding:5px 5px 0 0;color:#D00A03;font-size:11px;font-style:normal;line-height:12px}
+table.type_1 th.view_count{padding-right:10px;font-size:11px;font-weight:normal;text-align:right;vertical-align:bottom}
+table.type_1 th.view_count span{padding-top:5px;font:10px tahoma}
+table.type_1 th.view_count .view_date{padding-top:5px;color:#999;font:10px tahoma;text-align:right}
+table.type_1 th.view_report{padding-left:30px}
+table.type_1 th.view_sbj .source{margin-top:1px;font-size:11px;font-weight:normal;color:#777}
+table.type_1 th.view_sbj .source b{padding:0 5px;font-weight:normal;color:#e4e4e4}
+table.type_1 td{height:22px;color:#464646}
+table.type_1 td p.tit{padding-left:9px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;width:84px}
+table.type_1 td p.tit .tltle{padding-left:0}
+table.type_1 td a.tltle{padding-left:9px;color:#464646}
+table.type_1 td.number{padding-right:8px;color:#464646;font:11px tahoma;text-align:right}
+table.type_1 td.number_1{padding-right:25px;color:#666;font:11px tahoma;text-align:right}
+table.type_1 td.number_2{padding-right:20px;color:#666;font:11px tahoma;text-align:right}
+table.type_1 td.date{padding-right:8px;color:#999;font:10px tahoma;text-align:center}
+table.type_1 td.rate_up{padding-right:8px;color:#d90400;font:11px tahoma;text-align:right}
+table.type_1 td.rate_down{padding-right:8px;color:#005dde;font:11px tahoma;text-align:right}
+table.type_1 td.rate_noc{padding-right:8px;color:#999;font:11px tahoma;text-align:right}
+table.type_1 td.rate_down2{padding-right:20px;color:#005dde;font:11px tahoma;text-align:right}
+table.type_1 td.date2{color:#999;font:10px tahoma;text-align:center}
+table.type_1 td.rate_up3{padding-right:1px;color:#d90400;font:11px tahoma;text-align:right}
+table.type_1 td.rate_down3{padding-right:1px;color:#005dde;font:11px tahoma;text-align:right}
+table.type_1 td.rate_noc3{padding-right:1px;color:#999;font:11px tahoma;text-align:right}
+table.type_1 td.no{color:#999;font:10px tahoma;text-align:center}
+table.type_1 td.view_cnt{padding:20px;color:#666;font-size:14px;line-height:160%;height:auto}
+table.type_1 td.file{text-align:center}
+table.type_1 td.ctg{padding-left:15px}
+table.type_1 td .view_info{position:relative;height:18px;_height:26px;padding:8px 0 0 15px;color:#999;font-size:11px;border-bottom:1px solid #f0f0f0}
+table.type_1 td .view_info .view_info_r{position:absolute;right:12px;top:8px}
+table.type_1 td .view_info em.person{color:#676767;font-size:12px;font-style:normal}
+table.type_1 td .view_info em.money{color:#676767;font-size:12px;font-style:normal}
+table.type_1 td .view_info em.coment{color:#c70800;font-size:12px;font-style:normal}
+table.type_1 td .view_info .division{color:#dfdfdf;font-size:11px}
+table.type_1 td .ico_new{position:relative;margin:-1px 0 1px 3px}
+table.type_1 td .stock_item{display:block;width:100px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+table.theme{width:595px;table-layout:fixed}
+table.theme .col_type1{width:122px;_width:127px;padding-left:9px !important}
+table.theme .col_type2{width:64px;_width:68px;padding-right:12px !important}
+table.theme .col_type3{width:92px;padding-right:24px !important}
+table.theme .col_type4{width:22px;_width:39px;padding-right:14px !important}
+table.theme .col_type4_1{width:120px}
+table.theme .col_type5,table.theme .col_type6{width:93px}
+table.theme .col_type5 img{margin:0 4px 2px 9px}
+table.theme .col_type6 img{margin:0 4px 2px 4px}
+table.theme .col_type5_1{width:185px}
+table.theme th.col_type1,table.theme th.col_type2,table.theme th.col_type3,table.theme th.col_type4{padding-left:0 !important;padding-right:0 !important}
+table.theme td.division_line{border-top:1px solid #f0f0f0;background:none;padding-bottom:4px}
+table.theme td.col_type1 a{display:block;width:122px;*width:127px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+table.type_2{width:100%}
+table .align th.number{text-align:right}
+table.type_2 th{padding:11px 0 7px 0;border-bottom:1px solid #e1e1e1;font-size:11px;color:#888;font-weight:normal}
+table.type_2 th.center{text-align:center}
+table.type_2 th.text{text-align:left}
+table.type_2 th.text2{text-align:left}
+table.type_2 td{height:23px;color:#464646;line-height:17px;vertical-align:top}
+table.type_2 td a.tltle{padding-left:8px;color:#464646}
+table.type_2 td.number{color:#464646;font:11px tahoma;text-align:right}
+table.type_2 td.center{text-align:center}
+table.type_2 td.text p{text-align:left}
+table.type_2 td.text2 p{position:relative;text-align:left;z-index:50}
+table.type_2 td.text2 p.on{z-index:60}
+table.type_2 td.text2 p.on .tip_lyr_box{display:block}
+table.type_2 td.text2 p a{display:block;overflow:hidden;width:230px;text-overflow:ellipsis;white-space:nowrap;text-align:left;color:#464646}
+table.type_2 td.text2 p a:hover{font-weight:bold;text-decoration:none}
+table.type_2 td.text2 .tip_lyr_box{display:none;position:absolute;top:20px;left:0;width:238px;font-size:12px;color:#586182;z-index:70}
+table.type_2 td.text2 .tip_lyr{display:block;position:absolute;width:236px;*width:238px;background:#fff;border:1px solid #9da3b9;z-index:50}
+table.type_2 td.text2 .tip_lyr .arrow{display:block;position:absolute;top:-6px;left:13px;width:9px;height:6px;background:url(https://ssl.pstatic.net/static/nfinance/2016/07/bu_arrow.png) no-repeat 0 0}
+table.type_2 td.text2 .tip_lyr .text{display:block;padding:8px 10px 5px 10px;line-height:16px}
+table.type_2 td.text2 .tip_lyr_bg{display:block;position:absolute;bottom:-2px;left:-1px;width:238px;height:1px;background:#000;z-index:40;opacity:0.08;filter:alpha(opacity=8);font-size:0;line-height:0}
+table.type_2 td.text2 .tip_lyr_bg2{display:block;position:absolute;bottom:-3px;left:-1px;width:238px;height:1px;background:#000;z-index:40;opacity:0.04;filter:alpha(opacity=4);font-size:0;line-height:0}
+table.type_2 td.rate_up{padding-right:8px;color:#d90400;font:11px tahoma;text-align:right}
+table.type_2 td.rate_down{padding-right:8px;color:#005dde;font:11px tahoma;text-align:right}
+table.type_2 th a{padding-right:7px;background:url(https://ssl.pstatic.net/imgstock/images5/arrow_02.gif) no-repeat right 4px;color:#777}
+table.type_2 th a:hover{color:#777}
+table.type_2 td.no{padding-right:10px;color:#999;font:10px tahoma;text-align:right}
+table.type_2 td.none_data p{width:100%;padding:50px 0 46px;color:#a2a2a2;text-align:center}
+table.type_3{width:100%}
+table.type_3 th{padding:8px 0 6px 0;border-top:1px solid #d5d5d5;border-bottom:1px solid #d5d5d5;background:#f9f9f9;color:#666;font-weight:normal}
+table.type_3 td{height:23px;color:#464646}
+table.type_3 td:first-child{padding-left:10px}
+table.type_3 td a.tltle{color:#464646}
+table.type_3 td.date{padding-right:8px;color:#999;font:10px tahoma;text-align:center}
+table.type_4{width:100%;table-layout:fixed}
+table.type_4 th{padding:6px 0 2px 0;color:#333;font-weight:normal;text-align:left;white-space:nowrap}
+table.type_4 th .add_txt{color:#777;font-size:11px}
+table.type_4 th.imp_txt{font-weight:bold}
+table.type_4 td{height:22px;color:#333;font:11px tahoma;text-align:right}
+table.type_4 td.imp_number{font:18px arial;font-weight:bold;letter-spacing:-1px;line-height:20px}
+table.type_4 td.imp_txt{color:#D90400;font-weight:bold}
+table.type_5{width:100%}
+table.type_5 th{padding:5px 0 2px 0;border-top:1px solid #d5d5d5;border-bottom:1px solid #d5d5d5;background:#f9f9f9;color:#666;font-weight:normal}
+table.type_5 th a{padding-right:7px;background:url(https://ssl.pstatic.net/imgstock/images5/arrow_02.gif) no-repeat right 4px;color:#666}
+table.type_5 th a:hover{color:#666}
+table.type_5 td{height:22px;color:#464646}
+table.type_5 tr.choice{background:#f6f6f6}
+table.type_5 td a{color:#464646}
+table.type_5 td .dot{color:#999}
+table.type_5 td.number{padding-right:5px;color:#464646;font:11px tahoma;text-align:right}
+table.type_5 td.center{text-align:center}
+table.type_5 td.rate_up{padding-right:5px;color:#d90400;font:11px tahoma;text-align:right}
+table.type_5 td.rate_down{padding-right:5px;color:#005dde;font:11px tahoma;text-align:right}
+table.type_5 td.no{color:#999;font:10px tahoma;text-align:center}
+table.type_5 tr.type1 th{padding:8px 0 6px 0}
+table.type_5 td.name{width:70px}
+table.type_5 .name_area{white-space:nowrap}
+table.type_5 .name_area a{white-space:nowrap}
+table.type_5 .btn_history{background-position:0px -19px;display:inline-block;vertical-align:top;width:11px;height:13px;margin:0 5px}
+table.type_6 th .add_txt{color:#777;font-size:11px}
+table.type_6 td.date{padding-right:8px;color:#999;font:10px tahoma;text-align:center}
+table.type_6 td.btn{text-align:center}
+table.type_r1{width:100%;margin:10px 0}
+table.type_r1 td{height:22px;color:#464646}
+table.type_r1 td a{overflow:hidden;display:block;width:85px;*width:96px;padding-left:11px;text-overflow:ellipsis;white-space:nowrap;color:#464646}
+table.type_r1 td a.btn_del{text-align:left}
+table.type_r1 td a.company{padding-left:5px;color:#464646}
+table.type_r1 td.number{padding-right:8px;color:#9A9A9A;font:11px tahoma;text-align:right}
+table.type_r1 td img.updown{margin-top:3px;vertical-align:top}
+table td.blank_03{height:3px;padding:0;overflow:hidden}
+table td.blank_05{height:5px;padding:0;overflow:hidden}
+table td.blank_06{height:6px;padding:0;overflow:hidden}
+table td.blank_07{height:7px;padding:0;overflow:hidden}
+table td.blank_08{height:8px;padding:0;overflow:hidden}
+table td.blank_09{height:9px;padding:0;overflow:hidden}
+table td.blank_10{height:10px;padding:0;overflow:hidden}
+table td.blank_11{height:11px;padding:0;overflow:hidden}
+table td.blank_14{height:14px;padding:0;overflow:hidden}
+table td.division_line{height:1px;padding:0;background:#f0f0f0;font-size:0;overflow:hidden}
+table td.division_line_1{height:1px;padding:0;background:#E1E1E1;font-size:0;overflow:hidden}
+table.type_7{border-right:1px solid #efefef;width:100%;table-layout:fixed;border-collapse:collapse;font-family:Dotum,'돋움',Gulim,'굴림',AppleGothic,sans-serif}
+table.type_7 th,table.type_7 td{padding:0;margin:0}
+table.type_7 thead th{border-top:1px solid #72788a;border-bottom:1px solid #d5d5d5;height:38px;font-size:12px;font-weight:normal;color:#000;font-family:Dotum,'돋움',Gulim,'굴림',AppleGothic,sans-serif}
+table.type_7 tbody td{border-bottom:1px solid #d5d5d5;font-family:Dotum,'돋움',Gulim,'굴림',AppleGothic,sans-serif}
+/* 오른쪽 공통 영역 스타일 */
+ul.right_list_1{margin:15px 0 5px 11px}
+ul.right_list_1 li{padding-left:7px;height:22px;background:url(https://ssl.pstatic.net/imgstock/images5/ico_arrow_01.gif) no-repeat 0 3px;color:#464646}
+ul.right_list_1 li a{color:#464646}
+ul.right_list_3{float:left;clear:both;_clear:none;width:177px;margin:6px 0 0 5px;padding-top:10px;border-top:1px solid #dddde0}
+ul.right_list_3 li{_display:inline;width:100%;height:20px;padding-left:2px;color:#464646}
+ul.right_list_3 li a{color:#464646}
+ul.right_list_3_1{float:left;clear:both;_clear:none;width:177px;margin:5px 0 0 5px;padding-top:10px;border-top:1px solid #f0f0f0}
+ul.right_list_3_1 li{_display:inline;width:100%;height:20px;padding-left:2px;color:#464646}
+ul.right_list_3_1 li a{color:#464646}
+/* 탭박스 스타일 */
+.tab_style_1{position:relative;height:31px;padding-left:5px;background:url(https://ssl.pstatic.net/imgstock/images5/tab_bg2.gif) repeat-x;overflow:hidden}
+.tab_style_1 .tab_smeun{float:left;margin-left:2px;padding:13px 7px 0 7px}
+.tab_style_1 .tab_smeun a:hover{color:#124694;text-decoration:underline;font-weight:bold;letter-spacing:-1px}
+.tab_style_1 .choice{position:relative;height:31px;padding:13px 16px 0;background:url(https://ssl.pstatic.net/imgstock/images5/tab_over2.gif) repeat-x right top;color:#333;font-weight:bold;letter-spacing:-1px}
+.tab_style_1 .choice .choice_lt{position:absolute;left:0;top:0;width:2px;height:31px;background:url(https://ssl.pstatic.net/imgstock/images5/tab_over_first.gif) no-repeat left bottom}
+p.standard_date{position:absolute;right:5px;top:13px;color:#999;font:11px tahoma}
+/* 그래프 스타일 */
+.graph_type_1{width:100%;height:4px;background:#fff;font-size:0;text-align:left}
+.graph_type_1 .graph_bar{height:4px;background:#ff7c00;font-size:0}
+.graph_type_1 .graph_bar_down{height:4px;background:#6BC310;font-size:0}
+.graph_type_1 span.graph_txt{position:absolute;left:-5000px}
+/* 배너 스타일 */
+/* 로케이터 */
+.sub_location{padding:12px 0 8px 4px;color:#666;font-size:11px}
+.sub_location a{color:#666;font-size:11px}
+.sub_location a:visited,.sub_location a:hover,.sub_location a:active{color:#666;font-size:11px}
+.sub_location select{margin-top:-4px;color:#666;font-size:11px;vertical-align:middle}
+.home_head .newsbox .newslist{margin-left:7px}
+.home_head .newsbox .newslist li{width:350px;_width:357px;padding:0 0 5px 7px;background:url(https://ssl.pstatic.net/imgstock/images5/bu_newslist.gif) no-repeat left 4px}
+.home_head .newsbox .newslist li a{color:#161616}
+.home_head .newsbox .focuslist li .tit{display:block;float:left;width:295px;height:14px;overflow:hidden}
+.home_head .newsbox .focuslist li .tit strong{margin-right:1px}
+.home_head .newsbox .focuslist li .tit a{color:#161616}
+.home_head .newsbox .focuslist li .tit a strong{letter-spacing:-1px}
+.home_head .graph{margin-left:14px}
+.home_head .etc_info{clear:both;width:503px;overflow:hidden;margin-left:14px}
+.home_head .etc_info h4{padding:14px 0 0 3px}
+.home_head .etc_info .sale table th.ctg{padding-left:10px;text-align:left}
+.home_head .etc_info .sale table td.ctg{position:relative;top:1px;padding-left:10px;text-align:left;color:#464646;font-family:dotum;font-size:11px}
+.home_head .etc_info .sale table td span.up{color:#d90400}
+.home_head .etc_info .sale table td span.down{color:#005dde}
+.home_head .etc_info .sale table .first td{padding-top:9px}
+.home_head .etc_info .sale table .last td{padding-bottom:8px}
+.stock_slice_wrap .num1 .updown{margin-right:2px;position:relative;top:-1px}
+.stock_slice_wrap .num2 .updown{margin-right:-1px;position:relative;top:1px}
+.stock_slice_wrap .status_nochange .num2 .updown{margin-right:-2px}
+.stock_slice_wrap .date{padding-top:4px;color:#c5c5c5;font-size:9px;font-family:Tahoma,sans-serif;text-align:right;margin-right:13px}
+.stock_slice_wrap .date span{font-family:"돋움",Dotum,sans-serif;font-size:11px;letter-spacing:-1px}
+.home_cont .component .more{position:absolute;top:14px;right:2px;padding-left:5px;background:url(https://ssl.pstatic.net/imgstock/images5/ico_arrow_04.gif) no-repeat 0px 2px;color:#b2b2b2;font-size:11px;letter-spacing:-1px}
+.home_cont .component .main_tb1 .kospi200 td.right{padding-right:13px;text-align:right}
+.home_cont .component .rank{width:100%}
+.home_cont .component .rank li{position:relative;clear:both;width:100%;overflow:hidden;padding:5px 0 2px}
+.home_cont .component .rank .num{float:left;margin-right:5px}
+.home_cont .component .rank span{display:block;float:left}
+.home_cont .component .rank .tit{width:120px}
+.home_cont .component .rank .tit img{position:relative;top:2px}
+.home_cont .component .rank .tit strong{position:relative;top:-1px;color:#9a9a9a;font-family:tahoma;font-size:10px}
+.home_cont .component .top_rank li .num{position:relative;top:-2px}
+.home_cont .component .top_rank .item{float:left;width:78px;_width:82px;padding-left:4px}
+.home_cont .component .top_rank .item span{clear:both}
+.home_cont .component .top_rank .item .tit{width:75px;font-size:11px;letter-spacing:-1px}
+.home_cont .component .top_rank .item .tit a{color:#454545}
+.home_cont .component .top_rank .item .tit strong{font-size:11px;letter-spacing:-1px;color:#454545;font-family:dotum}
+.home_cont .component .s_item_article li.on{margin:-1px 0 0 -3px;padding:12px 0 10px 10px;border:none;background:url(https://ssl.pstatic.net/imgstock/images5/bg_sitem_article_on.gif) no-repeat left top;font-size:12px;font-weight:bold}
+.home_cont .component .tab1{width:100%;overflow:hidden;clear:both;margin-bottom:14px;padding-top:4px;background:url(https://ssl.pstatic.net/imgstock/images5/bg_tab_article.gif) repeat-x left bottom}
+.home_cont .component .tab1 li{float:left}
+.home_cont .component .tab2{position:relative;top:-1px;padding:0}
+.home_cont .aside .notice{padding-top:8px;border-top:1px solid #fff}
+.home_cont .aside .notice li{padding:0 0 4px 8px;background:url(https://ssl.pstatic.net/imgstock/images5/bu_sq_grey.gif) no-repeat left 3px}
+/* summertime info */
+/* MY STOCK 버튼 */
+.sise_report{widtgh:100%;padding-top:12px;border-top:1px solid #d7d7d7}
+.sise_report li{clear:both;widh:100%;padding-bottom:6px;overflow:hidden}
+.sise_report li .tit{display:block;float:left;width:390px;padding-left:10px}
+.sise_report li .tit a{color:#555}
+.sise_report li .info{float:right;width:190px}
+.sise_report li .info .paper{float:left;width:82px;_width:90px;padding-right:8px;background:url(https://ssl.pstatic.net/imgstock/images5/bg_bar_sise_report.gif) no-repeat right top;color:#c88282;font-size:11px;text-align:right;letter-spacing:-1px}
+.sise_report li .info .date{position:relative;top:-2px;float:left;width:89px;_width:97px;padding-left:8px;color:#999990;font-size:11px;font-family:tahoma}
+.sise_report li .info2{float:right;width:160px}
+.sise_report li .info2 .paper{float:left;width:82px;_width:90px;padding-right:8px;background:url(https://ssl.pstatic.net/imgstock/images5/bg_bar_sise_report.gif) no-repeat right top;color:#c88282;font-size:11px;text-align:right;letter-spacing:-1px}
+.sise_report li .info2 .date{position:relative;top:-2px;float:left;width:59px;_width:67px;padding-left:8px;color:#999990;font-size:11px;font-family:tahoma}
+/* 스마트에이터용 CSS Reset */
+.view_se table td{padding:0;margin:0}
+.view_se table th{padding:0;margin:0}
+.view_se table tr{padding:0;margin:0}
+.market_headline h5 em{display:inline-block;position:relative;z-index:-1;font-size:10px;letter-spacing:-1px;font-weight:normal}
+.aside_section.land{*margin:0 !important}
+.aside_section.notice{z-index:1 !important}
+.aside_section.land{z-index:4;position:relative;padding-top:40px}
+.aside_section.land .land_more{position:absolute;top:42px;right:0}
+.aside_section.land h3{margin-left:1px}
+.aside_section.land fieldset{zoom:1}
+.aside_section.land fieldset:after{clear:both;display:block;content:""}
+.aside_section.land fieldset .select,.aside_section.land fieldset .select.even{float:left}
+.aside_section.land p.lst_eof{margin-bottom:12px;padding:29px 0 27px 0;background:url(https://ssl.pstatic.net/imgstock/images5/bg_land_line.gif) repeat-x 0 100%;text-align:center;color:#666;line-height:16px}
+/* UI Object */
+.select{display:inline-block;*display:inline;position:relative;width:57px;margin-top:12px;background:#fff;line-height:normal;vertical-align:middle;*zoom:1}
+.select.even{margin-left:3px}
+.select *{margin:0;padding:0;font-size:12px;font-family:dotum,"돋움";cursor:pointer}
+.select .my_value{overflow:visible;position:relative;top:0;left:0;z-index:2;border:1px solid #d0d0d0;background:transparent;color:#666;text-align:left;_line-height:normal}
+.select div.my_value{height:15px;*height:20px;padding-top:3px;text-indent:5px}
+.select .arrow{position:absolute;top:9px;right:6px;width:5px;height:3px;background:url(https://ssl.pstatic.net/imgstock/images5/bu_land_arrow.gif) no-repeat}
+.select ul{z-index:3;overflow:hidden;position:absolute;top:19px;left:0;width:100%;padding-bottom:2px;border:0;border:1px solid #bbb;background:#fff;list-style:none}
+.select ul.a_list{display:none}
+.select.open ul.a_list{display:block}
+.select ul.i_list{left:-2000%}
+.select.open ul.i_list{left:0}
+.select li{overflow:hidden;position:relative;height:19px;white-space:nowrap}
+.select .last_child{height:17px}
+.select li input.option{position:absolute;width:100%;height:20px;line-height:20px}
+.select li label{display:inline-block;position:absolute;top:0;left:0;width:100%;height:15px;padding-top:3px !important;background:#fff;color:#666;line-height:15px;text-indent:6px;*text-indent:4px;vertical-align:middle}
+.select li.hover *{background:#f3f3f3;color:#333}
+.aside_section.land .search{position:absolute;top:63px;right:0}
+.select ul{overflow-y:scroll;width:55px;height:245px;*width:100%}
+.select.even{width:123px;margin-left:3px}
+.select.even ul{width:121px;*width:100%;max-height:285px;overflow-y:scroll}
+.select ul{scrollbar-face-color:#fff;scrollbar-shadow-color:#f7f7f7;scrollbar-highlight-color:#fff;scrollbar-3dlight-color:#e3e3e3;scrollbar-darkshadow-color:#e3e3e3;scrollbar-track-color:#f7f7f7;scrollbar-arrow-color:#8d8d8d}
+.select.even ul li label{letter-spacing:-1px}
+.lst_land_deal_info{margin:4px 0 12px 1px}
+.lst_land_deal_info li{padding:8px 0 7px;background:url(https://ssl.pstatic.net/imgstock/images5/bg_land_line.gif) repeat-x 0 100%;vertical-align:top}
+.lst_land_deal_info li .type{zoom:1}
+.lst_land_deal_info li .type:after{clear:both;display:block;content:""}
+.lst_land_deal_info li .type em,.lst_land_deal_info li .type a{float:left}
+.lst_land_deal_info li .type em{overflow:hidden;display:block;width:13px;height:14px;background:url(https://ssl.pstatic.net/imgstock/images5/sprite_dealType.gif) no-repeat;text-indent:-900px}
+.lst_land_deal_info .trade em{background-position:0 0 !important}
+.lst_land_deal_info .rent em{background-position:0 -14px !important}
+.lst_land_deal_info .charter em{background-position:0 -28px !important}
+.lst_land_deal_info li .type a{display:inline-block;margin-top:1px;padding-left:4px;font-family:dotum,"돋움";font-size:12px;color:#464646 !important}
+.lst_land_deal_info li .info{margin-top:1px;padding-left:19px;font-family:tahoma;font-size:11px;color:#999}
+.lst_land_deal_info li .info .div{padding:0 6px 0 5px;font-family:tahoma;font-size:11px;color:#e1e1e1}
+.lst_land_deal_info li .info .cost{font-family:dotum,"돋움";font-size:11px}
+.lst_land_deal_info .last_child{padding-bottom:10px}
+.lst_land_info{margin-left:1px}
+.lst_land_info li{margin-bottom:6px;vertical-align:top}
+.lst_land_info li a{font-family:dotum,"돋움";font-size:12px;color:#666}
+.lst_land_info li a:hover,.lst_land_info li a:active,.lst_land_info li a:focus{color:#666}
+.aside_section.land fieldset legend{display:none}
+/* 120703 tablst 메뉴 */
+.box_l_mtype{padding-top:19px}
+.sub_tlt .tlt_page a{color:#a2a2a2}
+.sub_tlt .tlt_page a:hover{color:#666;text-decoration:none}
+.tab_status{margin-left:5px}
+.tab_status ul{overflow:hidden;width:590px;background:#fff}
+.tab_status ul li{position:relative;float:left;z-index:10;margin-right:-11px}
+.tab_status ul li a{display:block;height:30px;background:url(https://ssl.pstatic.net/static/nfinance/img/sp_tabstatus_v2.png) no-repeat 0 0}
+.tab_status ul li a strong{display:block;text-indent:-9999px}
+.tab_status ul .t_menu1{width:263px}
+.tab_status ul .t_menu2{width:291px;background-position:-266px 0}
+.tab_status ul .t_menu3{width:274px;background-position:-556px 0}
+.tab_status ul .on{z-index:20}
+.tab_status ul .on .t_menu1{background-position:0 -42px}
+.tab_status ul .on .t_menu2{background-position:-266px -42px}
+.tab_status ul .on .t_menu3{background-position:-556px -42px}
+.tab_status .info_box{clear:both;overflow:hidden;width:810px;margin:15px 0 0 0}
+.tab_status .mtype2{margin-top:4px}
+.tab_status .info_box p{font-size:12px;color:#676767;line-height:21px;vertical-align:top}
+.tab_status .info_box em{display:inline-block;overflow:hidden;z-index:50;position:relative;width:35px;height:19px;margin:0 9px 0 0;vertical-align:middle;background:url(https://ssl.pstatic.net/static/nfinance/2012/sp_taginfo.png) no-repeat;text-decoration:none;line-height:21px}
+.tab_status .info_box .realtime{background-position:3px 0}
+.tab_status .info_box .caution{width:43px;background-position:-37px 0}
+.tab_status .info_box .warning{width:43px;background-position:-82px 0}
+.tab_status .info_box .danger{width:43px;background-position:-127px 0}
+.tab_status .info_box .manage{width:43px;background-position:-172px 0}
+.tab_status .info_box strong{font-weight:normal;color:#596f9f}
+.tab_status .info_box .btn_more{display:inline-block;width:34px;height:19px;margin-left:4px;background:url(https://ssl.pstatic.net/static/nfinance/2012/btn_more.png) no-repeat 0 4px;vertical-align:middle}
+.tab_status .info_box .btn_more span{display:block;text-indent:-9999px}
+.box_type_l .tb_tabmenu{position:relative;width:100%;height:34px}
+.box_type_l .tb_tabmenu ul{width:100%;height:32px;border-top:1px solid #d8d8da;border-bottom:1px solid #9da3b9}
+.box_type_l .tb_tabmenu li{float:left;height:33px;margin:-1px 0 0 0;*margin:-1px 0 -1px 0;vertical-align:top}
+.box_type_l .tb_tabmenu li a{position:relative;display:block;width:131px;height:33px;background:url(https://ssl.pstatic.net/static/nfinance/2012/sp_tb_tabmenu2.png) no-repeat;z-index:20;vertical-align:top}
+.box_type_l .tb_tabmenu li a span{display:block;text-indent:-9999px}
+.box_type_l .tb_tabmenu li .lst1{background-position:0 0}
+.box_type_l .tb_tabmenu li .lst2{background-position:-131px 0}
+.box_type_l .tb_tabmenu li .lst3{background-position:-262px 0}
+.box_type_l .tb_tabmenu li .lst4{background-position:-393px 0}
+.box_type_l .tb_tabmenu li .lst5{width:107px;background-position:-524px 0}
+.box_type_l .tb_tabmenu li .lst6{width:100px;background-position:-631px 0}
+.box_type_l .tb_tabmenu li .lst7{width:100px;background-position:-731px 0}
+.box_type_l .tb_tabmenu .selected a{height:34px;z-index:30}
+.box_type_l .tb_tabmenu .selected .lst1{margin-right:-1px;background-position:0 -34px}
+.box_type_l .tb_tabmenu .selected .lst2{margin-right:-1px;background-position:-131px -34px}
+.box_type_l .tb_tabmenu .selected .lst3{margin-right:-1px;background-position:-262px -34px}
+.box_type_l .tb_tabmenu .selected .lst4{margin-right:-1px;background-position:-393px -34px}
+.box_type_l .tb_tabmenu .selected .lst5{margin-right:-1px;width:107px;background-position:-524px -34px}
+.box_type_l .tb_tabmenu .selected .lst6{width:100px;background-position:-631px -34px}
+.box_type_l .tb_tabmenu .selected .lst7{margin-left:-1px;width:100px;background-position:-731px -34px}
+.box_type_l .tb_tabmenu .side_notice{position:absolute;right:4px;top:12px;font-size:11px;color:#a2a2a2}
+.box_type_l .tb_tabmenu .side_notice em{font-family:tahoma;font-style:normal}
+.box_type_l .notice_section{margin:10px 0 0;border-top:0;font-size:11px;color:#888}
+.box_type_l .notice_section li{padding-bottom:6px}
+.box_type_l .notice_section a{padding-right:8px;color:#888;background:url(https://ssl.pstatic.net/static/nfinance/bu_arr.gif) no-repeat 100% 3px;letter-spacing:-1px;text-decoration:underline}
+.box_type_l .notice_section a.btn_go{margin-left:8px}
+.box_type_l .notice_section a:hover{color:#666}
+.box_type_l .notice_section .bar{margin:0 7px;color:#dbdbdb}
+.tab_status .wid810{width:810px}
+/* 20131018 리포트 리스트*/
+.report_list{padding:29px 4px 27px;color:#2f2f2f;border-bottom:1px solid #e6e6e6}
+.report_list h4{margin-bottom:9px;font-size:12px;color:#000}
+.report_list .btn_more{font-size:11px;font-weight:normal;color:#7d7d7d;font-family:돋움,dotum;letter-spacing:-1px}
+.report_list .bar{color:#d3d3d3;font-size:11px;font-weight:normal}
+.report_list ul{overflow:hidden;padding-left:3px;font-size:12px;line-height:17px}
+.report_list li{_width:573px;padding:5px 0 0 16px;background:url(https://ssl.pstatic.net/static/nfinance/bg_icon_updown.gif) no-repeat;overflow:hidden}
+.report_list li.list1{background-position:-3px 6px}
+.report_list li.list2{background-position:-3px -34px}
+.report_list li.list3{background-position:-3px -95px}
+.report_list li.list4{background-position:-3px -135px}
+.report_list li.list5{background-position:-3px -175px}
+.report_list .icon{position:relative;top:2px;left:12px}
+/* 20131018 ETF개선	*/
+.etf_info{margin:18px 0 11px 5px}
+.etf_info a{display:inline-block;*display:inline;height:20px;background:url(https://ssl.pstatic.net/static/nfinance/sp_etf3.gif) no-repeat}
+.etf_info .info1{width:75px;background-position:0 0}
+.etf_info .info2{width:137px;background-position:0 -25px}
+.etf_info .info3{width:94px;background-position:0 -50px}
+.etf_info .info4{width:110px;background-position:0 -80px}
+.etf_info em{width:1px;padding:0 8px;font-style:normal;line-height:20px;color:#e3e3e3;vertical-align:top}
+.tab_style_2{clear:both;height:39px;background:url(https://ssl.pstatic.net/static/nfinance/bg_tab_s2.gif) repeat-x}
+.tab_style_2 li{float:left;background:url(https://ssl.pstatic.net/static/nfinance/bg_bar.gif) no-repeat 100% 13px}
+.tab_style_2 .on{background:none;border:1px solid #9da3b9;border-bottom:0;margin:0 -1px 0 -1px}
+.tab_style_2 li a{display:block;padding-top:5px;font-weight:bold;line-height:33px;color:#7a86b0;text-align:center;text-decoration:none}
+.tab_style_2 .on a{background-color:#fff;color:#30407c;padding-top:3px;line-height:35px}
+.tab_style_2 .tab1{width:86px}
+.tab_style_2 .on.tab1{width:84px;margin-left:0}
+.tab_style_2 .tab2{width:117px}
+.tab_style_2 .tab3{width:128px}
+.tab_style_2 .tab4{width:99px}
+.tab_style_2 .tab5{width:103px}
+.tab_style_2 .tab6{width:89px}
+.tab_style_2 .tab7{width:89px}
+.tab_style_2 .tab8{width:99px;background-image:none}
+.tab_style_2 .on.tab8{width:102px}
+:root .tab_style_2 .on.tab8{width:99px}
+table.type_etf th{padding:15px 9px 10px;height:46px;border-top:0;font-size:11px;color:#888;text-align:right}
+table.type_etf th a{display:block;position:relative;height:21px;color:#888}
+table.type_etf th.ctg{height:21px;text-align:center}
+table.type_etf td.ctg a{display:block;overflow:hidden;width:100%;white-space:nowrap;text-overflow:ellipsis}
+table.type_etf .ico_up,table.type_etf .ico_down{display:block;position:absolute;top:19px;right:3px;width:6px;height:3px;background:url(https://ssl.pstatic.net/static/nfinance/sp_etf.gif) no-repeat}
+table.type_etf .ico_up{background-position:0 -75px}
+table.type_etf .ico_down{background-position:-10px -75px}
+table.type_etf + .notice_section{margin:29px 0 0}
+.box_type_m3 table.type_1{margin-bottom:17px}
+.box_type_m3 table.type_1 th{padding:18px 15px 15px 15px}
+.box_type_m3 table.type_1 th.view_report{padding:18px 0 15px;text-align:right}
+.box_type_m3 table.type_1 th.view_report a{width:91px;margin:0 15px 0 0}
+/* 20140603 KONEX 추가 */
+.konex_info{margin:18px 0 0px 5px}
+.konex_info a{display:inline-block;*display:inline;height:20px;background:url(https://ssl.pstatic.net/static/nfinance/img/sp_konex_v2.gif) no-repeat}
+.konex_info .info1{width:109px;background-position:0 0}
+.konex_info .info2{width:88px;background-position:0 -25px}
+.konex_info .info3{width:119px;background-position:0 -50px}
+.konex_info .info4{width:126px;background-position:0 -91px}
+.konex_info em{width:1px;padding:0 8px;font-style:normal;line-height:20px;color:#e3e3e3;vertical-align:top}
+table.type_konex th{padding:15px 9px 10px;height:46px;border-top:0;font-size:11px;color:#888;text-align:right;border-top:1px solid #efefef}
+table.type_konex th a{display:block;position:relative;height:21px;color:#888}
+table.type_konex th.ctg{height:21px;text-align:center}
+table.type_konex td.ctg a{display:block;overflow:hidden;width:100%;white-space:nowrap;text-overflow:ellipsis}
+table.type_konex .ico_up,table.type_konex .ico_down{display:block;position:absolute;top:19px;right:3px;width:6px;height:3px;background:url(https://ssl.pstatic.net/static/nfinance/img/sp_konex_v2.gif) no-repeat}
+table.type_konex .ico_up{background-position:0 -75px}
+table.type_konex .ico_down{background-position:-10px -75px}
+.co_summary{clear:both}
+.co_summary h4{margin:0 0 5px 9px;font-size:12px}
+.co_summary .tb_co_info{clear:both;width:100%;margin:0;padding:0;border-top:#353535 2px solid;border-bottom:#c5c5c5 1px solid}
+.co_summary .tb_co_info th,.co_summary .tb_co_info td{font-weight:normal;color:#555555;border-bottom:#C5C5C5 1px solid;padding-left:8px !important;text-align:left !important}
+.co_summary .tb_co_info th,.co_summary .tb_co_info td{padding:6px 0 5px;height:10px;line-height:15px}
+.co_summary .tb_co_info th{text-align:center;background:#f0f0f0}
+.co_summary .tb_co_info .txtbreak{overflow:hidden;white-space:nowrap;word-break:break-all;text-overflow:ellipsis;width:215px;max-width:215px}
+.co_summary .border-bottom-none tbody tr:last-child th,.co_summary .border-bottom-none tbody tr:last-child td{border-bottom:none}
+.co_summary .tb_co_info .cut{overflow:hidden;word-break:break-all;text-overflow:ellipsis}
+/* 배당 */
+#contentarea.ct_ty{width:815px !important}
+#contentarea.ct_ty .bnd_wid{width:810px !important}
+.h_area{margin:12px 0 19px}
+.h_area .sub_tlt{padding:0 0 0 13px;background-position:5px 1px}
+.tb_ty{table-layout:fixed}
+.tb_ty th,.tb_ty td{text-align:right;line-height:22px;vertical-align:top;white-space:nowrap}
+.tb_ty .bdr_r{border-right:1px solid #efefef}
+.tb_ty thead th{border:0;border-bottom:1px solid #dbdbdb;color:#888;font-size:11px;line-height:13px;padding:10px 16px 5px 0}
+.tb_ty thead .frst span,.tb_ty thead a{position:relative;display:inline-block;margin-top:6px;height:30px;color:#888;text-decoration:none;text-align:right}
+.tb_ty thead a b{position:absolute;bottom:0;right:1px;display:inline-block;width:6px;height:3px;font-size:0;line-height:900em;overflow:hidden;background:url(https://ssl.pstatic.net/static/nfinance/img/ic_bu_v1.gif) no-repeat}
+.tb_ty thead a .ico_up{background-position:0 0}
+.tb_ty thead a .ico_down{background-position:0 -10px}
+.tb_ty thead .ac{padding-right:18px}
+.tb_ty thead .ac.v1{padding-right:0;text-align:center;border-bottom-color:#e8e8e8}
+.tb_ty tbody .pnt{color:#888}
+.tb_ty thead .frst{padding-right:0;text-align:center}
+.tb_ty tbody .tr_even{background-color:#f7f7f7}
+.tb_ty tbody .frst{text-align:left}
+.tb_ty tbody .frst a{margin-top:1px;display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;max-width:85px}
+.tb_ty tbody .frst a{margin-top:3px\9;*margin-top:2px}
+.tb_ty .num{padding-right:16px;color:#464646;font-size:11px;font-family:tahoma;white-space:nowrap}
+.tb_ty .tr_frst td{height:9px;font-size:0;line-height:0}
+.tb_ty .tr_last td{height:9px;font-size:0;line-height:0;border-bottom:1px solid #efefef}
+.tb_ty ~ .notice_section{margin:15px 0 0;width:auto;border:0;font-size:11px;color:#9c9c9c}
+.tb_ty ~ .Nnavi{margin:20px auto 25px}
+/* 칼럼 */
+.column_lst{padding-bottom:70px}
+table.type_1{table-layout:fixed;letter-spacing:-1px}
+table.type_1 .news_head_press{text-align:left}
+table.type_1 .news_tit{padding:0 30px 6px 10px}
+table.type_1 .news_tit a{display:inline-block;*display:inline;*zoom:1;width:100%;overflow:hidden;font-size:12px;letter-spacing:-1px;color:#464646;text-overflow:ellipsis;white-space:nowrap;vertical-align:top}
+table.type_1 .news_press{padding-right:10px;color:#666}
+table.type_1 .news_date{font-size:11px;font-family:Tahoma,Helvetica,Sans-serif;color:#888;letter-spacing:0;text-align:center}
+table.type_1 .news_tit,table.type_1 .news_press,table.type_1 .news_date{padding-bottom:6px;vertical-align:top}
+table.type_1 tr.first td{padding-top:11px;height:33px}
+table.type_1 tr.last td{border-bottom:1px solid #f0f0f0;padding-bottom:12px}
+/* 테마 */
+.btn_theme_layer{background-position:-19px 0px;display:inline-block;vertical-align:top;width:14px;height:13px;margin-left:2px}
+.theme_info_area{display:inline-block;*display:inline;position:relative;vertical-align:top}
+.info_layer_wrap{position:absolute;left:23px;top:0;z-index:100;background:#fff;border:1px solid #9a9da4;padding:25px 15px 20px;width:270px}
+.info_layer_wrap .info_title{display:block;margin-bottom:13px;font-size:14px;color:#000}
+.info_layer_wrap .info_txt{font-size:12px;color:#878787;line-height:18px}
+.info_layer_wrap .btn_close{position:absolute;right:0;top:0;padding:11px}
+.info_layer_wrap .btn_close .icon{background-position:0px 0px;display:inline-block;vertical-align:top;width:15px;height:15px}
+
+.box_top_box {
+    width: 802px; border: 4px solid #c1d3e9;
+}
+.box_top_box .inner_area_left {
+    width: 100%;
+}
+.box_top_box .inner_area_left .left01 {
+    width: 750px;
+}
+.box_top_box .mainNewsTicker dd.data a {
+    max-width: 680px;
+}

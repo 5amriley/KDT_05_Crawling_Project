@@ -1,0 +1,70 @@
+@charset "euc-kr";
+/* NHN Web Standardization Team (http://html.nhndesign.com/)
+author : Lee Ju Young 070523, KJM 071017, KJM 080306 */
+
+/* 타이틀 스타일 */
+h3.main_tlt{position:relative;font-size:0}
+h3.main_tlt img{vertical-align:top}
+h3.main_tlt .tlt_more{position:absolute;right:-2px;top:1px;padding-left:6px;color:#999999;font-size:11px;font-weight:normal;background:url(https://ssl.pstatic.net/imgstock/images5/ico_arrow_04.gif) no-repeat 0 2px}
+h3.main_tlt .tlt_more a{color:#999999;font-size:11px;letter-spacing:-1px}
+h4.main_stlt .tlt_more{position:absolute;right:10px;top:1px;padding-left:6px;color:#999999;font-size:11px;font-weight:normal;background:url(https://ssl.pstatic.net/imgstock/images5/ico_arrow_04.gif) no-repeat 0 2px}
+h4.main_stlt .tlt_more a{color:#999999;font-size:11px;letter-spacing:-1px}
+h6.main_right .tlt_more{position:absolute;right:2px;top:1px;padding-left:6px;color:#999999;font-size:11px;font-weight:normal;background:url(https://ssl.pstatic.net/imgstock/images5/ico_arrow_04.gif) no-repeat 0 2px}
+h6.main_right .tlt_more a{color:#999999;font-size:11px;letter-spacing:-1px}
+
+/* 상단 */
+.box_top_main .rb{position:absolute;right:0;bottom:0;width:100%;height:500px;background:url(https://ssl.pstatic.net/imgstock/images5/box_top_960.gif) no-repeat right bottom}
+.box_top_main .lb{position:absolute;left:0;bottom:0;width:7px;height:500px;background:url(https://ssl.pstatic.net/imgstock/images5/box_top_960.gif) no-repeat left bottom}
+.box_top_main .rt{position:absolute;right:0;top:0;height:7px;width:100%;background:url(https://ssl.pstatic.net/imgstock/images5/box_top_960.gif) no-repeat right top}
+.box_top_main .lt{position:absolute;left:0;top:0;height:7px;width:7px;background:url(https://ssl.pstatic.net/imgstock/images5/box_top_960.gif) no-repeat left top}
+.box_top_main .inner_area{position:relative;padding:21px 0 0 31px;z-index:99}
+
+/* 그래프 */
+ul.term_main li.on a{font-weight:bold;background:url(https://ssl.pstatic.net/imgstock/images5/bg_term_tab_2.gif) no-repeat left -24px}
+ul.term_main li .numerical .num{display:inline;margin-right:13px;font-size:28px;font-family:Arial;letter-spacing:-1px;vertical-align:middle}
+ul.term_main li .up{color:#d90400}
+ul.term_main li .down{color:#005dde}
+ul.term_main li .graph{position:absolute;top:72px;left:0;display:none}
+ul.term_main li.on .graph{display:block;clear:both}
+ul.term_main li .graph{display:block;clear:both}
+
+/* 동향 */
+table.type_maintop_1 th.type{font-weight:normal}
+table.type_maintop_1 td.number{height:18px;color:#666666;font-size:11px;font-family:tahoma;text-align:right}
+table.type_maintop_1 td.trend{padding-top:1px;color:#333333;font-family:dotum}
+
+/* 테마포커스 */
+.main_theme{position:relative;width:275px;height:25px;margin-top:16px;padding-top:7px;vertical-align:top;background:url(https://ssl.pstatic.net/imgstock/images5/box_main_theme.gif) no-repeat}
+.main_theme a.theme_data{padding-left:5px}
+
+/* 세계 주요지수 */
+.main_world_box_top .txt{color:#464646;font-size:11px;font-family:dotum}
+.main_world_box_top td.number{color:#666666;text-align:right}
+.main_world_box_top td.rate_up{color:#d90400;text-align:right}
+.main_world_box_top td.rate_down{color:#005dde;text-align:right}
+
+/* 롤링_최근검색&관심종목 */
+.box_rolling_main dl.box_rolling_tab dt a.tab{padding-left:4px;color:#777777;font-size:11px;letter-spacing:-1px}
+.box_rolling_main dl.box_rolling_tab dt.choice{margin:2px 0;color:#333333;font-weight:bold;letter-spacing:-1px}
+.box_rolling_main dl.box_rolling_tab dt.choice img{vertical-align:top}
+.box_rolling_main ul.item{float:left;margin-left:1px;overflow:hidden}
+.box_rolling_main ul.item li{float:left;margin-left:-1px;padding:10px 12px 0 12px;color:#464646;text-align:right;background:url(https://ssl.pstatic.net/imgstock/images5/bar_ea.gif) no-repeat 0 11px}
+.box_rolling_main ul.item li img.updown{margin-top:2px;vertical-align:top}
+.box_rolling_main ul.item li .number{margin-top:-2px;color:#666666;font-size:11px;font-family:tahoma}
+
+/* 리스트 타입 */
+table.type_main_1 td a.tltle{padding-left:5px;color:#002663}
+table.type_main_1 td .choice{color:#002663;font-weight:bold;letter-spacing:-1px}
+table.type_main_1 td.number{color:#666666;font-size:11px;font-family:tahoma}
+table.type_main_1 td.number img{margin-right:8px;vertical-align:top}
+table.type_main_1 td.number_1{color:#999999;font-size:10px;font-family:tahoma}
+table.type_main_1 td.number_2{padding-right:8px;color:#666666;font-size:11px;font-family:tahoma}
+table.type_main_1 td.rate_up{padding-right:8px;color:#d90400;font-size:11px;font-family:tahoma;text-align:right}
+table.type_main_1 td.rate_down{padding-right:8px;color:#005dde;font-size:11px;font-family:tahoma;text-align:right}
+table.type_main_1 td.blank_03{height:03px;padding:0;overflow:hidden}
+table.type_main_1 td.blank_05{height:05px;padding:0;overflow:hidden}
+table.type_main_1 td.blank_06{height:06px;padding:0;overflow:hidden}
+table.type_main_1 td.blank_08{height:08px;padding:0;overflow:hidden}
+table.type_main_1 td.blank_09{height:09px;padding:0;overflow:hidden}
+table.type_main_1 td.blank_10{height:10px;padding:0;overflow:hidden}
+table.type_main_1 td.division_line{height:1px;padding:0;font-size:0;background:#f0f0f0;overflow:hidden}

@@ -1,0 +1,133 @@
+var FchartStatus = jindo.$Class({
+	chartStatus : null,
+
+	$init : function() {
+		this.chartStatus = true;
+	},
+
+	setChartStatus : function(inputChartStatus) {
+		if (inputChartStatus == "on") {
+			this.chartStatus = true;
+		} else {
+			this.chartStatus = false;
+		}
+	},
+	
+	showChartArea : function(itemcode, encodedItemName, bIsEtfItem) {
+		if (this.chartStatus) {
+			
+			// FF에서 f70046.hideAd 로부터 null 값이 반환되는 경우에 대한 exception 처리
+			try {
+				if(f70046 && f70046.hideAd && typeof(f70046.hideAd) == "function") {
+					f70046.hideAd();
+				}
+			} catch(e) {
+			}
+			
+			jindo.$("chart_area").className = 'spot spot_short';
+			jindo.$("btn_close").innerHTML = "<img src=\"https://ssl.pstatic.net/imgstock/item_renewal/btn_lay_open.gif\" alt=\"차트열기\" width=\"45\" height=\"11\">";
+			this.chartStatus = false;
+		} else {
+			jindo.$("chart_area").className = 'spot';
+			jindo.$("btn_close").innerHTML = "<img src=\"https://ssl.pstatic.net/imgstock/item_renewal/btn_lay_close.gif\" alt=\"차트닫기\" width=\"45\" height=\"11\">";
+			this.chartStatus = true;
+		}
+	}
+});
+
+var fchartStatus = new FchartStatus();
+
+function hiddenFchart() {
+	var fs_chart_obj = jindo.$Element("fs_chart");
+	if (fs_chart_obj) {
+		fs_chart_obj.addClass("hide_chart");
+	}
+}
+
+function showFchart() {
+//	document.getElementById("fs_chart").style.display="block";
+	var fs_chart_obj = jindo.$Element("fs_chart");
+	if (fs_chart_obj) {
+		fs_chart_obj.removeClass("hide_chart");
+	}
+}
+
+function quickorder(mode) {
+	if(mode == 'on') {
+		ciShow();
+		document.getElementById("quickOrderArea").style.display="block";
+	}
+	else if(mode == 'off') {
+		document.getElementById("quickOrderArea").style.display="none";
+	}	
+}
+
+function popup() {
+	win = window.open('/template/group_limit_pop.jsp','finan_popup','width=569 height=278 scrollbars=no status=no');
+	win.focus();
+}
+
+function ciShow() {
+	var strArray = new Array(
+		"<a href=\"javascript:selCi(0, 'http://www.shinhaninvest.com/index.html?menuCode=M1277875417016');\"><img src=\"https://ssl.pstatic.net/imgstock/item_renewal/quickorder_ci1.png\" alt=\"신한금융투자\" width=\"92\" height=\"26\"></a>",
+		"<a href=\"javascript:selCi(4, 'http://www.myasset.com/myasset/customer/channel/trading/mynetmini_naver.html');\"><img src=\"https://ssl.pstatic.net/static/nfinance/quickorder_ci7.gif\" alt=\"유안타증권\" width=\"92\" height=\"26\"></a>",
+		"<a href=\"javascript:selCi(5, 'http://www.ebestsec.co.kr/index.jsp?url=%2Fwts%2Findex.jsp%3Fleft_menu_no%3D3%26front_menu_no%3D3%26parent_menu_no%3D0');\"><img src=\"https://ssl.pstatic.net/imgstock/item_renewal/ebest_ci.gif\" alt=\"EBEST증권\" width=\"92\" height=\"26\"></a>",
+		"<a href=\"javascript:selCi(6, 'http://www.imeritz.com');\"><img src=\"https://ssl.pstatic.net/imgstock/item_renewal/quickorder_ci9.gif\" alt=\"MERITZ증권\" width=\"92\" height=\"26\"></a>"
+         );
+	
+	var linkArray = new Array();
+	var selectedIndex = -1;
+	var cookieStr = document.cookie;
+	var pos = cookieStr.indexOf("ci=");
+
+	if (pos != -1) {
+		var start = pos + 3;
+		selectedIndex = cookieStr.substring(start, start+1);
+		linkArray[0] = strArray[selectedIndex];
+	}
+	
+	for (var i = 0; i<strArray.length;i++) {
+		if (i == selectedIndex) {
+			continue;
+		}
+		
+		var str = strArray[i];
+
+		while (1) {
+			var index = Math.round(Math.random() * (strArray.length - 1));
+			if(linkArray[index] == null) {
+				linkArray[index] = str;
+				break;
+			}
+		}		
+	}
+	
+	var linkHtml = "";
+	for (var j = 0; j < linkArray.length; j++) {
+		document.getElementById("quickOrderCiBanner" + j).innerHTML = linkArray[j];
+	}
+}
+
+function selCi(id, url) {
+	var todayDate = new Date();
+	todayDate.setDate( todayDate.getDate() + 30 );
+	
+	document.cookie = "ci="+ id + "; path=/; expires=" + todayDate.toGMTString() + ";";
+	ciShow();
+
+	if (id == 3) {	// 하나대투 팝업처리
+		var w=520, h=280;
+		var x=Math.floor( (screen.availWidth-(w+12))/2 );
+		var y=Math.floor( (screen.availHeight-(h+30))/2 );
+	
+		window.open(url, 'stock_order_login', 'width='+w+',height='+h+',top='+y+',left='+x+',status=no');
+	} else if (id == 4) {	// 동양증권  팝업처리
+		var w=340, h=200;
+		var x=Math.floor( (screen.availWidth-(w+12))/2 );
+		var y=Math.floor( (screen.availHeight-(h+30))/2 );
+	
+		window.open(url, 'stock_order_login', 'width='+w+',height='+h+',top='+y+',left='+x+',status=no');
+	} else {
+		window.open(url);
+	}
+}
